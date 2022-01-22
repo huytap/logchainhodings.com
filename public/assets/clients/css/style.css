@@ -712,6 +712,13 @@ h3 span {
       flex-wrap: wrap;
 }
 
+@media (max-width: 767px) {
+  .ecosystem .ecosystem__list {
+    width: calc(100% - 120px);
+    padding: 0 30px;
+  }
+}
+
 .ecosystem .ecosystem__list .ecosystem__item {
   max-width: 360px;
   margin-right: 15px;
@@ -726,8 +733,26 @@ h3 span {
   margin-left: 0;
 }
 
+@media (max-width: 767px) {
+  .ecosystem .ecosystem__list .ecosystem__item:first-child {
+    margin-left: 15px;
+  }
+}
+
 .ecosystem .ecosystem__list .ecosystem__item:last-child {
   margin-right: 0;
+}
+
+@media (max-width: 767px) {
+  .ecosystem .ecosystem__list .ecosystem__item:last-child {
+    margin-right: 15px;
+  }
+}
+
+@media (max-width: 767px) {
+  .ecosystem .ecosystem__list .ecosystem__item {
+    width: calc(100% - 84px) !important;
+  }
 }
 
 .ecosystem .ecosystem__list .ecosystem__item .ecosystem__desc {
@@ -801,6 +826,31 @@ h3 span {
 
 .ecosystem .ecosystem__list .ecosystem__item .ecosystem__desc .btn-explore:hover img {
   right: -15px;
+}
+
+.ecosystem .ecosystem__nav {
+  position: absolute;
+  bottom: 230px;
+  height: 42px;
+  z-index: 99;
+  width: calc(100% - 120px);
+  padding: 0 60px;
+}
+
+.ecosystem .ecosystem__nav div {
+  position: absolute;
+}
+
+.ecosystem .ecosystem__nav div#ecosystem__prev {
+  left: 0;
+}
+
+.ecosystem .ecosystem__nav div#ecosystem__next {
+  right: 0;
+}
+
+.ecosystem .ecosystem__nav div a {
+  display: inline-block;
 }
 
 .map {

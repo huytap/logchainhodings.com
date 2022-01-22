@@ -136,6 +136,10 @@ h3 span{
     .ecosystem__list{
         margin-top: 40px;
         @include dFlexStyle();
+        @media (max-width: 767px) {
+            width: calc(100% - 120px);
+            padding: 0 30px;
+        }
         .ecosystem__item{
             max-width: 360px;
             margin-right: 15px;
@@ -145,9 +149,18 @@ h3 span{
             filter: drop-shadow(-2px -4px 10px rgba(0, 0, 0, 0.6));
             &:first-child{
                 margin-left: 0;
+                @media (max-width: 767px) {
+                    margin-left: 15px;
+                }
             }
             &:last-child{
                 margin-right: 0;
+                @media (max-width: 767px) {
+                    margin-right: 15px;
+                }
+            }
+            @media (max-width: 767px) {
+                width: calc(100% - 84px)!important;
             }
             .ecosystem__desc{
                 padding: 0 40px;
@@ -210,6 +223,26 @@ h3 span{
                 }
             }
             
+        }
+    }
+    .ecosystem__nav{
+        position: absolute;
+        bottom: 230px;
+        height: 42px;
+        z-index: 99;
+        width: calc(100% - 120px);
+        padding: 0 60px;
+        div{
+            position: absolute;                
+            &#ecosystem__prev{
+                left: 0;
+            }
+            &#ecosystem__next{
+                right:0;
+            }
+            a{
+                display: inline-block;
+            }
         }
     }
 }

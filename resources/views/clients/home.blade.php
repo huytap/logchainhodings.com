@@ -61,8 +61,8 @@
                     </div>
                 @endforeach
             @endif
-            <div class="ecosystem__list">
-                <div class="ecosystem__item wow fadeInUp" data-wow-duration="1.5s">
+            <div class="ecosystem__list wow fadeInUp" data-wow-duration="1.5s" id="ecosystem">
+                <div class="ecosystem__item">
                     <div class="ecosystem__photo">
                         <img src="{{asset('assets/clients/images')}}/home-eco-logchain.jpg" class="img-responsive" />
                     </div>
@@ -83,7 +83,7 @@
                         <a href="#" class="btn btn-explore">Explore <img src="{{asset('assets/clients/images')}}/right-arrow.png" alt=""></a>
                     </div>
                 </div>
-                <div class="ecosystem__item wow fadeInUp" data-wow-duration="1.5s">
+                <div class="ecosystem__item">
                     <div class="ecosystem__photo">
                         <img src="{{asset('assets/clients/images')}}/home-eco-forwarding.jpg" class="img-responsive" />
                     </div>
@@ -103,7 +103,7 @@
                         <a href="#" class="btn btn-explore">Explore <img src="{{asset('assets/clients/images')}}/right-arrow.png" alt=""></a>
                     </div>
                 </div>
-                <div class="ecosystem__item wow fadeInUp" data-wow-duration="1.5s">
+                <div class="ecosystem__item">
                     <div class="ecosystem__photo">
                         <img src="{{asset('assets/clients/images')}}/home-eco-solotion.jpg" class="img-responsive" />
                     </div>
@@ -125,6 +125,10 @@
                         <a href="#" class="btn btn-explore">Explore <img src="{{asset('assets/clients/images')}}/right-arrow.png" alt=""></a>
                     </div>
                 </div>
+            </div>
+            <div class="ecosystem__nav">
+                <div id="ecosystem__prev" role="button" aria-label="Prev slide" aria-disabled="false"></div>
+                <div id="ecosystem__next" role="button" aria-label="Next slide" aria-disabled="false"></div>
             </div>
         </div>
     </section>
@@ -149,4 +153,22 @@
     @endif
 </div>
 @endsection
-    
+
+@section('script')
+<script type="text/javascript" src="{{asset('assets/clients/js/jquery-3.6.0.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/clients/js/bxslider.min.js')}}"></script>
+<script type="text/javascript">
+    if($(window).width() < 768){
+        $('#ecosystem').bxSlider({
+            mode: 'fade',
+            captions: false,
+            touchEnabled: false,
+            nextSelector: "#ecosystem__next",
+            prevSelector: "#ecosystem__prev",
+            nextText: '<img src=\'{{asset("assets/clients/images/icon_arrow-right.svg")}}\' class="img-responsive">',
+            prevText: '<img src=\'{{asset("assets/clients/images/icon_arrow-left.svg")}}\" class="img-responsive">',
+            pager: false,
+        });
+    }
+</script>
+@endsection
