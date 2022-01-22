@@ -113,6 +113,12 @@ h3 span{
     padding: 60px 0 0;
     position: relative;
     z-index: 2;
+    @media (max-width: 767px) {
+        padding: 50px 30px 30px;
+        font-size: 14px;
+        font-weight: 300;
+        background-position-y: -80px;
+    }
     .ecosystem__title{        
         color: $titleColor;
         text-align: center;
@@ -126,19 +132,22 @@ h3 span{
             right: 0;
             margin: 0 auto;
         }
+        @media (max-width: 767px) {
+            margin-top: 0;
+        }
     }
     .ecosystem__info{
         color:$whiteColor;
         max-width: 500px;
         text-align: center;
-        margin: 0 auto;
+        margin: 0 auto 40px;
     }
     .ecosystem__list{
-        margin-top: 40px;
         @include dFlexStyle();
         @media (max-width: 767px) {
             width: calc(100% - 120px);
-            padding: 0 30px;
+            padding: 0 15px;
+            height: 100%;
         }
         .ecosystem__item{
             max-width: 360px;
@@ -160,16 +169,36 @@ h3 span{
                 }
             }
             @media (max-width: 767px) {
-                width: calc(100% - 84px)!important;
+                width: calc(100% - 60px)!important;
+                /*&[aria-hidden="true"]{
+                    display: block!important;
+                    &:after{
+                        content: "";
+                        height: 90%;
+                        width: 30px;
+                        position: absolute;
+                        left: -60px;
+                        top: 0;
+                        bottom: 0;
+                        background: $darkGreen;
+                        margin: auto 0;
+                    }
+                }*/
             }
             .ecosystem__desc{
                 padding: 0 40px;
+                @media (max-width: 767px) {
+                    min-height: 300px;
+                }
                 .ecosystem__logo{
                     max-width: 200px;
                 }
-            .ecosystem_detail{
-                min-height: 70px;
-            }
+                .ecosystem_detail{
+                    min-height: 70px;
+                    @media (max-width: 767px) {
+                        min-height: auto;
+                    }
+                }
                 ul{
                     padding-bottom: 40px;
                     li{        
@@ -203,42 +232,49 @@ h3 span{
                         }
                     }
                 }
-                .btn-explore{
-                    position: absolute;
-                    bottom: -20px;
-                    right: 40px;
+            }
+            .btn-explore{
+                position: absolute;
+                bottom: -20px;
+                right: 40px;
+                @media (max-width: 767px) {
+                    padding: 6px 19px;
+                }                
+                img{
+                    max-width: 25px;
+                    margin-left: 8px;
+                    transition: 0.5s;
+                    position: relative;
+                    right: 0;
+                }
+                &:hover{
+                    filter: drop-shadow(-2px -4px 10px rgba(0, 0, 0, 0.5));
                     img{
-                        max-width: 25px;
-                        margin-left: 8px;
-                        transition: 0.5s;
-                        position: relative;
-                        right: 0;
-                    }
-                    &:hover{
-                        filter: drop-shadow(-2px -4px 10px rgba(0, 0, 0, 0.5));
-                        img{
-                            right: -15px;
-                        }
+                        right: -15px;
                     }
                 }
             }
-            
         }
     }
     .ecosystem__nav{
         position: absolute;
-        bottom: 230px;
+        bottom: 270px;
+        left: 0;
         height: 42px;
         z-index: 99;
-        width: calc(100% - 120px);
-        padding: 0 60px;
+        width: 100%;
+        padding: 0;
+        display: none;
+        @media (max-width: 767px) {
+            display: block;   
+        }
         div{
             position: absolute;                
             &#ecosystem__prev{
-                left: 0;
+                left: 25px;
             }
             &#ecosystem__next{
-                right:0;
+                right:25px;
             }
             a{
                 display: inline-block;
@@ -257,7 +293,7 @@ h3 span{
     margin-bottom: 32px;
     text-align: center;
     @media (max-width: 767px) {
-        padding: 60px 40px 0;
+        padding: 30px 40px 0;
         background-size: cover;
         margin-top:0;
     }

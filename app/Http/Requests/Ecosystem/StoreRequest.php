@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Testers;
+namespace App\Http\Requests\Ecosystem;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -24,18 +24,7 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'photo_upload' => 'required',
-            'content' => 'required'
-        ];
-    }
-
-    public function messages()
-    {
-        return [
-            'name.required' => 'Vui lòng nhập tên máy xét nghiệm',
-            'photo_upload.required' => 'Vui lòng chọn hình ảnh',
-            'content.required' => 'Vui lòng nhập nội dung'
+            //
         ];
     }
 }

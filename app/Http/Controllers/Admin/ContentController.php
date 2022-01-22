@@ -84,7 +84,7 @@ class ContentController extends Controller
 
         if ($request->photo && file_exists($path . '/' . $old)) {
             unlink($path . '/' . $old);
-        } else {
+        } elseif(empty($request->photo)) {
             $request->merge(['photo' => $old]);
         }
 

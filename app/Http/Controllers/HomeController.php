@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Collection;
 use App\Models\Menu;
 use App\Models\Content;
+use App\Models\Ecosystem;
 
 class HomeController extends Controller
 {
@@ -15,7 +16,8 @@ class HomeController extends Controller
         if (!empty($menu)) {
             $content = Content::getByMenu($menu->id);
             $collection = collect($content);
-            return view('clients.home', compact('title', 'menu', 'collection'));
+            $ecosystems = Ecosystem::getList();
+            return view('clients.home', compact('title', 'menu', 'collection', 'ecosystems'));
         }
     }
 }

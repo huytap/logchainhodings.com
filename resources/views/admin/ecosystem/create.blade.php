@@ -1,7 +1,7 @@
 @php
-    $menu_current = 'Máy xét nghiệm';
-    $menu_current_sub = 'Thêm máy xét nghiệm';
-    $route_parent = 'testers.index';
+    $menu_current = 'Eco System';
+    $menu_current_sub = 'Add new';
+    $route_parent = 'ecosystem.index';
 @endphp
 @extends('layouts.admin')
 @section('content')
@@ -10,7 +10,7 @@
     <div class="card-header">
         <h3 class="card-title">{{$menu_current_sub}}</h3>
     </div>
-    <form class="form" action="{{route('testers.store')}}" method="POST" enctype="multipart/form-data">
+    <form class="form" action="{{route('ecosystem.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <input type="hidden" value={{date('Y-m-d H:m:i')}}" name="created_at">
         <div class="card-body">
@@ -37,14 +37,14 @@
                             <!--end::Svg Icon-->
                         </span>
                     </div>
-                    <div class="alert-text">Vui lòng nhập các thông tin bên dưới</div>
+                    <div class="alert-text">Please enter all fields</div>
                 </div>
             </div>
-            @include('admin.testers._form', ['testers' => $tester])
+            @include('admin.ecosystem._form', ['model' => $model])
         </div>
         <div class="card-footer">
-            <button type="submit" class="btn btn-primary mr-2">Lưu</button>
-            <a href="{{route('testers.index')}}" class="btn btn-secondary">Hủy</a>
+            <button type="submit" class="btn btn-primary mr-2">Save</button>
+            <a href="{{route('ecosystem.index')}}" class="btn btn-secondary">Cancel</a>
         </div>
     </form>
 </div>

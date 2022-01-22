@@ -78,7 +78,7 @@
 </div>
 <div class="form-group">
     <label>Description</label>
-    <textarea name="description" id="content">{{$model->description}}</textarea>
+    <textarea name="description" id="content">{{old('description')??$model->description}}</textarea>
     @error('content')
         <div class="fv-plugins-message-container">
             <div data-field="memo" data-validator="notEmpty" class="fv-help-block">{{$message}}</div>

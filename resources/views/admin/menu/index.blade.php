@@ -123,7 +123,7 @@
             event.preventDefault();
             let _href = $(this).attr('href')
             $('#studentForm').attr('action', _href);
-            if(confirm('Bạn có chắc muốn xóa dữ liệu này không?')){
+            if(confirm('Are you sure you want to delete this item?')){
                 $('#studentForm').submit();
             }
         })

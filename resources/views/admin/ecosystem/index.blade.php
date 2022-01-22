@@ -1,6 +1,6 @@
 @php
-    $menu_current = 'Máy xét nghiệm';
-    $route_item = 'testers.create';
+    $menu_current = 'Eco System';
+    $route_item = 'ecosystem.create';
     $status = config('adminstatus');
 @endphp
 @extends('layouts.admin')
@@ -12,13 +12,13 @@
         <div class="card-header flex-wrap border-0 pt-6 pb-0">
             <div class="card-title">
                 <h3 class="card-label">
-                    Danh sách máy xét nghiệm
+                    Eco System
                 </h3>
             </div>
             <div class="card-toolbar">
                 <a href="{{route($route_item)}}" class="btn btn-primary font-weight-bolder">
                     <span class="fas fa-plus"></span>
-                    Thêm mới
+                    Add new
                 </a>
             </div>
         </div>
@@ -31,16 +31,16 @@
                             <div class="row align-items-center">
                                 <div class="col-md-4 my-2 my-md-0">
                                     <div class="input-icon">
-                                        <input type="text" name="key" class="form-control" placeholder="Tìm kiếm theo tên" id="kt_datatable_search_query" value="{{request()->key}}"/>
+                                        <input type="text" name="key" class="form-control" placeholder="Search" id="kt_datatable_search_query" value="{{request()->key}}"/>
                                         <span><i class="flaticon2-search-1 text-muted"></i></span>
                                     </div>
                                 </div>
 
                                 <div class="col-md-4 my-2 my-md-0">
                                     <div class="d-flex align-items-center">
-                                        <label class="mr-4 mb-0 d-none d-md-block">Trạng thái:</label>
+                                        <label class="mr-4 mb-0 d-none d-md-block">Status:</label>
                                         <select class="form-control" name="status" id="kt_datatable_search_status">
-                                            <option value="">Tất cả</option>
+                                            <option value="">--All--</option>
                                             @foreach($status as $key => $st)
                                                 <option value="{{$key}}" {{ request()->status == $key ? 'selected' : '' }}>{{$st}}</option>
                                             @endforeach
@@ -48,7 +48,7 @@
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-light-primary px-6 font-weight-bold">
-                                    Tìm kiếm
+                                    Search
                                 </button>
                             </div>
                         </form>
@@ -66,10 +66,11 @@
                     <thead class="datatable-head">
                         <tr class="datatable-row" style="left: 0px;">
                             <th scope="col">#</th>
-                            <th scope="col">Hình ảnh</th>
-                            <th scope="col">Tên máy</th>
-                            <th scope="col">Trạng thái</th>
-                            <th scope="col"><span style="width: 125px;">Hành động</span></th>
+                            <th scope="col">Photo</th>
+                            <th scope="col">Logo</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Status</th>
+                            <th scope="col"><span style="width: 125px;">Action</span></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -77,24 +78,25 @@
                             <tr data-row="0" class="datatable-row" style="left: 0px;">
                                 <td scope="row">{{$key}}</td>
                                 <td><img src="{{asset('uploads/'.$item['photo'])}}" width="80"/></td>
-                                <td>{{$item['name']}}</td>
+                                <td><img src="{{asset('uploads/'.$item['logo'])}}" width="80"/></td>
+                                <td>{!! $item['description'] !!}</td>
                                 <td>
                                     @if($item['status'] == 0)
                                     <span class="label label-inline label-light-primary font-weight-bold">
-                                        Hiện
+                                        Publish
                                     </span>
                                     @else
                                         <span class="label label-inline label-light-danger font-weight-bold">
-                                            Ẩn
+                                            Unpublish
                                         </span>
                                     @endif
                                 </td>                            
                                 <td data-field="Actions">
                                     <span style="overflow: visible; position: relative; width: 125px;">
-                                        <a href="{{route('testers.edit', $item['id'])}}" class="btn btn-sm btn-clean btn-icon mr-2" title="Edit details">
+                                        <a href="{{route('ecosystem.edit', $item['id'])}}" class="btn btn-sm btn-clean btn-icon mr-2" title="Edit details">
                                             <span class="far fa-edit"></span>
                                         </a>
-                                        <a href="{{route('testers.destroy', $item['id'])}}" class="btn btn-sm btn-clean btn-icon btn-delete" title="Delete">
+                                        <a href="{{route('ecosystem.destroy', $item['id'])}}" class="btn btn-sm btn-clean btn-icon btn-delete" title="Delete">
                                             <span class="fas fa-trash"></span>
                                         </a>
                                     </span>
@@ -121,7 +123,7 @@
             event.preventDefault();
             let _href = $(this).attr('href')
             $('#deleteForm').attr('action', _href);
-            if(confirm('Bạn có chắc muốn xóa dữ liệu này không?')){
+            if(confirm('Are you sure you want to delete this item?')){
                 $('#deleteForm').submit();
             }
         })

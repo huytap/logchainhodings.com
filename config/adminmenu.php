@@ -22,6 +22,14 @@ return [
         ]
     ],
     [
+        'label' => 'Eco System',
+        'route' => 'ecosystem.index',
+        'items'   => [
+            'label' => 'Page 1',
+            'route' => ''
+        ]
+    ],
+    [
         'label' => 'Setting',
         'route' => 'setting.index',
         'items'   => [

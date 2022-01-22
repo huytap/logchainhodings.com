@@ -15,7 +15,14 @@ class CreateEcosystemsTable extends Migration
     {
         Schema::create('ecosystems', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('photo', 100)->nullable();
+            $table->integer('priority')->nullable();
+            $table->string('logo', 100)->nullable();
+            $table->longText('description')->nullable();
+            $table->string('link', 200)->nullable();
+            $table->integer('status')->nullable();
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 

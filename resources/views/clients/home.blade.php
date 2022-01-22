@@ -61,75 +61,30 @@
                     </div>
                 @endforeach
             @endif
-            <div class="ecosystem__list wow fadeInUp" data-wow-duration="1.5s" id="ecosystem">
-                <div class="ecosystem__item">
-                    <div class="ecosystem__photo">
-                        <img src="{{asset('assets/clients/images')}}/home-eco-logchain.jpg" class="img-responsive" />
-                    </div>
-                    <div class="ecosystem__desc">
-                        <div class="ecosystem__logo">
-                            <img src="{{asset('assets/clients/images')}}/logo-logchain.png" class="img-responsive" />
+            @if(!empty($ecosystems))
+                <div class="ecosystem__list wow fadeInUp" data-wow-duration="1.5s" id="ecosystem">
+                    @foreach($ecosystems as $dt)
+                        <div class="ecosystem__item">
+                            <div class="ecosystem__photo">
+                                <img src="{{asset('uploads/'. $dt->photo)}}" class="img-responsive" />
+                            </div>
+                            <div class="ecosystem__desc">
+                                <div class="ecosystem__logo">
+                                    <img src="{{asset('uploads/'. $dt->logo)}}" class="img-responsive" />
+                                </div>
+                                <div class="ecosystem_detail">
+                                    {!! $dt->description !!}
+                                </div>
+                            </div>
+                            <a href="{{$dt->link}}" class="btn btn-explore">Explore <img src="{{asset('assets/clients/images')}}/right-arrow.png" alt=""></a>
                         </div>
-                        <div class="ecosystem_detail">
-                            <p>
-                                We will supply the freight forwarding community with the most cost-effective transportation options
-                            </p>
-                        </div>
-                        <ul>
-                            <li><a href="#">GSA</a></li>
-                            <li><a href="#">Charter Service</a></li>
-                            <li><a href="#">Ground Handling Agent</a></li>
-                        </ul>
-                        <a href="#" class="btn btn-explore">Explore <img src="{{asset('assets/clients/images')}}/right-arrow.png" alt=""></a>
-                    </div>
+                    @endforeach
                 </div>
-                <div class="ecosystem__item">
-                    <div class="ecosystem__photo">
-                        <img src="{{asset('assets/clients/images')}}/home-eco-forwarding.jpg" class="img-responsive" />
-                    </div>
-                    <div class="ecosystem__desc">
-                        <div class="ecosystem__logo">
-                            <img src="{{asset('assets/clients/images')}}/logo-forwarding.png" class="img-responsive" />
-                        </div>
-                        <div class="ecosystem_detail">
-                            <p>
-                                Extensive industry expertise - Best-in-class customer service - Cutting-edge technology 
-                            </p>
-                        </div>
-                        <ul>
-                            <li><a href="#">Air Freight</a></li>
-                            <li><a href="#">Ocean Freight</a></li>
-                        </ul>
-                        <a href="#" class="btn btn-explore">Explore <img src="{{asset('assets/clients/images')}}/right-arrow.png" alt=""></a>
-                    </div>
+                <div class="ecosystem__nav">
+                    <div id="ecosystem__prev" role="button" aria-label="Prev slide" aria-disabled="false"></div>
+                    <div id="ecosystem__next" role="button" aria-label="Next slide" aria-disabled="false"></div>
                 </div>
-                <div class="ecosystem__item">
-                    <div class="ecosystem__photo">
-                        <img src="{{asset('assets/clients/images')}}/home-eco-solotion.jpg" class="img-responsive" />
-                    </div>
-                    <div class="ecosystem__desc">
-                        <div class="ecosystem__logo">
-                            <img src="{{asset('assets/clients/images')}}/logo-solution.png" class="img-responsive" />
-                        </div>
-                        <div class="ecosystem_detail">
-                            <p>
-                                Extensive industry expertise - Best-in-class customer service
-                            </p>
-                        </div>
-                        <ul>
-                            <li><a href="#">Brokerage</a></li>
-                            <li><a href="#">Warehouse</a></li>
-                            <li><a href="#">Domestic Transportation</a></li>
-                            <li><a href="#">Cross Border</a></li>
-                        </ul>
-                        <a href="#" class="btn btn-explore">Explore <img src="{{asset('assets/clients/images')}}/right-arrow.png" alt=""></a>
-                    </div>
-                </div>
-            </div>
-            <div class="ecosystem__nav">
-                <div id="ecosystem__prev" role="button" aria-label="Prev slide" aria-disabled="false"></div>
-                <div id="ecosystem__next" role="button" aria-label="Next slide" aria-disabled="false"></div>
-            </div>
+            @endif
         </div>
     </section>
 
@@ -166,7 +121,7 @@
             nextSelector: "#ecosystem__next",
             prevSelector: "#ecosystem__prev",
             nextText: '<img src=\'{{asset("assets/clients/images/icon_arrow-right.svg")}}\' class="img-responsive">',
-            prevText: '<img src=\'{{asset("assets/clients/images/icon_arrow-left.svg")}}\" class="img-responsive">',
+            prevText: '<img src=\'{{asset("assets/clients/images/icon_arrow-left.svg")}}\' class="img-responsive">',
             pager: false,
         });
     }

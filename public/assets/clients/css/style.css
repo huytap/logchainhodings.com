@@ -677,6 +677,15 @@ h3 span {
   z-index: 2;
 }
 
+@media (max-width: 767px) {
+  .ecosystem {
+    padding: 50px 30px 30px;
+    font-size: 14px;
+    font-weight: 300;
+    background-position-y: -80px;
+  }
+}
+
 .ecosystem .ecosystem__title {
   color: #B08E70;
   text-align: center;
@@ -696,15 +705,20 @@ h3 span {
   margin: 0 auto;
 }
 
+@media (max-width: 767px) {
+  .ecosystem .ecosystem__title {
+    margin-top: 0;
+  }
+}
+
 .ecosystem .ecosystem__info {
   color: #FFFFFF;
   max-width: 500px;
   text-align: center;
-  margin: 0 auto;
+  margin: 0 auto 40px;
 }
 
 .ecosystem .ecosystem__list {
-  margin-top: 40px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -715,7 +729,8 @@ h3 span {
 @media (max-width: 767px) {
   .ecosystem .ecosystem__list {
     width: calc(100% - 120px);
-    padding: 0 30px;
+    padding: 0 15px;
+    height: 100%;
   }
 }
 
@@ -751,12 +766,32 @@ h3 span {
 
 @media (max-width: 767px) {
   .ecosystem .ecosystem__list .ecosystem__item {
-    width: calc(100% - 84px) !important;
+    width: calc(100% - 60px) !important;
+    /*&[aria-hidden="true"]{
+                    display: block!important;
+                    &:after{
+                        content: "";
+                        height: 90%;
+                        width: 30px;
+                        position: absolute;
+                        left: -60px;
+                        top: 0;
+                        bottom: 0;
+                        background: $darkGreen;
+                        margin: auto 0;
+                    }
+                }*/
   }
 }
 
 .ecosystem .ecosystem__list .ecosystem__item .ecosystem__desc {
   padding: 0 40px;
+}
+
+@media (max-width: 767px) {
+  .ecosystem .ecosystem__list .ecosystem__item .ecosystem__desc {
+    min-height: 300px;
+  }
 }
 
 .ecosystem .ecosystem__list .ecosystem__item .ecosystem__desc .ecosystem__logo {
@@ -765,6 +800,12 @@ h3 span {
 
 .ecosystem .ecosystem__list .ecosystem__item .ecosystem__desc .ecosystem_detail {
   min-height: 70px;
+}
+
+@media (max-width: 767px) {
+  .ecosystem .ecosystem__list .ecosystem__item .ecosystem__desc .ecosystem_detail {
+    min-height: auto;
+  }
 }
 
 .ecosystem .ecosystem__list .ecosystem__item .ecosystem__desc ul {
@@ -804,13 +845,19 @@ h3 span {
   top: 7px;
 }
 
-.ecosystem .ecosystem__list .ecosystem__item .ecosystem__desc .btn-explore {
+.ecosystem .ecosystem__list .ecosystem__item .btn-explore {
   position: absolute;
   bottom: -20px;
   right: 40px;
 }
 
-.ecosystem .ecosystem__list .ecosystem__item .ecosystem__desc .btn-explore img {
+@media (max-width: 767px) {
+  .ecosystem .ecosystem__list .ecosystem__item .btn-explore {
+    padding: 6px 19px;
+  }
+}
+
+.ecosystem .ecosystem__list .ecosystem__item .btn-explore img {
   max-width: 25px;
   margin-left: 8px;
   -webkit-transition: 0.5s;
@@ -819,22 +866,30 @@ h3 span {
   right: 0;
 }
 
-.ecosystem .ecosystem__list .ecosystem__item .ecosystem__desc .btn-explore:hover {
+.ecosystem .ecosystem__list .ecosystem__item .btn-explore:hover {
   -webkit-filter: drop-shadow(-2px -4px 10px rgba(0, 0, 0, 0.5));
           filter: drop-shadow(-2px -4px 10px rgba(0, 0, 0, 0.5));
 }
 
-.ecosystem .ecosystem__list .ecosystem__item .ecosystem__desc .btn-explore:hover img {
+.ecosystem .ecosystem__list .ecosystem__item .btn-explore:hover img {
   right: -15px;
 }
 
 .ecosystem .ecosystem__nav {
   position: absolute;
-  bottom: 230px;
+  bottom: 270px;
+  left: 0;
   height: 42px;
   z-index: 99;
-  width: calc(100% - 120px);
-  padding: 0 60px;
+  width: 100%;
+  padding: 0;
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .ecosystem .ecosystem__nav {
+    display: block;
+  }
 }
 
 .ecosystem .ecosystem__nav div {
@@ -842,11 +897,11 @@ h3 span {
 }
 
 .ecosystem .ecosystem__nav div#ecosystem__prev {
-  left: 0;
+  left: 25px;
 }
 
 .ecosystem .ecosystem__nav div#ecosystem__next {
-  right: 0;
+  right: 25px;
 }
 
 .ecosystem .ecosystem__nav div a {
@@ -867,7 +922,7 @@ h3 span {
 
 @media (max-width: 767px) {
   .map {
-    padding: 60px 40px 0;
+    padding: 30px 40px 0;
     background-size: cover;
     margin-top: 0;
   }
