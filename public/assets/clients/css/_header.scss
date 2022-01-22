@@ -1,0 +1,143 @@
+.header{
+    background: $darkGreen;
+    padding: 10px 0;
+    transition: all ease-in-out 0.5s;
+    &.nav-down {
+        top: 0!important;
+        position: fixed;
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
+        width: 100%;
+        z-index: 99;
+    }
+    &.nav-up {
+        position: fixed;
+        top: -93px!important;
+        -webkit-transform: translateY(-93px);
+        transform: translateY(-93px);
+        width: 100%;
+    }
+    @media (max-width: 767px) {
+        padding:0;
+    }
+    a{
+        display: inline-block;
+    }
+    .nav-container{
+        @media (max-width: 767px){            
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            padding: .5rem 1rem;  
+        }
+    }
+    .navbar {
+        position: relative;
+        @media (max-width: 767px) {
+            position: static;
+        }
+        .header__logo{
+            max-width: 77px;
+            @media (max-width: 767px) {
+                max-width: 55px;
+            }
+        }
+        .header__menu{
+            display: inline-block;
+            float: right;
+            padding: 8px 0;
+            -ms-flex-preferred-size: 100%;
+            flex-basis: 100%;
+            -webkit-box-flex: 1;
+            -ms-flex-positive: 1;
+            flex-grow: 1;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            @media (max-width: 767px) {
+                position: absolute;
+                top:0;
+                left:0;
+                z-index: 99;
+                background: $darkGreen;
+                padding: 30px;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                outline: none;
+                transition: opacity .15s linear;
+                display:none;
+                ul{                    
+                    border-top: 1px solid $goldColor;
+                    margin-top: 25px;
+                    li{
+                        display: block;
+                    }
+                }
+            }
+            .header__top__mobile{
+                display: none;
+                @media (max-width: 767px) {
+                    display: flex;
+                }
+                .header__logo__mobile{
+                    max-width: 90px;
+                }
+                .navbar-toggler{
+                    position: absolute;
+                    top: 10px;
+                    right: 15px;
+                    .navbar-toggler-icon{
+                        background-image: url(../images/icon-close.svg);
+                    }
+                }
+            }
+            li{
+                display: inline-block;
+                padding: 0 45px;
+                &:first-child{
+                    padding-left: 0;
+                }       
+                &:last-child{
+                    padding-right: 0;
+                }
+                a{
+                    @include menuStyle();
+                    text-transform: uppercase;
+                    &:hover,&.active{
+                        color: $goldColor;
+                    }
+                }
+                @media(max-width: 767px){
+                    padding: 30px 0 0;
+                }
+            }
+        }
+        .navbar-toggler{
+            display: none;
+            padding: .25rem .75rem;
+            line-height: 1;
+            background-color: transparent;
+            border:0;
+            .navbar-toggler-icon {
+                background-image: url(../images/icon-menu.svg);
+                display: inline-block;
+                width: 35px;
+                height: 35px;
+                vertical-align: middle;
+                background-size: 100% 100%;
+            }
+            @media (max-width: 767px) {
+                display: block;
+            }
+        }
+    }
+}

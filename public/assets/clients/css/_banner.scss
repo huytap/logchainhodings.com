@@ -1,0 +1,46 @@
+.banner{
+    position: relative;
+    padding: 8% 0 0;
+    max-height: 700px;
+    &::after{
+        content:"";
+        position: absolute;
+        height: 237px;
+        width: 100%;
+        bottom:0;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
+        z-index: 1;
+        @media (max-width: 767px){
+            height: 190px;
+            bottom: 15px;
+        }
+    }
+    .container{
+        position: relative;
+        height: 100%;
+        .banner__title{
+            position: absolute;
+            max-width: 650px;
+            left: 0;
+            font-weight: normal;
+            color: $darkGreen;
+            @media(max-width: 767px){
+                padding: 0 30px;
+                bottom: -70px;
+                z-index: 2;
+            }
+            span{
+                font-weight: 700;
+            }
+            &::after{
+                @include beforeAfterStyle();
+                background-color: $darkGreen;
+                left: 0;
+                bottom: -40px;
+                @media (max-width: 767px) {
+                    left: 30px;
+                }
+            }
+        }
+    }
+}

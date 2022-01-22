@@ -1,0 +1,101 @@
+.footer{
+    background-color: $darkGreen;
+    padding: 66px 0;
+    @media (max-width: 767px) {
+        padding: 50px 0;
+        text-align: center;
+    }
+    .footer__row{
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        min-width: 100%;
+        .footer__logo{
+            display: inline-block;
+            -ms-flex: 0 0 29.825%;
+            flex: 0 0 29.825%;
+            max-width: 29.825%;
+            @media (max-width: 767px) {
+                flex: none !important;
+            }
+            img{
+                max-width: 190px;
+                @media (max-width: 767px) {
+                    margin: 0 auto;
+                    max-width: 140px;
+                }
+            }
+        }
+        .footer__quicklinks{
+            width: 24.56%;
+            -ms-flex: 0 0 24.56%;
+            flex: 0 0 24.56%;
+            max-width: 24.56%;
+            order: 2;
+            @media (max-width: 767px) {
+                flex: none !important;
+            }
+            ul{
+                li{
+                    a{
+                        line-height: 37px;
+                        @include menuStyle();
+                        font-weight: normal;
+                        &:hover{
+                            color: $goldColor;
+                        }
+                    }
+                }
+            }
+        }
+        .footer__people{
+            -ms-flex: 0 0 45.615%;
+            flex: 0 0 45.615%;
+            max-width: 45.615%;
+            order:1;
+            @media (max-width: 767px) {
+                flex: none !important;
+                margin-top: 45px;
+            }
+        }
+        .footer__title{
+            @include menuStyle();
+            font-weight: 700;
+            color: $titleColor;
+            line-height: 22px;
+            &.title__connect{
+                margin-bottom: 15px;
+            }
+            @media (max-width: 767px) {
+                font-size: 20px;
+                line-height: 27px;
+            }
+        }
+        .footer__brand {
+            li{
+                max-width: 150px;
+            }
+        }
+        .footer__social{
+            margin:0;
+            li{
+                max-width: 34px;
+            }
+        }
+        .footer__img{
+            li{
+                display: inline-block;
+                &:not(:last-child){
+                    margin-right: 20px;
+                }
+                @media (max-width: 767px) {
+                    &:first-child{
+                        display: block;
+                        margin: 0 auto 30px;
+                    }
+                }
+            }
+        }
+    }
+}
