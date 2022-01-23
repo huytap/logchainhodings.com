@@ -1,7 +1,7 @@
 @extends('clients.layouts.main')
 @section('content')
 <x-clients.banner photo="{{asset('uploads/'. $menu->banner)}}" 
-    mobile="{{asset('uploads/'.$menu->banner_mobile)}}">
+    mobile="{{asset('uploads/'.$menu->banner_mobile)}}" class="home__banner">
     {!!$menu->banner_title!!}
 </x-clients.banner>
 <div class="content">

@@ -5,7 +5,6 @@
     &.nav-down {
         top: 0!important;
         position: fixed;
-        -webkit-transform: translateY(0px);
         transform: translateY(0px);
         width: 100%;
         z-index: 99;
@@ -13,9 +12,15 @@
     &.nav-up {
         position: fixed;
         top: -93px!important;
-        -webkit-transform: translateY(-93px);
         transform: translateY(-93px);
         width: 100%;
+    }
+    &.nav-mobile{
+        transform: none!important;
+        height: 100%;
+        z-index: 99999;
+        overflow: hidden;
+        top: 0!important;
     }
     @media (max-width: 767px) {
         padding:0;

@@ -1,17 +1,17 @@
 @extends('clients.layouts.main')
 @section('content')
-<x-clients.banner photo="{{asset('assets/clients/images')}}/structure-banner.jpg">
-    Our<br/>
-    <span>Structure<br/>& People</span>
-</x-clients.banner>
+@php
+    $class = 'structure__banner';   
+@endphp
+@include('clients.page._banner')
 <div class="content">        
     <div class="container">
-        <div class="board">
-            <div class="board__management wow fadeInUp" data-wow-duration="1.5s">
+        <div class="board wow fadeInUp" data-wow-duration="1.5s">
+            <div class="board__management">
                 <div class="btn-board">Board of Management</div>
             </div>
-            <div class="board__list">
-                <div class="board__item wow fadeInUp" data-wow-duration="1.5s">
+            <div class="board__list" id="boardlist">
+                <div class="board__item">
                     <ul>
                         <li>
                             <img src="{{asset('assets/clients/images')}}/logo-logchain.png" class="img-responsive" alt="">
@@ -21,7 +21,7 @@
                         <li>Ground Handling Agent (GHA)</li>
                     </ul>
                 </div>
-                <div class="board__item wow fadeInUp" data-wow-duration="1.5s">
+                <div class="board__item">
                     <ul>
                         <li>
                             <img src="{{asset('assets/clients/images')}}/logo-forwarding.png" class="img-responsive" alt="">
@@ -30,7 +30,7 @@
                         <li>Ocean Freight</li>
                     </ul>
                 </div>
-                <div class="board__item wow fadeInUp" data-wow-duration="1.5s">
+                <div class="board__item">
                     <ul>
                         <li>
                             <img src="{{asset('assets/clients/images')}}/logo-solution.png" class="img-responsive" alt="">
@@ -42,7 +42,7 @@
                         <li>Special Product (Chemical/ Project/ F&E/ X-Border)</li>
                     </ul>
                 </div>
-                <div class="board__item wow fadeInUp" data-wow-duration="1.5s">
+                <div class="board__item">
                     <ul>
                         <li>
                             Group Share Service
@@ -58,7 +58,7 @@
         </div>
 
         <div class="journey">
-            <h3 class="journey__title wow fadeInUp" data-wow-duration="1.5s"><span>Our</span> Journey</h3>
+            <h3 class="journey__title wow fadeInUp" data-wow-duration="1.5s"><span>Our</span> People</h3>
             <div class="journey__desc wow fadeInUp" data-wow-duration="1.5s">
                 <p>
                     To address all customer requirements thoroughly, we have segmented<br/>
@@ -98,4 +98,19 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+<script type="text/javascript" src="{{asset('assets/clients/js/jquery-3.6.0.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/clients/js/bxslider.min.js')}}"></script>
+<script type="text/javascript">
+    if($(window).width() < 768){
+        $('#boardlist').bxSlider({
+            mode: 'fade',
+            captions: false,
+            touchEnabled: false,
+            controls: false
+        });
+    }
+</script>
 @endsection

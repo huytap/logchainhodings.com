@@ -13,12 +13,12 @@ for (let i = 0; i < nav.length; i++) {
 }
 
 document.getElementById('iconmenu').addEventListener('click', function () {
-	document.getElementById('header').style.position = 'static'
+	document.getElementById('header').classList.add('nav-mobile')
 	document.getElementById('menu').style.display = 'block'
 })
 document.getElementById('iconclose').addEventListener('click', function () {
 	document.getElementById('menu').style.display = 'none'
-	document.getElementById('header').style.position = 'fixed'
+	document.getElementById('header').classList.remove('nav-mobile')
 })
 
 /*responsive banner*/
@@ -32,6 +32,7 @@ function resizeBrowser() {
 	}
 	var banner = document.getElementById('banner')
 	banner.style.height = w * height / width + 'px';
+	console.log(w)
 }
 resizeBrowser();
 window.addEventListener('resize', resizeBrowser)

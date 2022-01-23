@@ -32,9 +32,9 @@
             -ms-flex: 0 0 24.56%;
             flex: 0 0 24.56%;
             max-width: 24.56%;
-            order: 2;
             @media (max-width: 767px) {
                 flex: none !important;
+                order: 2;
             }
             ul{
                 li{
@@ -53,10 +53,10 @@
             -ms-flex: 0 0 45.615%;
             flex: 0 0 45.615%;
             max-width: 45.615%;
-            order:1;
             @media (max-width: 767px) {
                 flex: none !important;
                 margin-top: 45px;
+                order:1;
             }
         }
         .footer__title{

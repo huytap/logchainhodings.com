@@ -12,7 +12,6 @@
     right: 0;
     margin: 0 auto;
     text-align: center;
-    font-size: 60px;
     font-weight: 700;
     z-index: 2;
 }
@@ -48,4 +47,26 @@
 @mixin marginStyle {
     margin-left: 15px;
     margin-right: 15px;
+}
+@mixin bannerMStyle {
+    margin: 0 15px;
+    border-radius: 5px;
+    margin-top: -150px;
+    position: relative;
+}
+@mixin innerMStyle {
+    margin-left: 0;
+    padding: 0 30px;
+    margin-top: -40px;
+}
+@mixin liMStyle {
+    width: calc(50% - 17px);
+    display: inline-block;
+    vertical-align: top;
+    &:nth-child(odd){
+        margin-left: 0;
+    }
+    &:nth-child(even){
+        margin-right: 0;
+    }
 }

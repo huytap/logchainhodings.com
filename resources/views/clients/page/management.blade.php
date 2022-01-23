@@ -25,10 +25,10 @@ $class = 'philosophy';
     <div class="container">
         <div class="mission">
             @if(!empty($result1))
-                <div class="mission__photo wow fadeInUp" data-wow-duration="1.5s"><img src="{{asset('uploads/'. $result1['photo'])}}" class="img-responsive" alt=""></div>
+                <div class="mission__photo full-width wow fadeInUp" data-wow-duration="1.5s"><img src="{{asset('uploads/'. $result1['photo'])}}" class="img-responsive" alt=""></div>
             @endif
             @if(!empty($result2))
-                <div class="mission__content wow fadeInUp" data-wow-duration="1.5s">
+                <div class="mission__content full-width wow fadeInUp" data-wow-duration="1.5s">
                 @foreach($result2 as $dt)
                     <h3 class="mission__title">{{$dt['title']}}</h3>
                     {!! $dt['description'] !!}

@@ -21,6 +21,20 @@ h3 span{
     position: relative;
 }
 /*home*/
+.home__banner{    
+    .banner__title{
+        font-size: 45px;
+        line-height: 55px;
+        @media (max-width: 767px){
+            padding: 0 30px;
+            bottom: -70px;
+            z-index: 2;
+            &::after{
+                left: 30px;
+            }            
+        }
+    }
+}
 .solutions{
     @media(max-width: 767px){
         padding-top: 120px;
@@ -118,6 +132,9 @@ h3 span{
         font-size: 14px;
         font-weight: 300;
         background-position-y: -80px;
+        .bx-viewport{
+            overflow: visible!important;
+        }
     }
     .ecosystem__title{        
         color: $titleColor;
@@ -328,30 +345,46 @@ h3 span{
         &::after{
             right: 0;
             margin: 0 auto;
+            @media (max-width: 767px) {
+                left: 0!important;
+            }
+        }
+        @media (max-width: 767px) {
+            bottom: auto!important;
+            top: 15px!important;
         }
     }
 }
 .mission{
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     margin-top: -110px;
     background-color: $darkGreen;
     position: relative;
     padding-bottom: 85px;
     z-index: 2;
+    @media (max-width: 767px) {
+        @include bannerMStyle();
+    }
     .mission__photo{
         width: 55%;
         max-width: 520px;
         margin-top: -155px;
         margin-left: 100px;
         filter: drop-shadow(0px 5px 20px rgba(0, 0, 0, 0.6));
+        @media (max-width: 767px) {
+            @include innerMStyle();
+        }
     }
     .mission__content{
         color: $whiteColor;
         padding: 65px 65px 0;     
         max-width: 520px;
-        .mission__title{
-            
+        @media (max-width: 767px) {
+            padding: 30px;
+        }
+        .mission__title{            
             color: $titleColor;
             margin: 0 0 15px;
         }
@@ -362,6 +395,11 @@ h3 span{
     margin-bottom: 60px;
     ul{
         display: flex;
+        @media (max-width: 767px) {
+            flex-wrap: wrap;
+            padding: 0 15px;
+            display: block;
+        }
         li{
             text-align: center;
             margin-left: 15px;
@@ -372,20 +410,45 @@ h3 span{
             &:last-child{
                 margin-right: 0;
             }
+            @media (max-width: 767px) {
+                @include liMStyle()
+            }
             .management__photo{
                 max-width: 130px;
                 margin: 0 auto;
+                @media (max-width: 767px) {
+                    max-width: 83px;
+                }
             }
             .management__title{
                 color:$titleColor;
                 font-size: 30px;
                 font-family: $headlineFont;
                 font-weight: bold;
+                @media (max-width: 767px) {
+                    font-size: 20px;
+                }
             }
         }
     }
 }
 /*structure*/
+@media (max-width: 767px) {
+    .banner.structure__banner{
+        .banner__title{
+            right: 0;
+            color: $whiteColor;
+            font-size: 30px;
+            line-height: 40px;
+            text-align: center;
+            &::after{
+                background-color: $whiteColor;
+                right: 0;
+                margin: 0 auto;
+            }
+        }
+    }
+}
 .board{
     padding: 0 67px 40px;
     color: $whiteColor;
@@ -404,6 +467,32 @@ h3 span{
         z-index: -1;
         bottom: -40px;
     }*/
+    @media (max-width: 767px) {
+        @include bannerMStyle();
+        padding: 0 30px;
+        .bx-pager{
+            text-align: center;
+            padding-bottom: 40px;
+            .bx-pager-item {                
+                display: inline-block;
+                margin: 0 6px;
+                vertical-align: middle;
+                a{
+                    width: 10px;
+                    height: 10px;
+                    display: block;
+                    font-size: 1px;
+                    border-radius: 50%;
+                    background-color: $goldColor;
+                    &.active{
+                        background-color: $menuColor;
+                        width: 15px;
+                        height: 15px;
+                    }
+                }
+            }
+        }
+    }
     .board__management{
         margin-top: -40px;
         .btn-board{
@@ -416,25 +505,59 @@ h3 span{
             border-radius: 10px;
             padding: 11px 0 14px;
             background-color: $titleColor;
+            @media (max-width: 767px) {
+                font-size: 20px;
+            }
         }
     }
     .board__list{
         display: flex;
+        @media (max-width: 767px) {
+            display: block;
+        }
         .board__item{
             @include marginStyle();
             width: 25%;
             position: relative;
             padding-top: 15px;
+            // &::before{
+            //     @include beforeAfterStyleCenter();
+            //     width: 1px;
+            //     height: 30px;                
+            // }            
+            &::before,&::after{
+                content: "";
+                position: absolute;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+                background-color: $goldColor;
+            }
             &::before{
-                @include beforeAfterStyleCenter();
                 width: 1px;
-                height: 30px;                
+                height: 30px;
+                top: 0;
+            }
+            &::after{
+                width: 10px;
+                height: 10px;
+                top: 25px;
+                border-radius: 50%;
             }
             &:first-child{
                 margin-left: 0;
+                @media (max-width: 767px) {
+                    margin-left: 0;
+                }                
             }
             &:last-child{
                 margin-right: 0;
+                @media (max-width: 767px) {
+                    margin-right: 0;
+                }
+            }
+            @media (max-width: 767px) {
+                margin: 0;
             }
             li{
                 border: 1px solid $menuColor;
@@ -470,6 +593,10 @@ h3 span{
 .journey{
     margin-top: 90px;
     margin-bottom: 60px;
+    @media (max-width: 767px) {
+        padding: 0 30px;
+        margin: 50px 0;
+    }
     .journey__title{
         text-align: center;
         color: $titleColor;
@@ -488,6 +615,9 @@ h3 span{
     ul{
         display: flex;
         align-items: center;
+        @media (max-width: 767px) {
+            display: block;
+        }
         li{
             text-align: center;
             margin-left: 15px;
@@ -498,6 +628,10 @@ h3 span{
             }
             &:last-child{
                 margin-right: 0;
+            }
+            @media (max-width: 767px) {
+                margin-bottom: 30px;
+                @include liMStyle();
             }
             .journey__photo{
                 background-color: $whiteColor;
@@ -532,9 +666,16 @@ h3 span{
                         font-weight: bold;
                         margin-bottom: 0;
                         line-height: 40px;
+                        @media (max-width: 767px) {
+                            font-size: 20px;
+                            line-height: 27px;
+                        }
                     }
                     p{
                         margin: 0;
+                        @media (max-width: 767px) {
+                            font-size: 12px;
+                        }
                     }
                 }           
                 &::after{
@@ -567,13 +708,25 @@ h3 span{
     }
 }
 .network{
-    padding-top: 80px;
+    padding-top: 80px;  
+    @media (max-width: 767px) {
+        padding-top: 0;
+    }
     .network__list{
         display: flex;
-        margin-bottom: 100px;        
+        margin-bottom: 100px;      
+        @media (max-width: 767px) {
+            padding: 0 30px;
+            display: block;
+            margin-bottom: 50px;
+        }  
         .network__title{
             width: 263px;
             margin: 0;
+            @media (max-width: 767px) {
+                width: 100%;
+                margin-bottom: 55px;
+            }
             span{
                 position: relative;
                 display: block;
@@ -585,17 +738,29 @@ h3 span{
                     background-color: $darkGreen;
                     left: 0;
                     bottom: -40px;
+                    @media (max-width: 767px) {
+                        width: 80px;
+                        bottom: -20px;
+                    }
+                }
+                @media (max-width: 767px) {
+                    display: inline-block;
+                    position: initial;
                 }
             }
         }
         ul{
             margin: 0;
             width: calc(1140px - 263px);
+            @media (max-width: 767px) {
+                width: 100%;
+            }
             li{
                width: calc(24.5%);
-            //    padding-left: 15px;
-            //    padding-right: 15px;
                display: inline-block;
+               @media (max-width: 767px) {
+                   @include liMStyle();
+               }
                &:first-child{
                    padding-left: 0;
                }
@@ -617,6 +782,9 @@ h3 span{
                 right: 0;
                 margin: 0 auto;
             }
+            @media (max-width: 767px) {
+                top: 20%;
+            }
         }
     }
 }
@@ -625,12 +793,26 @@ h3 span{
     align-items: center;
     margin-bottom: 100px;
     background-color: $darkGreen;
+    @media (max-width: 767px) {
+        display: block;
+        margin-bottom: 32px;
+    }
     .contact__info{
         width: calc(1140px - 540px);
         text-align: right;
         padding-right: 60px;
+        @media (max-width: 767px) {
+            text-align: left;
+            padding: 40px 30px;
+        }
         .contact__us{
             margin-bottom: 50px;
+            @media (max-width: 767px) {
+                margin-bottom: 20px;
+                a{
+                    display: block;
+                }
+            }
         }
         .contact__branch:last-child{
             margin-top: 20px;

@@ -63,6 +63,11 @@ $class = 'global__banner';
 
 @section('script')
 <script type="text/javascript">
-    resizeBrowser(422);
+setTimeout(function(){
+    var bannerHeight = document.getElementById('banner')
+    var height = bannerHeight.offsetHeight - 100
+    document.getElementById('banner').style.height = height + 'px'
+}, 1000)
+    
 </script>
 @endsection
