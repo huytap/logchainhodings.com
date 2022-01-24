@@ -117,24 +117,16 @@
 <script type="text/javascript" src="{{asset('assets/clients/js/bxslider.min.js')}}"></script>
 <script type="text/javascript">
     if($(window).width() < 768){
-        $.when( 
-            $('#ecosystem').bxSlider({
-                mode: 'fade',
-                captions: false,
-                touchEnabled: true,
-                nextSelector: "#ecosystem__next",
-                prevSelector: "#ecosystem__prev",
-                nextText: '<img src=\'{{asset("assets/clients/images/icon_arrow-right.svg")}}\' class="img-responsive">',
-                prevText: '<img src=\'{{asset("assets/clients/images/icon_arrow-left.svg")}}\' class="img-responsive">',
-                pager: false,
-                hideControlOnEnd: true,
-                slideMargin: 60
-            })
-        ).done(function( x ) {
-            var maxW = $(window).width();
-            $('.ecosystem__item[aria-hidden="false"]').addClass('')
-            console.log((maxW - 120))
-        });
+        $('#ecosystem').bxSlider({
+            mode: 'fade',
+            captions: false,
+            touchEnabled: true,
+            nextSelector: "#ecosystem__next",
+            prevSelector: "#ecosystem__prev",
+            nextText: '<img src=\'{{asset("assets/clients/images/icon_arrow-right.svg")}}\' class="img-responsive">',
+            prevText: '<img src=\'{{asset("assets/clients/images/icon_arrow-left.svg")}}\' class="img-responsive">',
+            pager: false
+        })
     }
 </script>
 @endsection
