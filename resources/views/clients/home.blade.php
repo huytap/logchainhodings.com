@@ -1,4 +1,7 @@
 @extends('clients.layouts.main')
+{{-- @section('css')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.css" />
+@endsection --}}
 @section('content')
 <x-clients.banner photo="{{asset('uploads/'. $menu->banner)}}" 
     mobile="{{asset('uploads/'.$menu->banner_mobile)}}" class="home__banner">
@@ -62,7 +65,7 @@
                 @endforeach
             @endif
             @if(!empty($ecosystems))
-                <div class="ecosystem__list wow fadeInUp" data-wow-duration="1.5s" id="ecosystem">
+                <div class="ecosystem__list" id="ecosystem">
                     @foreach($ecosystems as $dt)
                         <div class="ecosystem__item">
                             <div class="ecosystem__photo">
@@ -114,15 +117,23 @@
 <script type="text/javascript" src="{{asset('assets/clients/js/bxslider.min.js')}}"></script>
 <script type="text/javascript">
     if($(window).width() < 768){
-        $('#ecosystem').bxSlider({
-            mode: 'fade',
-            captions: false,
-            touchEnabled: false,
-            nextSelector: "#ecosystem__next",
-            prevSelector: "#ecosystem__prev",
-            nextText: '<img src=\'{{asset("assets/clients/images/icon_arrow-right.svg")}}\' class="img-responsive">',
-            prevText: '<img src=\'{{asset("assets/clients/images/icon_arrow-left.svg")}}\' class="img-responsive">',
-            pager: false,
+        $.when( 
+            $('#ecosystem').bxSlider({
+                mode: 'fade',
+                captions: false,
+                touchEnabled: true,
+                nextSelector: "#ecosystem__next",
+                prevSelector: "#ecosystem__prev",
+                nextText: '<img src=\'{{asset("assets/clients/images/icon_arrow-right.svg")}}\' class="img-responsive">',
+                prevText: '<img src=\'{{asset("assets/clients/images/icon_arrow-left.svg")}}\' class="img-responsive">',
+                pager: false,
+                hideControlOnEnd: true,
+                slideMargin: 60
+            })
+        ).done(function( x ) {
+            var maxW = $(window).width();
+            $('.ecosystem__item[aria-hidden="false"]').addClass('')
+            console.log((maxW - 120))
         });
     }
 </script>

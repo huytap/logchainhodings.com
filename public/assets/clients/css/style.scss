@@ -29,8 +29,10 @@ h3 span{
             padding: 0 30px;
             bottom: -70px;
             z-index: 2;
+            font-size: 30px;
+            line-height: 40px;
             &::after{
-                left: 30px;
+                left: 30px!important;
             }            
         }
     }
@@ -127,11 +129,12 @@ h3 span{
     padding: 60px 0 0;
     position: relative;
     z-index: 2;
+    overflow: hidden;
     @media (max-width: 767px) {
         padding: 50px 30px 30px;
         font-size: 14px;
         font-weight: 300;
-        background-position-y: -80px;
+        background-position-y: -130px;
         .bx-viewport{
             overflow: visible!important;
         }
@@ -187,64 +190,81 @@ h3 span{
             }
             @media (max-width: 767px) {
                 width: calc(100% - 60px)!important;
-                /*&[aria-hidden="true"]{
+                &[aria-hidden="true"]{
+                    height: 85%;
+                    top: 0;
+                    bottom: 0;
+                    margin: auto 0;
+                    left: -83%;
                     display: block!important;
                     &:after{
+                        left: auto;
                         content: "";
-                        height: 90%;
+                        height: 100%;
                         width: 30px;
                         position: absolute;
-                        left: -60px;
                         top: 0;
                         bottom: 0;
                         background: $darkGreen;
                         margin: auto 0;
+                        right: 0;
                     }
-                }*/
+                }
+                + [aria-hidden="true"]{                    
+                    right: -83%;
+                    left: auto;
+                    &:after{
+                        left: 0;
+                    }
+                }
             }
             .ecosystem__desc{
                 padding: 0 40px;
                 @media (max-width: 767px) {
                     min-height: 300px;
+                    padding: 0 30px;
                 }
                 .ecosystem__logo{
                     max-width: 200px;
                 }
                 .ecosystem_detail{
-                    min-height: 70px;
-                    @media (max-width: 767px) {
-                        min-height: auto;
+                    padding-top: 10px;
+                    p{
+                        min-height: 70px;
+                        @media (max-width: 767px) {
+                            min-height: auto;
+                        }
                     }
-                }
-                ul{
-                    padding-bottom: 40px;
-                    li{        
-                        a{        
-                            position: relative;
-                            padding-left: 20px;
-                            font-family: $menuFont;
-                            font-style: normal;
-                            font-weight: normal;
-                            line-height: 25px;
-                            letter-spacing: -0.01em;
-                            color:$whiteColor;
-                            &:hover{
-                                color: $goldColor;
-                                &:after{
-                                    border-bottom-color: $goldColor;
+                    ul{
+                        padding-bottom: 40px;
+                        li{        
+                            a{        
+                                position: relative;
+                                padding-left: 20px;
+                                font-family: $menuFont;
+                                font-style: normal;
+                                font-weight: normal;
+                                line-height: 25px;
+                                letter-spacing: -0.01em;
+                                color:$whiteColor;
+                                &:hover{
+                                    color: $goldColor;
+                                    &:after{
+                                        border-bottom-color: $goldColor;
+                                    }
                                 }
-                            }
-                            &::after{
-                                content:"";
-                                position: absolute;
-                                width: 0;
-                                height: 0;
-                                border-left: 6px solid transparent;
-                                border-right: 6px solid transparent;
-                                border-bottom: 10px solid #D5CDC4;
-                                transform: rotate(90deg);
-                                left: 0;
-                                top: 7px;
+                                &::after{
+                                    content:"";
+                                    position: absolute;
+                                    width: 0;
+                                    height: 0;
+                                    border-left: 6px solid transparent;
+                                    border-right: 6px solid transparent;
+                                    border-bottom: 10px solid #D5CDC4;
+                                    transform: rotate(90deg);
+                                    left: 0;
+                                    top: 7px;
+                                }
                             }
                         }
                     }
@@ -275,7 +295,7 @@ h3 span{
     }
     .ecosystem__nav{
         position: absolute;
-        bottom: 270px;
+        bottom: 310px;
         left: 0;
         height: 42px;
         z-index: 99;
@@ -315,6 +335,9 @@ h3 span{
         margin-top:0;
     }
     .map__journey{
+        @media (max-width: 767px) {
+            margin-bottom: 30px;
+        }
         h3{
             margin-top: 70px;
             &::after{
@@ -323,6 +346,9 @@ h3 span{
                 left: 0;
                 right: 0;
                 margin: 0 auto;
+                @media (max-width: 767px) {
+                    width: 80px;
+                }
             }
             @media (max-width: 767px) {
                 margin-top: 0;
@@ -418,6 +444,7 @@ h3 span{
                 margin: 0 auto;
                 @media (max-width: 767px) {
                     max-width: 83px;
+                    height: 83px;
                 }
             }
             .management__title{

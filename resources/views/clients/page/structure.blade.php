@@ -108,7 +108,7 @@
         $('#boardlist').bxSlider({
             mode: 'fade',
             captions: false,
-            touchEnabled: false,
+            touchEnabled: true,
             controls: false
         });
     }

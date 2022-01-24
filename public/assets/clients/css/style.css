@@ -182,7 +182,7 @@ h3::after {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    padding: .5rem 1rem;
+    padding: 7px 30px;
   }
 }
 
@@ -227,7 +227,7 @@ h3::after {
     left: 0;
     z-index: 99;
     background: #003E4B;
-    padding: 30px;
+    padding: 7px 30px;
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -254,11 +254,14 @@ h3::after {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
 }
 
 .header .navbar .header__menu .header__top__mobile .header__logo__mobile {
-  max-width: 90px;
+  max-width: 55px;
 }
 
 .header .navbar .header__menu .header__top__mobile .navbar-toggler {
@@ -314,10 +317,15 @@ h3::after {
 .header .navbar .navbar-toggler .navbar-toggler-icon {
   background-image: url(../images/icon-menu.svg);
   display: inline-block;
-  width: 35px;
-  height: 35px;
+  width: 23px;
+  height: 12px;
   vertical-align: middle;
   background-size: 100% 100%;
+}
+
+.header .navbar .navbar-toggler#iconclose .navbar-toggler-icon {
+  width: 19px;
+  height: 19px;
 }
 
 @media (max-width: 767px) {
@@ -568,9 +576,11 @@ h3 span {
     padding: 0 30px;
     bottom: -70px;
     z-index: 2;
+    font-size: 30px;
+    line-height: 40px;
   }
   .home__banner .banner__title::after {
-    left: 30px;
+    left: 30px !important;
   }
 }
 
@@ -700,6 +710,7 @@ h3 span {
   padding: 60px 0 0;
   position: relative;
   z-index: 2;
+  overflow: hidden;
 }
 
 @media (max-width: 767px) {
@@ -707,7 +718,7 @@ h3 span {
     padding: 50px 30px 30px;
     font-size: 14px;
     font-weight: 300;
-    background-position-y: -80px;
+    background-position-y: -130px;
   }
   .ecosystem .bx-viewport {
     overflow: visible !important;
@@ -795,20 +806,33 @@ h3 span {
 @media (max-width: 767px) {
   .ecosystem .ecosystem__list .ecosystem__item {
     width: calc(100% - 60px) !important;
-    /*&[aria-hidden="true"]{
-                    display: block!important;
-                    &:after{
-                        content: "";
-                        height: 90%;
-                        width: 30px;
-                        position: absolute;
-                        left: -60px;
-                        top: 0;
-                        bottom: 0;
-                        background: $darkGreen;
-                        margin: auto 0;
-                    }
-                }*/
+  }
+  .ecosystem .ecosystem__list .ecosystem__item[aria-hidden="true"] {
+    height: 85%;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    left: -83%;
+    display: block !important;
+  }
+  .ecosystem .ecosystem__list .ecosystem__item[aria-hidden="true"]:after {
+    left: auto;
+    content: "";
+    height: 100%;
+    width: 30px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background: #003E4B;
+    margin: auto 0;
+    right: 0;
+  }
+  .ecosystem .ecosystem__list .ecosystem__item + [aria-hidden="true"] {
+    right: -83%;
+    left: auto;
+  }
+  .ecosystem .ecosystem__list .ecosystem__item + [aria-hidden="true"]:after {
+    left: 0;
   }
 }
 
@@ -819,6 +843,7 @@ h3 span {
 @media (max-width: 767px) {
   .ecosystem .ecosystem__list .ecosystem__item .ecosystem__desc {
     min-height: 300px;
+    padding: 0 30px;
   }
 }
 
@@ -827,20 +852,24 @@ h3 span {
 }
 
 .ecosystem .ecosystem__list .ecosystem__item .ecosystem__desc .ecosystem_detail {
+  padding-top: 10px;
+}
+
+.ecosystem .ecosystem__list .ecosystem__item .ecosystem__desc .ecosystem_detail p {
   min-height: 70px;
 }
 
 @media (max-width: 767px) {
-  .ecosystem .ecosystem__list .ecosystem__item .ecosystem__desc .ecosystem_detail {
+  .ecosystem .ecosystem__list .ecosystem__item .ecosystem__desc .ecosystem_detail p {
     min-height: auto;
   }
 }
 
-.ecosystem .ecosystem__list .ecosystem__item .ecosystem__desc ul {
+.ecosystem .ecosystem__list .ecosystem__item .ecosystem__desc .ecosystem_detail ul {
   padding-bottom: 40px;
 }
 
-.ecosystem .ecosystem__list .ecosystem__item .ecosystem__desc ul li a {
+.ecosystem .ecosystem__list .ecosystem__item .ecosystem__desc .ecosystem_detail ul li a {
   position: relative;
   padding-left: 20px;
   font-family: "Manrope";
@@ -851,15 +880,15 @@ h3 span {
   color: #FFFFFF;
 }
 
-.ecosystem .ecosystem__list .ecosystem__item .ecosystem__desc ul li a:hover {
+.ecosystem .ecosystem__list .ecosystem__item .ecosystem__desc .ecosystem_detail ul li a:hover {
   color: #B08E70;
 }
 
-.ecosystem .ecosystem__list .ecosystem__item .ecosystem__desc ul li a:hover:after {
+.ecosystem .ecosystem__list .ecosystem__item .ecosystem__desc .ecosystem_detail ul li a:hover:after {
   border-bottom-color: #B08E70;
 }
 
-.ecosystem .ecosystem__list .ecosystem__item .ecosystem__desc ul li a::after {
+.ecosystem .ecosystem__list .ecosystem__item .ecosystem__desc .ecosystem_detail ul li a::after {
   content: "";
   position: absolute;
   width: 0;
@@ -905,7 +934,7 @@ h3 span {
 
 .ecosystem .ecosystem__nav {
   position: absolute;
-  bottom: 270px;
+  bottom: 310px;
   left: 0;
   height: 42px;
   z-index: 99;
@@ -956,6 +985,12 @@ h3 span {
   }
 }
 
+@media (max-width: 767px) {
+  .map .map__journey {
+    margin-bottom: 30px;
+  }
+}
+
 .map .map__journey h3 {
   margin-top: 70px;
 }
@@ -968,6 +1003,12 @@ h3 span {
   left: 0;
   right: 0;
   margin: 0 auto;
+}
+
+@media (max-width: 767px) {
+  .map .map__journey h3::after {
+    width: 80px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -1124,6 +1165,7 @@ h3 span {
 @media (max-width: 767px) {
   .management ul li .management__photo {
     max-width: 83px;
+    height: 83px;
   }
 }
 

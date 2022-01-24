@@ -9,7 +9,7 @@ $menus = App\Models\Menu::getList();
                 <span class="navbar-toggler-icon"></span>
             </button>
             <nav class="header__menu" id="menu">
-                <div class="header__top__mobile nav-container">
+                <div class="header__top__mobile">
                     <a href="{{route('home')}}" class="header__logo__mobile"><img src="{{asset('assets/clients/images')}}/logo.png" class="img-responsive" alt="Logchain Group"></a>
                     <button class="navbar-toggler" id="iconclose" type="button">
                         <span class="navbar-toggler-icon"></span>
