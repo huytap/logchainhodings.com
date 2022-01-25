@@ -6,7 +6,7 @@ return [
         'route' => 'dashboard'
     ],
     [
-        'label' => 'Menu',
+        'label' => 'Pages',
         'route' => 'menu.index',
         'items'   => [
             'label' => 'Add new',
@@ -14,7 +14,7 @@ return [
         ]
     ],
     [
-        'label' => 'Content',
+        'label' => 'Contents',
         'route' => 'content.index',
         'items'   => [
             'label' => 'Page 1',
@@ -22,7 +22,7 @@ return [
         ]
     ],
     [
-        'label' => 'Eco System',
+        'label' => 'Eco Systems',
         'route' => 'ecosystem.index',
         'items'   => [
             'label' => 'Page 1',
@@ -30,7 +30,15 @@ return [
         ]
     ],
     [
-        'label' => 'Setting',
+        'label' => 'Global Network',
+        'route' => 'network.index',
+        'items'   => [
+            'label' => 'Page 1',
+            'route' => ''
+        ]
+    ],
+    [
+        'label' => 'Settings',
         'route' => 'setting.index',
         'items'   => [
             'label' => 'Page 1',

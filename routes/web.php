@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\ContentController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\EcosystemController;
+use App\Http\Controllers\Admin\NetworkController;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
@@ -48,6 +49,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         '/content' => ContentController::class,
         '/menu' => MenuController::class,
         '/ecosystem' => EcosystemController::class,
+        '/network' => NetworkController::class,
         '/setting' => SettingController::class
     ]);
 });

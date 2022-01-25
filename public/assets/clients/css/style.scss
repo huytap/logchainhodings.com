@@ -748,7 +748,7 @@ h3 span{
             margin-bottom: 50px;
         }  
         .network__title{
-            width: 263px;
+            width: 350px;
             margin: 0;
             @media (max-width: 767px) {
                 width: 100%;
@@ -778,7 +778,7 @@ h3 span{
         }
         ul{
             margin: 0;
-            width: calc(1140px - 263px);
+            width: calc(1140px - 350px);
             @media (max-width: 767px) {
                 width: 100%;
             }
