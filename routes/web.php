@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\EcosystemController;
 use App\Http\Controllers\Admin\NetworkController;
+use App\Http\Controllers\Admin\AttachedfilesController;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
@@ -45,11 +46,13 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::get('/changepassword/<id:\d+>', [AdminController::class, 'changepassword'])->name('admin.changepassword');
+    Route::post('/attachedfiles/uploadfile', [AttachedfilesController::class, 'uploadfile'])->name('admin.uploadfile');
+    Route::post('/attachedfiles/deletefile', [AttachedfilesController::class, 'deletefile'])->name('admin.deletefile');
     Route::resources([
         '/content' => ContentController::class,
         '/menu' => MenuController::class,
         '/ecosystem' => EcosystemController::class,
         '/network' => NetworkController::class,
-        '/setting' => SettingController::class
+        '/setting' => SettingController::class,
     ]);
 });

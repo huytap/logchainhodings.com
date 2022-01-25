@@ -32,16 +32,10 @@ function resizeBrowser() {
 	}
 	var banner = document.getElementById('banner')
 	banner.style.height = w * height / width + 'px';
-	console.log(w)
 }
 resizeBrowser();
 window.addEventListener('resize', resizeBrowser)
 /*end*/
-/*board*/
-var board_item = document.querySelectorAll('.board__item');
-board_item.forEach(function (e) {
-	console.log(e)
-})
 /*fixed menu when scroll*/
 var lastScroll = 200;
 window.onscroll = function (e) {

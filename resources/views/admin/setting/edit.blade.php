@@ -1,7 +1,7 @@
 @php
-    $menu_current = 'Chi nhánh';
-    $menu_current_sub = 'Cập nhật chi nhánh';
-    $route_parent = 'branch.index';
+    $menu_current = 'Setting';
+    $menu_current_sub = 'Update Setting';
+    $route_parent = 'setting.index';
 @endphp
 @extends('layouts.admin')
 @section('content')
@@ -11,7 +11,7 @@
         <h3 class="card-title">{{$menu_current_sub}}</h3>
     </div>
     <!--begin::Form-->
-    <form class="form" action="{{route('branch.update', $branch['id'])}}" method="POST">
+    <form class="form" action="{{route('setting.update', $setting['id'])}}" method="POST">
         @csrf @method('PUT')
         <input type="hidden" value={{date('Y-m-d H:m:i')}}" name="created_at">
         <div class="card-body">
@@ -38,14 +38,14 @@
                             <!--end::Svg Icon-->
                         </span>
                     </div>
-                    <div class="alert-text">Vui lòng nhập các thông tin bên dưới</div>
+                    <div class="alert-text">Please enter all fields</div>
                 </div>
             </div>
-            @include('admin.branch._form', ['branch' => $branch])
+            @include('admin.setting._form', ['model' => $setting])
         </div>
         <div class="card-footer">
-            <button type="submit" class="btn btn-primary mr-2">Lưu</button>
-            <a href="{{route('branch.index')}}" class="btn btn-secondary">Hủy</a>
+            <button type="submit" class="btn btn-primary mr-2">Save</button>
+            <a href="{{route('setting.index')}}" class="btn btn-secondary">Cancel</a>
         </div>
     </form>
     <!--end::Form-->

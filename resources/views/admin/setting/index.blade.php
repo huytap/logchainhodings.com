@@ -76,10 +76,10 @@
                     </div>
                 </div> --}}
 
-                <a href="{{route($route_item)}}" class="btn btn-primary font-weight-bolder">
+                {{-- <a href="{{route($route_item)}}" class="btn btn-primary font-weight-bolder">
                     <span class="fas fa-plus"></span>
                     Add new
-                </a>
+                </a> --}}
             </div>
         </div>
         
@@ -91,7 +91,7 @@
                             <div class="row align-items-center">
                                 <div class="col-md-4 my-2 my-md-0">
                                     <div class="input-icon">
-                                        <input type="text" name="key" class="form-control" placeholder="Tìm kiếm theo tên" id="kt_datatable_search_query" value="{{request()->key}}"/>
+                                        <input type="text" name="key" class="form-control" placeholder="Search" id="kt_datatable_search_query" value="{{request()->key}}"/>
                                         <span><i class="flaticon2-search-1 text-muted"></i></span>
                                     </div>
                                 </div>
@@ -152,10 +152,10 @@
                         @foreach ($data as $key => $item)
                             <tr data-row="0" class="datatable-row" style="left: 0px;">
                                 <td scope="row">{{$key}}</td>
-                                <td>{{$item['name']}}</td>
-                                <td>{{$item['link_url']}}</td>
+                                <td>{{$item['key']}}</td>
+                                <td>{{$item['value']}}</td>
                                 <td>
-                                    @if($item['status'] == Enum::SHOW)
+                                    @if($item['status'] == App\Helpers\Enum::SHOW)
                                     <span class="label label-inline label-light-primary font-weight-bold">
                                         Publish
                                     </span>

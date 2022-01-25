@@ -21,7 +21,9 @@ class Menu extends Model
         'status',
         'seo_title',
         'seo_description',
-        'seo_thumbnailUrl'
+        'seo_thumbnailUrl',
+        'created_by',
+        'updated_by'
     ];
 
     public function scopeSearch($query)

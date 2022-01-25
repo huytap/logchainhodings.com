@@ -7,56 +7,27 @@ $class = 'global__banner';
 
 <div class="content">        
     <div class="container">
+        @if(!empty($network))
         <div class="network">
+            @foreach($network as $dt)
             <div class="network__list wow fadeInUp" data-wow-duration="1.5s">
                 <h3 class="network__title">
-                    Logistics
-                    Association
-                    <span>Network</span>
+                    {!! $dt->title !!}
                 </h3>
+                @php
+                $items = App\Models\Networkitem::getList($dt->id)    
+                @endphp
+                @if(!empty($items))
                 <ul>
-                    <li><img src="{{asset('assets/clients/images')}}/net1.png" class="img-responsive" alt=""></li>
-                    <li><img src="{{asset('assets/clients/images')}}/net2.png" class="img-responsive" alt=""></li>
-                    <li><img src="{{asset('assets/clients/images')}}/net3.png" class="img-responsive" alt=""></li>
+                    @foreach($items as $item)
+                    <li><img src="{{asset('uploads/'. $item->photo)}}" class="img-responsive" alt=""></li>
+                    @endforeach
                 </ul>
+                @endif
             </div>
-            <div class="network__list wow fadeInUp" data-wow-duration="1.5s">
-                <h3 class="network__title">
-                    Global
-                    <span>Partners</span>
-                </h3>
-                <ul>
-                    <li>
-                        <span>Middle East & USA</span>
-                        <img src="{{asset('assets/clients/images')}}/partner1.png" class="img-responsive" alt=""></li>
-                    <li>
-                        <span>Europe</span>
-                        <img src="{{asset('assets/clients/images')}}/partner2.png" class="img-responsive" alt=""></li>
-                </ul>
-            </div>
-            <div class="network__list wow fadeInUp" data-wow-duration="1.5s">
-                <h3 class="network__title">
-                    Preferred
-                    <span>Carriers</span>
-                </h3>
-                <ul>
-                    <li><img src="{{asset('assets/clients/images')}}/carries1.png" class="img-responsive" alt=""></li>
-                    <li><img src="{{asset('assets/clients/images')}}/carries2.png" class="img-responsive" alt=""></li>
-                    <li><img src="{{asset('assets/clients/images')}}/carries3.png" class="img-responsive" alt=""></li>
-                    <li><img src="{{asset('assets/clients/images')}}/carries4.png" class="img-responsive" alt=""></li>
-                    <li><img src="{{asset('assets/clients/images')}}/carries5.png" class="img-responsive" alt=""></li>
-                    <li><img src="{{asset('assets/clients/images')}}/carries6.png" class="img-responsive" alt=""></li>
-                    <li><img src="{{asset('assets/clients/images')}}/carries7.png" class="img-responsive" alt=""></li>
-                    <li><img src="{{asset('assets/clients/images')}}/carries8.png" class="img-responsive" alt=""></li>
-                    <li><img src="{{asset('assets/clients/images')}}/carries9.png" class="img-responsive" alt=""></li>
-                    <li><img src="{{asset('assets/clients/images')}}/carries10.png" class="img-responsive" alt=""></li>
-                    <li><img src="{{asset('assets/clients/images')}}/carries11.png" class="img-responsive" alt=""></li>
-                    <li><img src="{{asset('assets/clients/images')}}/carries12.png" class="img-responsive" alt=""></li>
-                    <li><img src="{{asset('assets/clients/images')}}/carries13.png" class="img-responsive" alt=""></li>
-                    <li><img src="{{asset('assets/clients/images')}}/carries14.png" class="img-responsive" alt=""></li>
-                </ul>
-            </div>
+            @endforeach
         </div>
+        @endif
     </div>
 </div>
 @endsection

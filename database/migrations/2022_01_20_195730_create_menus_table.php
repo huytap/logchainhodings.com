@@ -26,6 +26,8 @@ class CreateMenusTable extends Migration
             $table->string('seo_title')->nullable();
             $table->string('seo_description')->nullable();
             $table->string('seo_thumbnailUrl')->nullable();
+            $table->integer('created_by')->nullable();
+            $table->integer('updated_by')->nullable();
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
         });

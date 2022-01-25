@@ -21,6 +21,8 @@ class CreateEcosystemsTable extends Migration
             $table->longText('description')->nullable();
             $table->string('link', 200)->nullable();
             $table->integer('status')->nullable();
+            $table->integer('created_by')->nullable();
+            $table->integer('updated_by')->nullable();
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
         });

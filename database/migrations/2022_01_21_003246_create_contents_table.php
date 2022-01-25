@@ -22,6 +22,8 @@ class CreateContentsTable extends Migration
             $table->integer('menu_id')->nullable();
             $table->string('content_section', 50)->nullable();
             $table->integer('priority')->nullable();
+            $table->integer('created_by')->nullable();
+            $table->integer('updated_by')->nullable();
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
         });

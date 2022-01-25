@@ -21,7 +21,13 @@ class CreateNetworkitemsTable extends Migration
             $table->id();
             $table->foreignId('globalnetwork_id');
             $table->string('photo', 100)->nullable();
+            $table->string('original_name', 100)->nullable();
+            $table->integer('file_size')->nullable();
+            $table->string('file_type', 50)->nullable();
             $table->integer('priority')->nullable();
+            $table->integer('status')->nullable();
+            $table->integer('created_by')->nullable();
+            $table->integer('updated_by')->nullable();
             $table->timestamps();
         });
     }

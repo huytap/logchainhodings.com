@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Setting;
+use App\Http\Requests\Setting\StoreRequest;
 
 class SettingController extends Controller
 {
@@ -11,9 +14,11 @@ class SettingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(){
+    public function index()
+    {
+        $title = 'Settings';
         $data = Setting::search()->paginate(15);
-        return view('admin.setting.index', compact('data'));
+        return view('admin.setting.index', compact('data', 'title'));
     }
 
     /**
@@ -21,9 +26,11 @@ class SettingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(){
-        $Setting = new Setting;
-        return view('admin.setting.create', compact('Setting'));
+    public function create()
+    {
+        $title = 'Add New Settings';
+        $setting = new Setting;
+        return view('admin.setting.create', compact('setting', 'title'));
     }
 
     /**
@@ -32,9 +39,10 @@ class SettingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreRequest $request){
-        if(Setting::create($request->all())){
-            return redirect()->route('Setting.index')->with('success', 'Thêm chi nhánh thành công');
+    public function store(StoreRequest $request)
+    {
+        if (Setting::create($request->all())) {
+            return redirect()->route('setting.index')->with('success', 'Add new setting success');
         }
     }
 
@@ -44,7 +52,8 @@ class SettingController extends Controller
      * @param  \App\Models\Setting  $Setting
      * @return \Illuminate\Http\Response
      */
-    public function show(Setting $Setting){
+    public function show(Setting $Setting)
+    {
         //
     }
 
@@ -54,8 +63,10 @@ class SettingController extends Controller
      * @param  \App\Models\Setting  $Setting
      * @return \Illuminate\Http\Response
      */
-    public function edit(Setting $Setting){
-        return view('admin.setting.edit', compact('Setting'));
+    public function edit(Setting $setting)
+    {
+        $title = 'Update Settings';
+        return view('admin.setting.edit', compact('setting', 'title'));
     }
 
     /**
@@ -65,9 +76,10 @@ class SettingController extends Controller
      * @param  \App\Models\Setting  $Setting
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Setting $Setting){
-        $Setting->update($request->only('name', 'link_url', 'status'));
-        return redirect()->route('Setting.index')->with('success', 'Cập nhật chi nhánh thành công');
+    public function update(Request $request, Setting $setting)
+    {
+        $setting->update($request->only('value', 'status'));
+        return redirect()->route('setting.index')->with('success', 'Update setting success');
     }
 
     /**
@@ -76,9 +88,10 @@ class SettingController extends Controller
      * @param  \App\Models\Setting  $Setting
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Setting $Setting){
-        if($Setting->delete())
-            return redirect()->route('Setting.index')->with('success', 'Xóa chi nhánh thành công');
-        return redirect()->route('Setting.index')->with('error', 'Đã có lỗi xảy ra');
+    public function destroy(Setting $setting)
+    {
+        if ($setting->delete())
+            return redirect()->route('Setting.index')->with('success', 'Delete setting success');
+        return redirect()->route('Setting.index')->with('error', 'Errors');
     }
 }

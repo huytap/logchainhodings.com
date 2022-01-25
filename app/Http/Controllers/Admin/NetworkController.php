@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Form;
 use App\Http\Requests\Globalnetwork\StoreRequest;
 use App\Models\Globalnetwork;
+use App\Models\Networkitem;
 
 class NetworkController extends Controller
 {
@@ -42,8 +43,8 @@ class NetworkController extends Controller
      */
     public function store(StoreRequest $request)
     {
-        if (Globalnetwork::create($request->all())) {
-            return redirect()->route('network.index')->with('success', 'Thêm chi nhánh thành công');
+        if ($data = Globalnetwork::create($request->all())) {
+            return redirect()->route('network.edit', $data->id)->with('success', 'Create global network succss');
         }
     }
 
@@ -66,7 +67,8 @@ class NetworkController extends Controller
      */
     public function edit(Globalnetwork $network)
     {
-        return view('admin.network.edit', compact('network'));
+        $title = 'Update Global Network';
+        return view('admin.network.edit', compact('network', 'title'));
     }
 
     /**
@@ -78,8 +80,8 @@ class NetworkController extends Controller
      */
     public function update(Request $request, Globalnetwork $network)
     {
-        $network->update($request->only('name', 'link_url', 'status'));
-        return redirect()->route('network.index')->with('success', 'Cập nhật chi nhánh thành công');
+        $network->update($request->only('title', 'priority', 'status'));
+        return redirect()->route('network.index')->with('success', 'Update global network success');
     }
 
     /**
@@ -91,7 +93,7 @@ class NetworkController extends Controller
     public function destroy(Globalnetwork $network)
     {
         if ($network->delete())
-            return redirect()->route('network.index')->with('success', 'Xóa chi nhánh thành công');
-        return redirect()->route('network.index')->with('error', 'Đã có lỗi xảy ra');
+            return redirect()->route('network.index')->with('success', 'Delete global network success');
+        return redirect()->route('network.index')->with('error', 'Errors');
     }
 }

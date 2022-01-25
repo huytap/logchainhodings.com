@@ -1,7 +1,7 @@
 @php
-    $menu_current = 'Eco System';
+    $menu_current = 'Global Wetwork';
     $menu_current_sub = 'Update';
-    $route_parent = 'ecosystem.index';
+    $route_parent = 'network.index';
 @endphp
 @extends('layouts.admin')
 @section('content')
@@ -10,8 +10,13 @@
     <div class="card-header">
         <h3 class="card-title">{{$menu_current_sub}}</h3>
     </div>
+    @if(Session::has('success'))
+        <x-alert type="success" icon="flaticon2-bell-4" content="{{Session::get('success')}}"/>
+    @elseif(Session::has('error'))
+        <x-alert type="danger" icon="flaticon-warning" content="{{Session::get('error')}}"/>
+    @endif
     <!--begin::Form-->
-    <form class="form" action="{{route('ecosystem.update', $ecosystem['id'])}}" method="POST" enctype="multipart/form-data">
+    <form class="form" action="{{route('network.update', $network['id'])}}" method="POST" enctype="multipart/form-data">
         @csrf @method('PUT')
         <input type="hidden" value={{date('Y-m-d H:m:i')}}" name="created_at">
         <div class="card-body">
@@ -41,11 +46,11 @@
                     <div class="alert-text">Please enter all fields</div>
                 </div>
             </div>
-            @include('admin.ecosystem._form', ['model' => $ecosystem])
+            @include('admin.network._form', ['model' => $network])
         </div>
         <div class="card-footer">
-            <button type="submit" class="btn btn-primary mr-2">Lưu</button>
-            <a href="{{route('ecosystem.index')}}" class="btn btn-secondary">Hủy</a>
+            <button type="submit" class="btn btn-primary mr-2">Save</button>
+            <a href="{{route('network.index')}}" class="btn btn-secondary">Cancel</a>
         </div>
     </form>
     <!--end::Form-->

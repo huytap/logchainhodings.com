@@ -1,16 +1,16 @@
 @php
-    $menu_current = 'Chi nhánh';
-    $menu_current_sub = 'Thêm chi nhánh';
-    $route_parent = 'branch.index';
+    $menu_current = 'Setting';
+    //$menu_current_sub = 'Add new';
+    $route_parent = 'setting.index';
 @endphp
 @extends('layouts.admin')
 @section('content')
 
 <div class="card card-custom gutter-b example example-compact">
-    <div class="card-header">
+    {{-- <div class="card-header">
         <h3 class="card-title">{{$menu_current_sub}}</h3>
-    </div>
-    <form class="form" action="{{route('branch.store')}}" method="POST">
+    </div> --}}
+    <form class="form" action="{{route('setting.store')}}" method="POST">
         @csrf
         <input type="hidden" value={{date('Y-m-d H:m:i')}}" name="created_at">
         <div class="card-body">
@@ -37,18 +37,18 @@
                             <!--end::Svg Icon-->
                         </span>
                     </div>
-                    <div class="alert-text">Vui lòng nhập các thông tin bên dưới</div>
+                    <div class="alert-text">Please enter all fields</div>
                 </div>
             </div>
-            @include('admin.branch._form', ['branch' => $branch])
+            @include('admin.setting._form', ['model' => $setting])
             {{-- <div class="form-group">
                 <label for="exampleTextarea">Textarea</label>
                 <textarea class="form-control form-control-solid" rows="3"></textarea>
             </div> --}}
         </div>
         <div class="card-footer">
-            <button type="submit" class="btn btn-primary mr-2">Lưu</button>
-            <a href="{{route('branch.index')}}" class="btn btn-secondary">Hủy</a>
+            <button type="submit" class="btn btn-primary mr-2">Save</button>
+            <a href="{{route('setting.index')}}" class="btn btn-secondary">Cancel</a>
         </div>
     </form>
 </div>

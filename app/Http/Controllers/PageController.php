@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Menu;
 use App\Models\Content;
+use App\Models\Globalnetwork;
 
 class PageController extends Controller
 {
@@ -23,9 +24,10 @@ class PageController extends Controller
                 case 2:
                     return view('clients.page.structure', compact('title', 'menu', 'collection'));
                 case 3:
-                    return view('clients.page.network', compact('title', 'menu', 'collection'));
+                    $network = Globalnetwork::getList();
+                    return view('clients.page.network', compact('title', 'menu', 'network'));
                 case 4:
-                    return view('clients.page.contact', compact('title', 'menu', 'collection'));
+                    return view('clients.page.contact', compact('title', 'menu'));
                 default:
                     return 404;
             }

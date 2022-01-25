@@ -9,7 +9,7 @@ class Ecosystem extends Model
 {
     const CREATE_AT = 'create_at';
     use HasFactory;
-    protected $fillable = ['photo', 'logo', 'description', 'link', 'priority', 'status'];
+    protected $fillable = ['photo', 'logo', 'description', 'link', 'priority', 'status', 'created_by', 'updated_by'];
 
     public function scopeSearch($query)
     {

@@ -89,10 +89,10 @@
                                 </td>                            
                                 <td data-field="Actions">
                                     <span style="overflow: visible; position: relative; width: 125px;">
-                                        <a href="{{route('globalnetwork.edit', $item['id'])}}" class="btn btn-sm btn-clean btn-icon mr-2" title="Edit details">
+                                        <a href="{{route('network.edit', $item['id'])}}" class="btn btn-sm btn-clean btn-icon mr-2" title="Edit details">
                                             <span class="far fa-edit"></span>
                                         </a>
-                                        <a href="{{route('globalnetwork.destroy', $item['id'])}}" class="btn btn-sm btn-clean btn-icon btn-delete" title="Delete">
+                                        <a href="{{route('network.destroy', $item['id'])}}" class="btn btn-sm btn-clean btn-icon btn-delete" title="Delete">
                                             <span class="fas fa-trash"></span>
                                         </a>
                                     </span>

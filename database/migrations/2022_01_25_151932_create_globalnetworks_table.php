@@ -20,6 +20,8 @@ class CreateGlobalnetworksTable extends Migration
             $table->id();
             $table->string('title', 200)->nullable();
             $table->integer('status')->nullable();
+            $table->integer('created_by')->nullable();
+            $table->integer('updated_by')->nullable();
             $table->timestamps();
         });
     }

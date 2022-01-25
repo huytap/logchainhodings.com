@@ -18,6 +18,8 @@ class CreateSettingsTable extends Migration
             $table->string('key', 50)->nullable();
             $table->longText('value')->nullable();
             $table->integer('status')->nullable();
+            $table->integer('created_by')->nullable();
+            $table->integer('updated_by')->nullable();
             $table->timestamps();
         });
     }

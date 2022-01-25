@@ -2,28 +2,59 @@
     $status = config('adminstatus');
 @endphp
 <div class="form-group">
-    <label>Tên chi nhánh</label>
-    <input name="name" type="text" value="{{old('name')??$branch['name']}}" class="form-control form-control-solid" placeholder="Tên chi nhánh" />
-    @error('name')
+    <label>Key</label>
+    <input name="key" type="text" value="{{old('key')??$model['key']}}" class="form-control form-control-solid" placeholder="Key" />
+    @error('key')
         <div class="fv-plugins-message-container">
             <div data-field="memo" data-validator="notEmpty" class="fv-help-block">{{$message}}</div>
         </div>
     @enderror
 </div>
 <div class="form-group">
-    <label>Link facebook</label>
-    <input name="link_url" type="text" value="{{old('link_url')??$branch['link_url']}}" class="form-control form-control-solid" placeholder="Link facebook" />
-    @error('link_url')
+    <label>Value</label>
+    <textarea name="value" id="content">{{old('value')??$model->value}}</textarea>
+    @error('value')
         <div class="fv-plugins-message-container">
             <div data-field="memo" data-validator="notEmpty" class="fv-help-block">{{$message}}</div>
         </div>
     @enderror
 </div>
 <div class="form-group">
-    <label>Trạng thái</label>
+    <label>Status</label>
     <select class="form-control form-control-solid" name="status">
         @foreach($status as $key => $st)
-            <option value="{{$key}}" {{ $branch['status'] === $key ? 'selected' : '' }}>{{$st}}</option>
+            <option value="{{$key}}" {{ $model['status'] === $key ? 'selected' : '' }}>{{$st}}</option>
         @endforeach
     </select>
 </div>
+
+@section('js')
+<script src="{{asset('assets/admin/assets/plugins/custom/ckeditor/ckeditor-classic.bundle.js?v=7.0.6')}}"></script>
+<script type="text/javascript">
+var KTCkeditor = function () {
+    // Private functions
+    var demos = function () {
+        ClassicEditor
+            .create( document.querySelector( '#content' ) )
+            .then( editor => {
+                console.log( editor );
+            } )
+            .catch( error => {
+                console.error( error );
+            } );
+    }
+
+    return {
+        // public functions
+        init: function() {
+            demos();
+        }
+    };
+}();
+
+// Initialization
+jQuery(document).ready(function() {
+    KTCkeditor.init();
+});
+</script>
+@endsection
