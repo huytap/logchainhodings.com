@@ -12,12 +12,12 @@ class Content extends Model
     protected $fillable = ['title', 'photo', 'photo_mobile', 'description', 'menu_id', 'content_section', 'priority'];
     public function menu()
     {
-        return $this->belongsTo(Menu::class);
+        return $this->belongsTo('App\Models\Menu', 'menu_id');
     }
 
     public function scopeSearch($query)
     {
-        if ($menu_id = request()->menu_id) {
+        if ($menu_id = request()->page_id) {
             $query = $query->where('menu_id', '=', $menu_id);
         }
         return $query;

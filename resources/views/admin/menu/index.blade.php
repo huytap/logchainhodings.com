@@ -83,11 +83,11 @@
                                 <td>
                                     @if($item['status'] == 0)
                                     <span class="label label-inline label-light-primary font-weight-bold">
-                                        Hiện
+                                        Publish
                                     </span>
                                     @else
                                         <span class="label label-inline label-light-danger font-weight-bold">
-                                            Ẩn
+                                            Unpublish
                                         </span>
                                     @endif
                                 </td>                            

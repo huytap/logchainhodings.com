@@ -32,7 +32,7 @@ $class = 'philosophy';
                 @foreach($result2 as $dt)
                     <h3 class="mission__title">{{$dt['title']}}</h3>
                     {!! $dt['description'] !!}
-                    @endforeach
+                @endforeach
                 </div>
             @endif
         </div>

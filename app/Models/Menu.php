@@ -46,6 +46,14 @@ class Menu extends Model
         return $menus;
     }
 
+    public static function getList2()
+    {
+        $menus = Menu::where('status', 0)
+            ->orderBy('priority')
+            ->get();
+        return $menus;
+    }
+
     public static function getBySlug($slug)
     {
         $menu = Menu::where('slug', $slug)

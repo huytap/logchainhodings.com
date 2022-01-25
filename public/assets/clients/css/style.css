@@ -710,11 +710,11 @@ h3 span {
   padding: 60px 0 0;
   position: relative;
   z-index: 2;
-  overflow: hidden;
 }
 
 @media (max-width: 767px) {
   .ecosystem {
+    overflow: hidden;
     padding: 50px 30px 30px;
     font-size: 14px;
     font-weight: 300;
@@ -1528,7 +1528,7 @@ h3 span {
 
 /*network*/
 .global__banner {
-  max-height: 422px;
+  max-height: 500px;
 }
 
 .global__banner .container .banner__title {

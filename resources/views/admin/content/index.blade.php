@@ -89,10 +89,15 @@
                     <div class="col-lg-9 col-xl-8">
                         <form method="GET">
                             <div class="row align-items-center">
-                                <div class="col-md-4 my-2 my-md-0">
-                                    <div class="input-icon">
-                                        <input type="text" name="key" class="form-control" placeholder="Search" id="kt_datatable_search_query" value="{{request()->key}}"/>
-                                        <span><i class="flaticon2-search-1 text-muted"></i></span>
+                                <div class="col-md-5 my-2 my-md-0">
+                                    <div class="d-flex align-items-center">
+                                        <label class="mr-4 mb-0 d-none d-md-block">Page:</label>
+                                        <select class="form-control" name="page_id" id="kt_datatable_search_status">
+                                            <option value="">--All--</option>
+                                            @foreach(App\Models\Menu::getList2() as $key => $st)
+                                                <option value="{{$st->id}}" {{ request()->page_id == $st->id ? 'selected' : '' }}>{{$st->name}}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-light-primary px-6 font-weight-bold">
@@ -101,11 +106,6 @@
                             </div>
                         </form>
                     </div>
-                    {{-- <div class="col-lg-3 col-xl-4 mt-5 mt-lg-0">
-                        <a href="#" class="btn btn-light-primary px-6 font-weight-bold">
-                            Tìm kiếm
-                        </a>
-                    </div> --}}
                 </div>
             </div>
             @if(Session::has('success'))
@@ -129,7 +129,8 @@
                     <tbody>
                         @foreach ($data as $key => $item)
                         @php
-                        $page = content::find($item->menu_id)->menu->name;    
+                        $menu = App\Models\Menu::find($item->menu_id);    
+                        $page = $menu->name;
                         @endphp
                             <tr data-row="0" class="datatable-row" style="left: 0px;">
                                 <td scope="row">{{($key+1)}}</td>

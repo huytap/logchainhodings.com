@@ -56,46 +56,39 @@
                 </div>
             </div>
         </div>
+        @php
+            $collection1 = $collection->filter(function ($val, $key) {
+                return $val->content_section==1;
+            });
+            $result1 = $collection1->first();
 
-        <div class="journey">
-            <h3 class="journey__title wow fadeInUp" data-wow-duration="1.5s"><span>Our</span> People</h3>
-            <div class="journey__desc wow fadeInUp" data-wow-duration="1.5s">
-                <p>
-                    To address all customer requirements thoroughly, we have segmented<br/>
-                    our supply chain service into <strong>three major businesses</strong>
-                </p>
+            $collection2 = $collection->filter(function ($val, $key) {
+                return $val->content_section==2;
+            });
+            $result2 = $collection2->all();
+
+        @endphp
+        @if(!empty($result1))
+            <div class="journey">
+                <h3 class="journey__title wow fadeInUp" data-wow-duration="1.5s">{!! $result1->title !!}</h3>
+                <div class="journey__desc wow fadeInUp" data-wow-duration="1.5s">
+                    {!! $result1->description !!}
+                </div>
+                @if(!empty($result2))
+                <ul>
+                    @foreach($result2 as $dt)
+                    <li class="wow fadeInUp" data-wow-duration="1.5s">
+                        <div class="journey__photo"><img src="{{asset('uploads/'. $dt->photo)}}" class="img-responsive" alt=""></div>
+                        <div class="journey__info">
+                            <h3 class="journey__name">{{$dt->title}}</h3>
+                            {!! $dt->description !!}
+                        </div>
+                    </li>
+                    @endforeach
+                </ul>
+                @endif
             </div>
-            <ul>
-                <li class="wow fadeInUp" data-wow-duration="1.5s">
-                    <div class="journey__photo"><img src="{{asset('assets/clients/images')}}/journey1.jpg" class="img-responsive" alt=""></div>
-                    <div class="journey__info">
-                        <h3 class="journey__name">Louis Vu</h3>
-                        <p>Chairman</p>
-                    </div>
-                </li>
-                <li class="wow fadeInUp" data-wow-duration="1.5s">
-                    <div class="journey__photo"><img src="{{asset('assets/clients/images')}}/journey2.jpg" class="img-responsive" alt=""></div>                        
-                    <div class="journey__info">
-                        <h3 class="journey__name">Louis Vu</h3>
-                        <p>Chairman</p>
-                    </div>
-                </li>
-                <li class="wow fadeInUp" data-wow-duration="1.5s">
-                    <div class="journey__photo"><img src="{{asset('assets/clients/images')}}/journey3.jpg" class="img-responsive" alt=""></div>
-                    <div class="journey__info">
-                        <h3 class="journey__name">Louis Vu</h3>
-                        <p>Chairman</p>
-                    </div>
-                </li>
-                <li class="wow fadeInUp" data-wow-duration="1.5s">
-                    <div class="journey__photo"><img src="{{asset('assets/clients/images')}}/journey4.jpg" class="img-responsive" alt=""></div>
-                    <div class="journey__info">
-                        <h3 class="journey__name">Louis Vu</h3>
-                        <p>Chairman</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
+        @endif
     </div>
 </div>
 @endsection
