@@ -45,7 +45,7 @@ Route::post('/admin/login/store', [AdminController::class, 'store'])->name('admi
 Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
-    Route::get('/changepassword/<id:\d+>', [AdminController::class, 'changepassword'])->name('admin.changepassword');
+    Route::get('/changepassword', [AdminController::class, 'changepassword'])->name('admin.changepassword');
     Route::post('/attachedfiles/uploadfile', [AttachedfilesController::class, 'uploadfile'])->name('admin.uploadfile');
     Route::post('/attachedfiles/deletefile', [AttachedfilesController::class, 'deletefile'])->name('admin.deletefile');
     Route::resources([

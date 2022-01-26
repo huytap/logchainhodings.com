@@ -4,8 +4,14 @@
     $status = config('adminstatus');
 @endphp
 @extends('layouts.admin')
+@section('css')
+    <style>
+        td:nth-child(3){
+            word-break: break-all;
+        }
+    </style>
+@endsection
 @section('content')
-
 <div class="card card-custom gutter-b">
     <!--begin::Card-->
     <div class="card card-custom">

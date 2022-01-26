@@ -1,4 +1,6 @@
-
+@php
+    $menu = App\Models\Menu::getList();
+@endphp
 <div class="form-group">
     <label>Page</label>
     <select class="form-control form-control-solid" name="menu_id">

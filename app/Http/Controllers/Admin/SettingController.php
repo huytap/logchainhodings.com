@@ -78,7 +78,7 @@ class SettingController extends Controller
      */
     public function update(Request $request, Setting $setting)
     {
-        $setting->update($request->only('value', 'status'));
+        $setting->update($request->only('key', 'value', 'status'));
         return redirect()->route('setting.index')->with('success', 'Update setting success');
     }
 

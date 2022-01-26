@@ -2175,14 +2175,14 @@
                     </div>
                     <div class="separator separator-solid"></div> --}}
                     <div class="navi navi-spacer-x-0 pt-5">
-                        <a href="{{route('admin.changepassword')}}" class="navi-item px-8">
+                        <a href="{{route('admin.changepassword', Illuminate\Support\Facades\Auth::id())}}" class="navi-item px-8">
                             <div class="navi-link">
                                 <div class="navi-icon mr-2">
                                     <i class="fas fa-key text-success"></i>
                                 </div>
                                 <div class="navi-text">
                                     <div class="font-weight-bold">
-                                        Đổi mật khẩu
+                                        Change password
                                     </div>
                                 </div>
                             </div>
@@ -2234,7 +2234,7 @@
                         </a> --}}
                         <div class="navi-separator mt-3"></div>
                         <div class="navi-footer px-8 py-5">
-                            <a href="{{route('admin.logout')}}" class="btn btn-light-primary font-weight-bold">Thoát</a>
+                            <a href="{{route('admin.logout')}}" class="btn btn-light-primary font-weight-bold">Log out</a>
                         </div>
                     </div>
                 </div>

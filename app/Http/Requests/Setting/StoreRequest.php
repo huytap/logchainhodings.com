@@ -24,8 +24,15 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'key' => 'required|unique',
+            'key' => 'required|unique:settings',
             'value' => 'required'
+        ];
+    }
+
+    public function message()
+    {
+        return [
+            'key.unique' => 'Key is exists'
         ];
     }
 }

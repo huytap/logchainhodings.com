@@ -12,7 +12,7 @@
 </div>
 <div class="form-group">
     <label>Value</label>
-    <textarea name="value" id="content">{{old('value')??$model->value}}</textarea>
+    <textarea name="value" id="content" class="form-control form-control-solid">{{old('value')??$model->value}}</textarea>
     @error('value')
         <div class="fv-plugins-message-container">
             <div data-field="memo" data-validator="notEmpty" class="fv-help-block">{{$message}}</div>
@@ -31,30 +31,26 @@
 @section('js')
 <script src="{{asset('assets/admin/assets/plugins/custom/ckeditor/ckeditor-classic.bundle.js?v=7.0.6')}}"></script>
 <script type="text/javascript">
-var KTCkeditor = function () {
-    // Private functions
-    var demos = function () {
-        ClassicEditor
-            .create( document.querySelector( '#content' ) )
-            .then( editor => {
-                console.log( editor );
-            } )
-            .catch( error => {
-                console.error( error );
-            } );
-    }
+// var KTCkeditor = function () {
+//     var demos = function () {
+//         ClassicEditor
+//             .create( document.querySelector( '#content' ) )
+//             .then( editor => {
+//                 console.log( editor );
+//             } )
+//             .catch( error => {
+//                 console.error( error );
+//             } );
+//     }
 
-    return {
-        // public functions
-        init: function() {
-            demos();
-        }
-    };
-}();
-
-// Initialization
-jQuery(document).ready(function() {
-    KTCkeditor.init();
-});
+//     return {
+//         init: function() {
+//             demos();
+//         }
+//     };
+// }();
+// jQuery(document).ready(function() {
+//     KTCkeditor.init();
+// });
 </script>
 @endsection

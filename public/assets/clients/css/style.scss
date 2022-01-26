@@ -678,6 +678,24 @@ h3 span{
                 transform: translateY(25%);
                 transition: all 150ms ease;
                 pointer-events: none;
+                .journey__name{
+                    color:$whiteColor;
+                    font-size: 25px;
+                    font-family: $headlineFont;
+                    font-weight: bold;
+                    margin-bottom: 0;
+                    line-height: 35px;
+                    @media (max-width: 767px) {
+                        font-size: 20px;
+                        line-height: 27px;
+                    }
+                }
+                p{
+                    margin: 0;
+                    @media (max-width: 767px) {
+                        font-size: 12px;
+                    }
+                }
             }
             &:hover{
                 img{
@@ -686,24 +704,7 @@ h3 span{
                 .journey__info{
                     opacity: 1;
                     transform: translateY(0%);
-                    .journey__name{
-                        color:$whiteColor;
-                        font-size: 30px;
-                        font-family: $headlineFont;
-                        font-weight: bold;
-                        margin-bottom: 0;
-                        line-height: 40px;
-                        @media (max-width: 767px) {
-                            font-size: 20px;
-                            line-height: 27px;
-                        }
-                    }
-                    p{
-                        margin: 0;
-                        @media (max-width: 767px) {
-                            font-size: 12px;
-                        }
-                    }
+                    
                 }           
                 &::after{
                     content:"";

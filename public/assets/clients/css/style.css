@@ -1478,6 +1478,32 @@ h3 span {
   pointer-events: none;
 }
 
+.journey ul li .journey__info .journey__name {
+  color: #FFFFFF;
+  font-size: 25px;
+  font-family: "Playfair Display";
+  font-weight: bold;
+  margin-bottom: 0;
+  line-height: 35px;
+}
+
+@media (max-width: 767px) {
+  .journey ul li .journey__info .journey__name {
+    font-size: 20px;
+    line-height: 27px;
+  }
+}
+
+.journey ul li .journey__info p {
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .journey ul li .journey__info p {
+    font-size: 12px;
+  }
+}
+
 .journey ul li:hover img {
   mix-blend-mode: normal;
 }
@@ -1486,32 +1512,6 @@ h3 span {
   opacity: 1;
   -webkit-transform: translateY(0%);
           transform: translateY(0%);
-}
-
-.journey ul li:hover .journey__info .journey__name {
-  color: #FFFFFF;
-  font-size: 30px;
-  font-family: "Playfair Display";
-  font-weight: bold;
-  margin-bottom: 0;
-  line-height: 40px;
-}
-
-@media (max-width: 767px) {
-  .journey ul li:hover .journey__info .journey__name {
-    font-size: 20px;
-    line-height: 27px;
-  }
-}
-
-.journey ul li:hover .journey__info p {
-  margin: 0;
-}
-
-@media (max-width: 767px) {
-  .journey ul li:hover .journey__info p {
-    font-size: 12px;
-  }
 }
 
 .journey ul li:hover::after {
