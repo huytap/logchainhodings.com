@@ -28,6 +28,10 @@ h1, h3, h4{
     letter-spacing: -0.01em;
     position: relative;
     font-family: $headlineFont;
+    @media (max-width: 840px){
+        font-size: 45px;
+        line-height: 50px;
+    }
 }
 h1::after,
 h3::after{

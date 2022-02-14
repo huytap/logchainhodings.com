@@ -188,6 +188,10 @@ h3 span{
                     margin-right: 15px;
                 }
             }
+            @media (max-width: 1200px){
+                max-width: 300px;
+                width: calc(33% - 18px);
+            }
             @media (max-width: 767px) {
                 width: calc(100% - 60px)!important;
                 &[aria-hidden="true"]{
@@ -390,6 +394,9 @@ h3 span{
     position: relative;
     padding-bottom: 85px;
     z-index: 2;
+    @media(max-width: 840px){
+
+    }
     @media (max-width: 767px) {
         @include bannerMStyle();
     }
@@ -399,6 +406,16 @@ h3 span{
         margin-top: -155px;
         margin-left: 100px;
         filter: drop-shadow(0px 5px 20px rgba(0, 0, 0, 0.6));
+        @media (max-width: 1024px){
+            margin-left: 50px;
+            width: 35%;
+        }
+        @media(max-width: 840px){
+            margin-top: -30px;
+            width: 100%;
+            max-width: 100%;
+            margin: 50px;
+        }
         @media (max-width: 767px) {
             @include innerMStyle();
         }
@@ -407,6 +424,9 @@ h3 span{
         color: $whiteColor;
         padding: 65px 65px 0;     
         max-width: 520px;
+        @media (max-width: 1024px){
+            padding: 65px 0px 0 50px;
+        }
         @media (max-width: 767px) {
             padding: 30px;
         }
@@ -430,6 +450,7 @@ h3 span{
             text-align: center;
             margin-left: 15px;
             margin-right: 15px;
+            width: 25%;
             &:first-child{
                 margin-left: 0;
             }
@@ -437,7 +458,7 @@ h3 span{
                 margin-right: 0;
             }
             @media (max-width: 767px) {
-                @include liMStyle()
+                @include liMStyle();
             }
             .management__photo{
                 max-width: 130px;
@@ -494,6 +515,9 @@ h3 span{
         z-index: -1;
         bottom: -40px;
     }*/
+    @media(max-width: 840px){
+        margin-top: -5%;
+    }
     @media (max-width: 767px) {
         @include bannerMStyle();
         padding: 0 30px;
@@ -530,10 +554,21 @@ h3 span{
             font-family: $headlineFont;
             font-weight: 700;
             border-radius: 10px;
-            padding: 11px 0 14px;
+            padding: 11px 0 3px;
             background-color: $titleColor;
-            @media (max-width: 767px) {
-                font-size: 20px;
+            img{
+                display: inline-block;
+                max-width: 64px;
+                margin-top: 5px;
+            }
+            .label{
+                vertical-align: top;
+                display: inline-block;
+                @media (max-width: 767px) {
+                    font-size: 20px;
+                    line-height: 26px;
+                    padding-bottom: 11px;
+                }
             }
         }
     }
@@ -604,7 +639,7 @@ h3 span{
                     font-size: 20px;
                     min-height: 90px;
                     font-weight: 700;
-                    line-height: 55px;
+                    line-height: 25px;
                     &::before{
                         @include beforeAfterStyleCenter();
                         width: 10px;
@@ -829,6 +864,9 @@ h3 span{
         width: calc(1140px - 540px);
         text-align: right;
         padding-right: 60px;
+        @media (max-width: 1200px) {
+            padding-right: 30px;
+        }
         @media (max-width: 767px) {
             text-align: left;
             padding: 40px 30px;
@@ -848,6 +886,9 @@ h3 span{
     }
     .contact__map {
         display: flex;
+        iframe{
+            max-width: 100%;
+        }
     }
     h3{
         color:$titleColor;
