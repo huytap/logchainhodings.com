@@ -20,9 +20,9 @@ $menus = App\Models\Menu::getList();
             <div class="footer__people full-width">
                 <h3 class="footer__title">OUR MEMBERS</h3>
                 <ul class="footer__img footer__brand">
-                    <li><a href="#"><img src="{{asset('assets/clients/images')}}/logo-logchain.png" class="img-responsive"></a></li>
-                    <li><a href="#"><img src="{{asset('assets/clients/images')}}/logo-forwarding.png" class="img-responsive"></a></li>
-                    <li><a href="#"><img src="{{asset('assets/clients/images')}}/logo-solution.png" class="img-responsive"></a></li>
+                    <li><a href="https://logchain.vn"><img src="{{asset('assets/clients/images')}}/logo-logchain.png" class="img-responsive"></a></li>
+                    <li><a href="https://galaxyexpress.vn/galaxy-express-forwarding"><img src="{{asset('assets/clients/images')}}/logo-forwarding.png" class="img-responsive"></a></li>
+                    <li><a href="https://galaxyexpress.vn/galaxy-express-solutions"><img src="{{asset('assets/clients/images')}}/logo-solution.png" class="img-responsive"></a></li>
                 </ul>
                 {{-- <h3 class="footer__title title__connect">CONNECT US</h3>
                 <ul class="footer__img footer__social">

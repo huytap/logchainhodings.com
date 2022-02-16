@@ -1,12 +1,12 @@
 @php
-    $menu = App\Models\Menu::getList();
+    $menu = App\Models\Menu::getList2();
 @endphp
 <div class="form-group">
     <label>Page</label>
     <select class="form-control form-control-solid" name="menu_id">
         <option value="">--Select a page--</option>
         @foreach($menu as $key => $st)
-            <option value="{{$st->id}}" {{ $st->id === $content->menu_id ? 'selected' : '' }}>{{$st->name}}</option>
+            <option value="{{$st->id}}" {{ $st->id == $content['menu_id'] ? 'selected' : '' }}>{{$st->name}}</option>
         @endforeach
     </select>
     @error('menu_id')
