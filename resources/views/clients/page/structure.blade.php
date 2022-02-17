@@ -8,7 +8,10 @@
     <div class="container">
         <div class="board wow fadeInUp" data-wow-duration="1.5s">
             <div class="board__management">
-                <div class="btn-board">Board of Management</div>
+                <div class="btn-board">
+                    <img src="{{asset('assets/clients/images')}}/logogroup.png" class="img-responsive" alt="Logchain Group">
+                    <span class="label">Logchain Group Board of Management</span> 
+                </div>
             </div>
             <div class="board__list" id="boardlist">
                 <div class="board__item">
