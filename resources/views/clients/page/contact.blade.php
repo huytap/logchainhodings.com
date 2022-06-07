@@ -4,28 +4,47 @@
 use App\Models\Setting;
 $class='contact__banner';
 @endphp
-@include('clients.page._banner')
+<div class="banner {{$class}}" style="background: url({{asset('assets/clients/images/contact-banner.jpg')}}) no-repeat;background-size: cover;">
+    <div class="container banner__container text-center">
+        <div class="banner__content">
+            <h1 class="banner__title2 wow fadeInUp" data-wow-duration="1.5s">
+                CONTACT US
+            </h1>
+        </div> 
+    </div>        
+</div>
 <div class="content">        
-    <div class="container">
-        <div class="contact">
-            <div class="contact__info full-width wow fadeInUp" data-wow-duration="1.5s">
-                <h3>{{ strip_tags(Setting::getValue('owner'))}}</h3>
-                <div class="contact__us">
-                    <p>{{Setting::getValue('job_title')}}</p>
-                    <a href="mailto:{{Setting::getValue('contact_email')}}">{{Setting::getValue('contact_email')}}</a>
-                    <a href="tel:{{Setting::getValue('contact_phone')}}">{{Setting::getValue('contact_phone')}}</a>
+    <div class="contact">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2 offset-md-1 contact__item wow fadeInUp" data-wow-duration="1.5s">
+                    {{-- <h3>{{ strip_tags(Setting::getValue('owner'))}}</h3>
+                    <div class="contact__us">
+                        <p>{{Setting::getValue('job_title')}}</p>
+                        <a href="mailto:{{Setting::getValue('contact_email')}}">{{Setting::getValue('contact_email')}}</a>
+                        <a href="tel:{{Setting::getValue('contact_phone')}}">{{Setting::getValue('contact_phone')}}</a>
+                    </div> --}}
+                    <div class="contact__branch">
+                        <h4>{{ Setting::getValue('branch_title_1') }}</h4>
+                        <p>{{ Setting::getValue('branch_add_1') }}</p>
+                        <a href="tel:+8428 221 221 76">Tel: (+84) 28 221 221 76</a>
+                    </div>
                 </div>
-                <div class="contact__branch">
-                    <h4>{{ Setting::getValue('branch_title_1') }}</h4>
-                    <p>{{ Setting::getValue('branch_add_1') }}</p>
+                <div class="col-md-2 contact__item wow fadeInUp" data-wow-duration="1.5s">
+                    <div class="contact__branch">
+                        <h4>{{ Setting::getValue('branch_title_2') }}</h4>
+                        <p>{{ Setting::getValue('branch_add_2') }}</p>
+                        <a href="tel:+8424 666 222 60">Tel: (+84) 24 666 222 60</a>
+                    </div>
                 </div>
-                <div class="contact__branch">
-                    <h4>{{ Setting::getValue('branch_title_2') }}</h4>
-                    <p>{{ Setting::getValue('branch_add_2') }}</p>
+                <div class="col-md-6 offset-md-1">
+                    <div class="contact__map full-width wow fadeInUp" data-wow-duration="1.5s">
+                        <iframe src="{{ Setting::getValue('map') }}" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
                 </div>
             </div>
-            <div class="contact__map full-width wow fadeInUp" data-wow-duration="1.5s">
-                <iframe src="{{ Setting::getValue('map') }}" width="570" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <div class="contact__info full-width wow fadeInUp" data-wow-duration="1.5s">
+                
             </div>
         </div>
     </div>

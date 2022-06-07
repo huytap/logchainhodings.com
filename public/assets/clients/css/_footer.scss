@@ -11,11 +11,12 @@
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
         min-width: 100%;
+        position: relative;
         .footer__logo{
             display: inline-block;
             -ms-flex: 0 0 29.825%;
             flex: 0 0 29.825%;
-            max-width: 29.825%;
+            max-width: 270px;
             @media (max-width: 767px) {
                 flex: none !important;
             }
@@ -41,7 +42,9 @@
                     a{
                         line-height: 37px;
                         @include menuStyle();
+                        color: $menuColor;
                         font-weight: normal;
+                        text-transform: uppercase;
                         &:hover{
                             color: $goldColor;
                         }
@@ -112,6 +115,38 @@
                         display: block;
                         margin: 0 auto 30px;
                     }
+                }
+            }
+        }
+    }
+    .copyright{
+        color:$menuColor;
+        font-size: 14px;
+        line-height: 1.44;
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        .company{
+            padding-bottom: 15px;
+            display: block;
+            line-height: 26px;
+        }
+    }
+    .col-md-2{
+        position: relative;
+    }
+    .social{
+        li{
+            display: block;
+            margin-bottom: 10px;
+            a{
+                color:#D5CDC4;
+                font-size: 14px;
+                line-height: 1.44;
+                display: block;
+                img{
+                    display: inline-block;
+                    padding-right: 5px;
                 }
             }
         }

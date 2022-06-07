@@ -25,11 +25,15 @@ use App\Models\Menu;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+//Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', [PageController::class, 'index'])->name('home');
+Route::get('/about-us.html', [PageController::class, 'about'])->name('about');
+Route::get('/our-team.html', [PageController::class, 'ourteam'])->name('ourteam');
+Route::get('/contact.html', [PageController::class, 'contact'])->name('contact');
 Route::get('/{slug}.html', [PageController::class, 'index'])->name('page');
-// $menus = Menu::getList();
+//$menus = Menu::getList();
 // foreach ($menus as $menu) {
-//     Route::get('/{slug}.html', [PageController::class], 'index')->name($menu->slug);
+//     Route::get('/{slug}.html', [PageController::class, 'index']);
 // }
 
 // Route::get('/management-philosophy.html', [PageController::class, 'management'])->name('management');

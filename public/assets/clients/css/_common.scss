@@ -23,8 +23,8 @@ a{
 h1, h3, h4{
     font-style: normal;
     font-weight: bold;
-    font-size: 60px;
-    line-height: 65px;
+    font-size: 48px;
+    line-height: 58px;
     letter-spacing: -0.01em;
     position: relative;
     font-family: $headlineFont;
@@ -61,6 +61,7 @@ h3::after{
 .col-6{
     width: 50%;
 }
+/*
 @media(min-width: 576px){
     .container{
         max-width: 540px;
@@ -84,6 +85,7 @@ h3::after{
         max-width: 1140px;
     }
 }
+*/
 @media(max-width: 575px){
     .container{
         max-width: 100%;

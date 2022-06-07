@@ -3,11 +3,12 @@ $darkGreen: #003E4B;
 $whiteColor: #FFFFFF;
 $goldColor: #B08E70;
 $buttonColor: #b18e70;
-
+$grayColor:#333333;
+$grayColor2: #4F4F4F;
 /*font*/
 $menuColor: #D5CDC4;
-$menuFont: 'Manrope';
-$headlineFont: 'Playfair Display';
+$menuFont: 'Inter', sans-serif;
+$headlineFont: 'Cormorant Garamond', sans-serif;
 /*Z-index*/
 $zindex-dropdown:          1000 !default;
 $zindex-sticky:            1020 !default;

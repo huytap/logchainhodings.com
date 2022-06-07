@@ -11,7 +11,7 @@ class PageController extends Controller
     public function __construct()
     {
     }
-    public function index($slug)
+    public function index($slug = 'introduce')
     {
         $menu = Menu::getBySlug($slug);
         if (!empty($menu)) {
@@ -28,11 +28,31 @@ class PageController extends Controller
                     return view('clients.page.network', compact('title', 'menu', 'network'));
                 case 4:
                     return view('clients.page.contact', compact('title', 'menu'));
+                case 6:
+                    return view('clients.page.introduce', compact('title', 'menu'));
                 default:
                     return 404;
             }
         } else {
             return 404;
         }
+    }
+
+    public function about()
+    {
+        $title = 'About us';
+        return view('clients.page.about', compact('title'));
+    }
+
+    public function ourteam()
+    {
+        $title = 'Our team';
+        return view('clients.page.team', compact('title'));
+    }
+
+    public function contact()
+    {
+        $title = 'Contact us';
+        return view('clients.page.contact', compact('title'));
     }
 }

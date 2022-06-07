@@ -1,7 +1,7 @@
 @section('css')
 <style>
     .banner{
-        background:url({{$photo}}) no-repeat;
+        background:url({{$photo}}) no-repeat center bottom;
         background-size: 100%;
     }
     @if(!empty($mobile))
