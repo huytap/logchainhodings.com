@@ -46,7 +46,7 @@ class PageController extends Controller
 
     public function ourteam()
     {
-        $title = 'Our team';
+        $title = 'The team';
         return view('clients.page.team', compact('title'));
     }
 

@@ -23,7 +23,7 @@ $menus = App\Models\Menu::getList();
                     <li><a href="#contact-us">Contact us</a></li> --}}
                     <li><a href="{{route('home')}}">Home</a></li>
                     <li><a href="{{route('about')}}">About us</a></li>
-                    <li><a href="{{route('ourteam')}}">Our team</a></li>
+                    <li><a href="{{route('ourteam')}}">The team</a></li>
                     <li><a href="{{route('contact')}}">Contact us</a></li>
                     {{-- @foreach($menus as $menu)
                         <li><a href="{{route('page', $menu->slug)}}">{{$menu->name}}</a></li>

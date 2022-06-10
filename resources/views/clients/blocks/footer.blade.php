@@ -3,25 +3,25 @@ $menus = App\Models\Menu::getList();
 @endphp
 <div class="footer">
     <div class="container">
-        <div class="footer__row">
-            <div class="col-md-4">
+        <div class="row footer__row">
+            <div class="col-md-4 d-sm-flex align-items-md-center">
                 <a href="{{route('home')}}" class="footer__logo full-width"><img src="{{asset('assets/clients/images')}}/logo.png" class="img-fluid"></a>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 col-6">
                 <div class="footer__quicklinks full-width">
                     <h3 class="footer__title">QUICKLINKS</h3>
                     <ul class="navbarNavi">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About us</a></li>
-                        <li><a href="#">Our team</a></li>
-                        <li><a href="#">Contact us</a></li>
+                        <li><a href="{{route('home')}}">Home</a></li>
+                        <li><a href="{{route('about')}}">About us</a></li>
+                        <li><a href="{{route('ourteam')}}">The team</a></li>
+                        <li><a href="{{route('contact')}}">Contact us</a></li>
                         {{-- @foreach($menus as $menu)
                             <li><a href="{{route('page', $menu->slug)}}">{{$menu->name}}</a></li>
                         @endforeach --}}
                     </ul>
                 </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-2 col-6">
                 <ul class="social">
                     <li><a href="#"><img src="{{asset('assets/clients/images/linkedin.svg')}}" alt="">LinkedIn</a></li>
                     <li><a href="#"><img src="{{asset('assets/clients/images/fb.svg')}}" alt="">Facebook</a></li>

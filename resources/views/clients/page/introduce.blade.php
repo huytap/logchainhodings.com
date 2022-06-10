@@ -1,30 +1,11 @@
 @extends('clients.layouts.main')
 @section('content')
-@section('css')
-<style>
-    .banner::after{
-        content: "";
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 50%;
-        height: 100%;
-        background: url({{asset('assets/clients/images/home-banner.jpg')}}) no-repeat;
-        background-size: cover;
-    }
-    .banner{
-        position: relative;
-    }
-    .banner__content{
-        color:#333;
-    }
-</style>
-@endsection
 @php 
 $class = 'introduce';
 @endphp
 {{-- @include('clients.page._banner') --}}
-<div class="banner" id="banner">
+<div class="banner home__banner" id="banner">
+    <img src="{{asset('assets/clients/images/home-banner-m.jpg')}}" alt="" class="img-fluid d-md-none">
     <div class="container banner__container">
         <div class="row">
             <div class="col-md-5">
@@ -41,7 +22,7 @@ $class = 'introduce';
 <div class="content">
     <div class="introduce__info" id="our-strategy">
         <div class="container">
-            <h3 class="introduce__info--title wow fadeInUp" data-wow-duration="1.5s">Our Strategy</h3>
+            <h3 class="introduce__info--title wow fadeInUp" data-wow-duration="1.5s">Investment Strategy</h3>
             <div class="introduce__info--desc wow fadeInUp" data-wow-duration="1.5s">
                 <p>We aim to establish a complete supply chain ecosystem that provides regular income distributions and long-term capital appreciation through acquisitions or partnerships with multi-faceted supply chain companies, in accordance with the four strategic investment pillars described below.</p>
             </div>
@@ -93,19 +74,20 @@ $class = 'introduce';
         </div>
     </div>
     <div class="introduce__journey">
-        <h3 class="introduce__info--title introduce__journey--title wow fadeInUp" data-wow-duration="1.5s">Milestone</h3>
-        <img src="{{asset('assets/clients/images/journey-map.png')}}" class="img-fluid" alt="">
+        <h3 class="introduce__info--title introduce__journey--title wow fadeInUp" data-wow-duration="1.5s">Milestones</h3>
+        <img src="{{asset('assets/clients/images/journey-map.png')}}" class="img-fluid d-none d-sm-block" alt="">
+        <img src="{{asset('assets/clients/images/journey-map-m.png')}}" class="img-fluid d-md-none" alt="">
     </div>
     <div class="introduce__profile" id="porfolio">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 wow fadeInUp" data-wow-duration="1.5s">
                     <h3>Portfolio</h3>
-                    <p>We have invested in these exceptional businesses and assisted them in overcoming the most fundamental and difficult obstacles on their path to growth and expansion. We are supporting them in having a profound impact on the supply chain and logistics industry.</p>
+                    {{-- <p>We have invested in these exceptional businesses and assisted them in overcoming the most fundamental and difficult obstacles on their path to growth and expansion. We are supporting them in having a profound impact on the supply chain and logistics industry.</p> --}}
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-3 wow fadeInUp" data-wow-duration="1.5s">
+                <div class="col-md-3 col-6 wow fadeInUp" data-wow-duration="1.5s">
                     <div class="introduce__profile--item">
                         <a href="https://logchain.vn" target="_blank">
                             <div class="introduce__profile--logo">
@@ -118,7 +100,7 @@ $class = 'introduce';
                         </a>
                     </div>
                 </div>
-                <div class="col-md-3 wow fadeInUp" data-wow-duration="1.5s">
+                <div class="col-md-3 col-6 wow fadeInUp" data-wow-duration="1.5s">
                     <div class="introduce__profile--item">
                         <a href="https://galaxyexpress.vn" target="_blank">
                             <div class="introduce__profile--logo">
@@ -131,9 +113,10 @@ $class = 'introduce';
                         </a>
                     </div>
                 </div>
-                <div class="col-md-3 wow fadeInUp" data-wow-duration="1.5s">
+                <div class="w-100 d-block d-sm-none"></div>
+                <div class="col-md-3 col-6 wow fadeInUp" data-wow-duration="1.5s">
                     <div class="introduce__profile--item">
-                        <a href="https://logchain.vn" target="_blank">
+                        <a href="#" target="_blank">
                             <div class="introduce__profile--logo">
                                 <img src="{{asset('assets/clients/images/logo__uld.png')}}" alt="" class="img-fluid">
                             </div>
@@ -144,9 +127,9 @@ $class = 'introduce';
                         </a>
                     </div>
                 </div>
-                <div class="col-md-3 wow fadeInUp" data-wow-duration="1.5s">
+                <div class="col-md-3 col-6 wow fadeInUp" data-wow-duration="1.5s">
                     <div class="introduce__profile--item">
-                        <a href="https://galaxyexpress.vn" target="_blank">
+                        <a href="#" target="_blank">
                             <div class="introduce__profile--logo">
                                 <img src="{{asset('assets/clients/images/logo__comingsoon.png')}}" alt="" class="img-fluid">                        
                             </div>
@@ -171,17 +154,19 @@ setTimeout(function(){
 $(window).resize(setHeightBanner())    
 
 function setHeightBanner(){
-    var bannerHeight = document.getElementById('banner')
-    var height = bannerHeight.offsetHeight
-    document.getElementById('banner').style.height = height + 'px'
+    if($(window).width() > 767){
+        var bannerHeight = document.getElementById('banner')
+        var height = bannerHeight.offsetHeight
+        document.getElementById('banner').style.height = height + 'px'
+    }
 }
 $(document).ready(function(){
-    var w = $(window).width();
-    var innerW = $('#contact-us').find('.container').width();
-    var infoW = $('#contact-info').width();
-    var newW = ((w-innerW)/2 + (innerW - infoW - 30));
-    console.log(newW)
-    $('.introduce__contact--map').css('width', newW+'px')
+    // var w = $(window).width();
+    // var innerW = $('#contact-us').find('.container').width();
+    // var infoW = $('#contact-info').width();
+    // var newW = ((w-innerW)/2 + (innerW - infoW - 30));
+    // console.log(newW)
+    // $('.introduce__contact--map').css('width', newW+'px')
 })
 </script>
 @endsection

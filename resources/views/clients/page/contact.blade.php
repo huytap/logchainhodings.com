@@ -4,16 +4,17 @@
 use App\Models\Setting;
 $class='contact__banner';
 @endphp
-<div class="banner {{$class}}" style="background: url({{asset('assets/clients/images/contact-banner.jpg')}}) no-repeat;background-size: cover;">
+<div class="banner {{$class}}">
+    <img src="{{asset('assets/clients/images/contact-banner-m.jpg')}}" alt="" class="img-fluid d-md-none">
     <div class="container banner__container text-center">
         <div class="banner__content">
             <h1 class="banner__title2 wow fadeInUp" data-wow-duration="1.5s">
-                CONTACT US
+                Contact Us
             </h1>
         </div> 
     </div>        
 </div>
-<div class="content">        
+<div class="content content__contact">        
     <div class="contact">
         <div class="container-fluid">
             <div class="row">
@@ -42,9 +43,6 @@ $class='contact__banner';
                         <iframe src="{{ Setting::getValue('map') }}" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
-            </div>
-            <div class="contact__info full-width wow fadeInUp" data-wow-duration="1.5s">
-                
             </div>
         </div>
     </div>

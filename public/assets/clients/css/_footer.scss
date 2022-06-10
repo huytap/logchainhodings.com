@@ -3,7 +3,6 @@
     padding: 66px 0;
     @media (max-width: 767px) {
         padding: 50px 0;
-        text-align: center;
     }
     .footer__row{
         display: -ms-flexbox;
@@ -19,12 +18,13 @@
             max-width: 270px;
             @media (max-width: 767px) {
                 flex: none !important;
+                margin-bottom: 50px;
             }
             img{
-                max-width: 190px;
+                max-width: 270px;
                 @media (max-width: 767px) {
                     margin: 0 auto;
-                    max-width: 140px;
+                    max-width: 195px;
                 }
             }
         }
@@ -36,9 +36,16 @@
             @media (max-width: 767px) {
                 flex: none !important;
                 order: 2;
+                font-size: 16px;
             }
             ul{
+                margin: 0;
                 li{
+                    @media (max-width: 767px) {
+                        &:not(:first-child){
+                            padding-top: 15px;
+                        }
+                    }
                     a{
                         line-height: 37px;
                         @include menuStyle();
@@ -126,6 +133,10 @@
         position: absolute;
         width: 100%;
         bottom: 0;
+        margin-bottom: 10px;
+        @media (max-width: 767px) {
+            position: relative;
+        }
         .company{
             padding-bottom: 15px;
             display: block;
@@ -136,6 +147,9 @@
         position: relative;
     }
     .social{
+        @media (max-width: 767px) {
+            margin-top: 58px;
+        }
         li{
             display: block;
             margin-bottom: 10px;

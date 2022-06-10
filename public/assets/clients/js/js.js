@@ -55,12 +55,13 @@ $(document).ready(function () {
 		var w = window.innerWidth
 		var height = 700;
 		var width = 1440;
-		if (w < 768) {
-			height = 404;
-			width = 390;
-		}
+		// if (w < 768) {
+		// 	height = 404;
+		// 	width = 390;
+		// }
 		var banner = document.getElementById('banner')
-		banner.style.height = w * height / width + 'px';
+		if (w > 767)
+			banner.style.height = w * height / width + 'px';
 	}
 	resizeBrowser();
 	window.addEventListener('resize', resizeBrowser)

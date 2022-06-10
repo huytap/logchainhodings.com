@@ -28,7 +28,7 @@ use App\Models\Menu;
 //Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/', [PageController::class, 'index'])->name('home');
 Route::get('/about-us.html', [PageController::class, 'about'])->name('about');
-Route::get('/our-team.html', [PageController::class, 'ourteam'])->name('ourteam');
+Route::get('/the-team.html', [PageController::class, 'ourteam'])->name('ourteam');
 Route::get('/contact.html', [PageController::class, 'contact'])->name('contact');
 Route::get('/{slug}.html', [PageController::class, 'index'])->name('page');
 //$menus = Menu::getList();

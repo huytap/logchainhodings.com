@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&Manrope:wght@400;700&display=swap');
 @import 'fonts';
 @import 'variable';
 @import 'mixins';
@@ -29,18 +29,59 @@ h3 span{
 }
 /*home*/
 .home__banner{    
-    .banner__title{
-        font-size: 45px;
-        line-height: 55px;
-        @media (max-width: 767px){
-            padding: 0 30px;
-            bottom: -70px;
-            z-index: 2;
-            font-size: 30px;
-            line-height: 40px;
-            &::after{
-                left: 30px!important;
-            }            
+    // .banner__title{
+    //     font-size: 45px;
+    //     line-height: 55px;
+    //     @media (max-width: 768px){
+    //         padding: 0 30px;
+    //         bottom: -70px;
+    //         z-index: 2;
+    //         font-size: 30px;
+    //         line-height: 40px;
+    //         &::after{
+    //             left: 30px!important;
+    //         }            
+    //     }
+    // }
+    &::after{
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50%;
+        height: 100%;
+        background: url(../images/home-banner.jpg) no-repeat;
+        background-size: cover;
+        @media (max-width: 768px) {
+            background:transparent;
+        }
+    }
+    position: relative;
+    .banner__content{
+        color:#333;
+        p{
+            color:#4F4F4F;
+        }
+    }
+
+    @media (max-width: 768px) {
+        // background: url(../images/home-banner-m.jpg) no-repeat center;
+        // background-size: 100%;
+        // width: 100%;
+        .banner__container{
+            top: auto;
+        }
+        max-height: none;
+        h1{
+            font-size: 36px;
+            line-height: 1.44;
+        }
+        .banner__content{
+            color: $whiteColor;
+            p{
+                color: $whiteColor;
+                line-height: 1.44;
+            }
         }
     }
 }
@@ -48,10 +89,13 @@ h3 span{
     &__info{
         padding-top: 160px;
         text-align: center;
+        @media (max-width: 768px) {
+            padding-top: 90px;
+        }
         &--title{
             position: relative;
             margin-bottom: 25px;
-            text-transform: uppercase;
+            color:$grayColor;
             &::before{
                 content: "";
                 position: absolute;
@@ -61,7 +105,7 @@ h3 span{
                 bottom: -8px;
                 right: 0;
                 margin: 0 auto;
-                background-color: $darkGreen;
+                background-color: $grayColor;
             }
         }
         &--desc{
@@ -72,6 +116,12 @@ h3 span{
             padding: 15px;
             font-size: 14px;
             line-height: 1.44;
+            color:$grayColor2;
+            @media (max-width: 768px) {
+                margin: 0 auto;
+                padding: 15px 0;
+                width: 100%;
+            }
             p:not(:first-child){
                 font-size: 24px;
                 font-family: $headlineFont;
@@ -83,16 +133,28 @@ h3 span{
         min-height: 400px;
         padding: 40px 15px 0;
         transition: 0.3s all ease;
+        @media (max-width: 768px) {
+            min-height: auto;
+            padding: 25px;
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
         &--desc{
             text-align: center;
             padding: 0 10px;
             font-size: 14px;
+            color: $grayColor2;
             h3{
                 font-size: 24px;
                 position: relative;
                 margin-top: 28px;
                 margin-bottom: 10px;
                 line-height: 1.44;
+                color:$grayColor;
+                @media (max-width: 768px) {
+                    margin-top: 0;
+                }
                 // &::before{
                 //     content: "";
                 //     position: absolute;
@@ -104,6 +166,9 @@ h3 span{
                 //     margin: 0 auto;
                 //     background-color: $darkGreen;
                 // }
+            }
+            @media (max-width: 768px) {
+                text-align: left;
             }
         }
         &:hover{
@@ -122,19 +187,32 @@ h3 span{
             }
         }
         &--img{
+            @media (max-width: 768px) {
+                max-width: 40px;
+                margin-right: 20px;
+            }
             &__hover{
                 display: none;
+                @media (max-width: 768px) {
+                    max-width: 40px;
+                    margin-right: 20px;
+                }
             }
         }
     }
     &__journey{
         background:url(../images/journey-bg.png) no-repeat;
         background-size: 100%;
-        margin-top: 180px;
-        padding: 125px 0;
+        margin-top: 80px;
+        padding: 90px 0 125px;
         text-align: center;
+        @media (max-width: 768px) {
+            padding: 0 0 80px;
+            background:url(../images/journey-bg-m.png) no-repeat;
+            background-size: 100%;
+        }
         &--title{
-            margin-bottom: 125px;
+            margin-bottom: 75px;
         }
         img{
             margin: 0 auto;
@@ -152,16 +230,26 @@ h3 span{
         line-height: 1.44;
         letter-spacing: -0.01em;
         font-weight: 400;
+        @media (max-width: 768px) {
+            text-align: center;
+        }
         h3{
             color: $whiteColor;
             margin-bottom: 60px;
-            text-transform: uppercase;
+            display: inline-block;
             &::after{
                 left: 0;
                 height: 1px;
-                width: 125px;
                 bottom: -20px;
                 background-color: $whiteColor;
+                width: 80%;
+            }
+            @media (max-width: 768px) {
+                font-size: 48px;
+                &::after{
+                    right: 0;
+                    margin: 0 auto;
+                }
             }
         }
         &--item{
@@ -176,6 +264,9 @@ h3 span{
                 .introduce__profile--desc{
                     background-position: left;
                 }
+            }
+            @media (max-width: 768px) {
+                margin: calc(var(--bs-gutter-x) * .5) 0;
             }
             // &::after{
             //     content:"";
@@ -208,6 +299,12 @@ h3 span{
                 max-height: 103px;
                 margin: 0 auto;
                 max-width: 66%;
+                @media (max-width: 768px) {
+                    max-width: 90%;
+                }
+            }
+            @media (max-width: 768px) {
+                height: 135px;
             }
             // width: 50%;
             // background: #003E4B;
@@ -230,11 +327,23 @@ h3 span{
             font-size: 14px;
             position: relative;
             transition: 0.3s ease-out;
-            background: linear-gradient(to left, salmon 50%, $darkGreen 50%) right;
+            background: linear-gradient(to left, $goldColor 50%, $darkGreen 50%) right;
             background-size: 200%;
+            @media (max-width: 768px) {
+                font-size: 12px;
+                padding: 10px 15px;
+                text-align: left;
+                height: 54px;
+                display: flex;
+                align-items: center;
+            }
             .goto{
                 position: absolute;
                 right: 20px;
+                @media (max-width: 768px) {
+                    right: 10px;
+                    top: 18px;
+                }
             }
         }
     }
@@ -349,7 +458,7 @@ h3 span{
     }
 }
 .solutions{
-    @media(max-width: 767px){
+    @media(max-width: 768px){
         padding-top: 120px;
     }
     .solution__item{
@@ -374,13 +483,13 @@ h3 span{
                     right: 0;
                     bottom:0;
                 }
-                @media(max-width: 767px){
+                @media(max-width: 768px){
                     order:1;
                 }
             }
             .solution__desc{
                 padding-right: 80px;
-                @media(max-width: 767px){
+                @media(max-width: 768px){
                     padding-left: 30px;
                     order: 2;
                 }
@@ -390,7 +499,7 @@ h3 span{
             width: 50%;
             max-width: 588px;
             position: relative;
-            @media(max-width: 767px){
+            @media(max-width: 768px){
                 padding-left: 30px;
                 img{
                     padding-left: 20px;
@@ -404,7 +513,7 @@ h3 span{
                 position: absolute;
                 left: 0;                    
                 z-index: -1;
-                @media(max-width: 767px){
+                @media(max-width: 768px){
                     left: 30px;
                     top: -30px;
                     width: calc(100% - 110px);
@@ -414,7 +523,7 @@ h3 span{
         .solution__desc{
             width: 45%;
             max-width: 488px;  
-            @media(max-width: 767px){
+            @media(max-width: 768px){
                 padding-right: 30px!important;
                 padding-top: 20px;
             }          
@@ -433,14 +542,13 @@ h3 span{
         }
     }
 }
-
 .ecosystem{
     background:url(../images/home-bg2.jpg) no-repeat 0 -168px;
     background-size: cover;
     padding: 60px 0 0;
     position: relative;
     z-index: 2;
-    @media (max-width: 767px) {
+    @media (max-width: 768px) {
         overflow: hidden;
         padding: 50px 30px 30px;
         font-size: 14px;
@@ -463,7 +571,7 @@ h3 span{
             right: 0;
             margin: 0 auto;
         }
-        @media (max-width: 767px) {
+        @media (max-width: 768px) {
             margin-top: 0;
         }
     }
@@ -475,7 +583,7 @@ h3 span{
     }
     .ecosystem__list{
         @include dFlexStyle();
-        @media (max-width: 767px) {
+        @media (max-width: 768px) {
             width: calc(100% - 120px);
             padding: 0 15px;
             height: 100%;
@@ -489,13 +597,13 @@ h3 span{
             filter: drop-shadow(-2px -4px 10px rgba(0, 0, 0, 0.6));
             &:first-child{
                 margin-left: 0;
-                @media (max-width: 767px) {
+                @media (max-width: 768px) {
                     margin-left: 15px;
                 }
             }
             &:last-child{
                 margin-right: 0;
-                @media (max-width: 767px) {
+                @media (max-width: 768px) {
                     margin-right: 15px;
                 }
             }
@@ -503,7 +611,7 @@ h3 span{
                 max-width: 300px;
                 width: calc(33% - 18px);
             }
-            @media (max-width: 767px) {
+            @media (max-width: 768px) {
                 width: calc(100% - 60px)!important;
                 &[aria-hidden="true"]{
                     height: 85%;
@@ -535,7 +643,7 @@ h3 span{
             }
             .ecosystem__desc{
                 padding: 0 40px;
-                @media (max-width: 767px) {
+                @media (max-width: 768px) {
                     min-height: 300px;
                     padding: 0 30px;
                 }
@@ -546,7 +654,7 @@ h3 span{
                     padding-top: 10px;
                     p{
                         min-height: 70px;
-                        @media (max-width: 767px) {
+                        @media (max-width: 768px) {
                             min-height: auto;
                         }
                     }
@@ -589,7 +697,7 @@ h3 span{
                 position: absolute;
                 bottom: -20px;
                 right: 40px;
-                @media (max-width: 767px) {
+                @media (max-width: 768px) {
                     padding: 6px 19px;
                 }                
                 img{
@@ -617,7 +725,7 @@ h3 span{
         width: 100%;
         padding: 0;
         display: none;
-        @media (max-width: 767px) {
+        @media (max-width: 768px) {
             display: block;   
         }
         div{
@@ -644,13 +752,13 @@ h3 span{
     z-index: 1;
     margin-bottom: 32px;
     text-align: center;
-    @media (max-width: 767px) {
+    @media (max-width: 768px) {
         padding: 30px 40px 0;
         background-size: cover;
         margin-top:0;
     }
     .map__journey{
-        @media (max-width: 767px) {
+        @media (max-width: 768px) {
             margin-bottom: 30px;
         }
         h3{
@@ -661,11 +769,11 @@ h3 span{
                 left: 0;
                 right: 0;
                 margin: 0 auto;
-                @media (max-width: 767px) {
+                @media (max-width: 768px) {
                     width: 80px;
                 }
             }
-            @media (max-width: 767px) {
+            @media (max-width: 768px) {
                 margin-top: 0;
             }
         }
@@ -686,11 +794,11 @@ h3 span{
         &::after{
             right: 0;
             margin: 0 auto;
-            @media (max-width: 767px) {
+            @media (max-width: 768px) {
                 left: 0!important;
             }
         }
-        @media (max-width: 767px) {
+        @media (max-width: 768px) {
             bottom: auto!important;
             top: 15px!important;
         }
@@ -708,7 +816,7 @@ h3 span{
     @media(max-width: 840px){
 
     }
-    @media (max-width: 767px) {
+    @media (max-width: 768px) {
         @include bannerMStyle();
     }
     .mission__photo{
@@ -727,7 +835,7 @@ h3 span{
             max-width: 100%;
             margin: 50px;
         }
-        @media (max-width: 767px) {
+        @media (max-width: 768px) {
             @include innerMStyle();
         }
     }
@@ -738,7 +846,7 @@ h3 span{
         @media (max-width: 1024px){
             padding: 65px 0px 0 50px;
         }
-        @media (max-width: 767px) {
+        @media (max-width: 768px) {
             padding: 30px;
         }
         .mission__title{            
@@ -752,7 +860,7 @@ h3 span{
     margin-bottom: 60px;
     ul{
         display: flex;
-        @media (max-width: 767px) {
+        @media (max-width: 768px) {
             flex-wrap: wrap;
             padding: 0 15px;
             display: block;
@@ -768,13 +876,13 @@ h3 span{
             &:last-child{
                 margin-right: 0;
             }
-            @media (max-width: 767px) {
+            @media (max-width: 768px) {
                 @include liMStyle();
             }
             .management__photo{
                 max-width: 130px;
                 margin: 0 auto;
-                @media (max-width: 767px) {
+                @media (max-width: 768px) {
                     max-width: 83px;
                     height: 83px;
                 }
@@ -784,7 +892,7 @@ h3 span{
                 font-size: 30px;
                 font-family: $headlineFont;
                 font-weight: bold;
-                @media (max-width: 767px) {
+                @media (max-width: 768px) {
                     font-size: 20px;
                 }
             }
@@ -792,7 +900,7 @@ h3 span{
     }
 }
 /*structure*/
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     .banner.structure__banner{
         .banner__title{
             right: 0;
@@ -829,7 +937,7 @@ h3 span{
     @media(max-width: 840px){
         margin-top: -5%;
     }
-    @media (max-width: 767px) {
+    @media (max-width: 768px) {
         @include bannerMStyle();
         padding: 0 30px;
         .bx-pager{
@@ -875,7 +983,7 @@ h3 span{
             .label{
                 vertical-align: top;
                 display: inline-block;
-                @media (max-width: 767px) {
+                @media (max-width: 768px) {
                     font-size: 20px;
                     line-height: 26px;
                     padding-bottom: 11px;
@@ -885,7 +993,7 @@ h3 span{
     }
     .board__list{
         display: flex;
-        @media (max-width: 767px) {
+        @media (max-width: 768px) {
             display: block;
         }
         .board__item{
@@ -919,17 +1027,17 @@ h3 span{
             }
             &:first-child{
                 margin-left: 0;
-                @media (max-width: 767px) {
+                @media (max-width: 768px) {
                     margin-left: 0;
                 }                
             }
             &:last-child{
                 margin-right: 0;
-                @media (max-width: 767px) {
+                @media (max-width: 768px) {
                     margin-right: 0;
                 }
             }
-            @media (max-width: 767px) {
+            @media (max-width: 768px) {
                 margin: 0;
             }
             li{
@@ -966,7 +1074,7 @@ h3 span{
 .journey{
     margin-top: 90px;
     margin-bottom: 60px;
-    @media (max-width: 767px) {
+    @media (max-width: 768px) {
         padding: 0 30px;
         margin: 50px 0;
     }
@@ -988,7 +1096,7 @@ h3 span{
     ul{
         display: flex;
         align-items: center;
-        @media (max-width: 767px) {
+        @media (max-width: 768px) {
             display: block;
         }
         li{
@@ -1002,7 +1110,7 @@ h3 span{
             &:last-child{
                 margin-right: 0;
             }
-            @media (max-width: 767px) {
+            @media (max-width: 768px) {
                 margin-bottom: 30px;
                 @include liMStyle();
             }
@@ -1031,14 +1139,14 @@ h3 span{
                     font-weight: bold;
                     margin-bottom: 0;
                     line-height: 35px;
-                    @media (max-width: 767px) {
+                    @media (max-width: 768px) {
                         font-size: 20px;
                         line-height: 27px;
                     }
                 }
                 p{
                     margin: 0;
-                    @media (max-width: 767px) {
+                    @media (max-width: 768px) {
                         font-size: 12px;
                     }
                 }
@@ -1083,13 +1191,13 @@ h3 span{
 }
 .network{
     padding-top: 80px;  
-    @media (max-width: 767px) {
+    @media (max-width: 768px) {
         padding-top: 0;
     }
     .network__list{
         display: flex;
         margin-bottom: 100px;      
-        @media (max-width: 767px) {
+        @media (max-width: 768px) {
             padding: 0 30px;
             display: block;
             margin-bottom: 50px;
@@ -1097,7 +1205,7 @@ h3 span{
         .network__title{
             width: 350px;
             margin: 0;
-            @media (max-width: 767px) {
+            @media (max-width: 768px) {
                 width: 100%;
                 margin-bottom: 55px;
             }
@@ -1112,12 +1220,12 @@ h3 span{
                     background-color: $darkGreen;
                     left: 0;
                     bottom: -40px;
-                    @media (max-width: 767px) {
+                    @media (max-width: 768px) {
                         width: 80px;
                         bottom: -20px;
                     }
                 }
-                @media (max-width: 767px) {
+                @media (max-width: 768px) {
                     display: inline-block;
                     position: initial;
                 }
@@ -1126,13 +1234,13 @@ h3 span{
         ul{
             margin: 0;
             width: calc(1140px - 350px);
-            @media (max-width: 767px) {
+            @media (max-width: 768px) {
                 width: 100%;
             }
             li{
                width: calc(24.5%);
                display: inline-block;
-               @media (max-width: 767px) {
+               @media (max-width: 768px) {
                    @include liMStyle();
                }
                &:first-child{
@@ -1146,6 +1254,22 @@ h3 span{
     }
 }
 /*contact*/ 
+h1{
+    display: inline-block;
+    &::after{
+        @include beforeAfterStyle();
+        background-color: $whiteColor;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        bottom: -8px;
+        width: 70%;
+        max-width: 127px;
+        @media (max-width: 768px) {
+            width: 80px;
+        }
+    }
+}
 .contact__banner{
     padding-top: 28%;
     padding-bottom: 0;
@@ -1156,22 +1280,29 @@ h3 span{
                 right: 0;
                 margin: 0 auto;
             }
-            @media (max-width: 767px) {
+            @media (max-width: 768px) {
                 top: 20%;
             }
         }
     }
 }
+.content__contact{
+    overflow: hidden;
+}
 .contact{
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
-    margin-top: 15px;
+    margin:0 -15px;
+    overflow: hidden;
     color:$grayColor;
     // background-color: $darkGreen;
-    @media (max-width: 767px) {
+    @media (max-width: 768px) {
         display: block;
         margin-bottom: 32px;
+        margin: 50px 0 0;
+        .col-md-6{
+            padding:0;
+        }
     }
     .contact__info{
         width: calc(1140px - 540px);
@@ -1180,13 +1311,13 @@ h3 span{
         @media (max-width: 1200px) {
             padding-right: 30px;
         }
-        @media (max-width: 767px) {
+        @media (max-width: 768px) {
             text-align: left;
             padding: 40px 30px;
         }
         .contact__us{
             margin-bottom: 50px;
-            @media (max-width: 767px) {
+            @media (max-width: 768px) {
                 margin-bottom: 20px;
                 a{
                     display: block;
@@ -1202,9 +1333,21 @@ h3 span{
         iframe{
             max-width: 100%;
         }
+        @media (max-width: 768px) {
+            margin: 45px 0 0;
+        }
     }
     &__branch{
-        color: $grayColor;
+        color: $grayColor2;
+        font-family: 'Manrope', sans-serif;
+        font-weight: 400;
+        p{
+            margin-bottom: 0;
+        }
+        @media (max-width: 768px) {
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
     }
     &__item{
         display: flex;
@@ -1212,7 +1355,7 @@ h3 span{
     }
     a{
         font-weight: 700;
-        color: $grayColor;
+        color: $grayColor2;
     }
     h3{
         color:$titleColor;
@@ -1221,7 +1364,10 @@ h3 span{
     h4{
         font-size: 20px;
         color:$grayColor;
-        margin: 0;
+        margin: 0 0 10px;
+        font-family: 'Manrope', sans-serif;
+        font-weight: 700;
+        line-height: 1;
     }
 }
 .banner__about{
@@ -1231,36 +1377,54 @@ h3 span{
         font-size: 24px;
     }
     .banner__title2{
-        &::after{
-            margin: 0 auto;
-            right: 0;
-        }
+        margin-bottom: 74px;
+        display: inline-block;
+        // &::after{
+        //     margin: 0 auto;
+        //     right: 0;
+        //     bottom: -8px;
+        //     width: 70%;
+        // }
     }
 }
 .about{
     margin-top: -245px;
+    @media (max-width: 576px) {
+        margin-top: -375px;
+    }
     &__info{
-        background: $darkGreen;
+        background: $lightGray;
         margin-bottom: 100px;
+        @media (max-width: 576px) {
+            margin-bottom: 65px;
+        }
         h2{
             font-size: 48px;
             position: relative;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             display: inline-block;
+            font-family: 'Cormorant Garamond';
+            color: $grayColor;
             &::after{
                 content:"";
                 position: absolute;
                 left: 0;
-                bottom: -25px;
+                bottom: -15px;
                 height: 1px;
                 width: 63%;
-                background-color: $whiteColor;
+                background-color: $grayColor;
+                @media (max-width: 768px) {
+                    width: 110%;
+                }
+            }
+            @media (max-width: 768px) {
+                font-size: 36px;
             }
         }
         &--desc{
             display: flex;
             align-items: center;
-            color:$whiteColor;
+            color:$grayColor2;
             padding-left: 55px;
             ul{
                 margin-left: 23px;
@@ -1269,36 +1433,84 @@ h3 span{
                     margin-bottom: 20px;
                 }
             }
+            @media (max-width: 768px) {
+                padding-left: calc(var(--bs-gutter-x) * .5);
+                margin-top: -130px;
+                &__content{
+                    background-color: #F3F3F4;
+                    padding: 40px 22px;
+                    font-size: 12px;
+                }
+            }
         }
     }
     &__services{
         margin-bottom: 200px;
+        text-align: center;
+        @media (max-width: 576px) {
+            margin-bottom: 80px;
+        }
+        &--title{
+            font-size: 48px;
+            font-family: $headlineFont;
+            color: $grayColor;
+            display: inline-block;
+            margin-bottom: 80px;
+            &::after{
+                content:"";
+                position: absolute;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+                bottom: -15px;
+                height: 1px;
+                width: 63%;
+                background-color: $grayColor;
+                @media (max-width: 768px) {
+                    width: 50%;
+                    bottom: -10px;
+                }
+            }
+            @media (max-width: 768px) {
+                font-size: 36px;
+                margin-bottom: 65px;
+            }
+        }
         .col{
             transition: 0.3s ease;
             &:hover{
                 .about__services--icon{
                     img{
                         &:first-child{
-                            opacity: 0;
+                            display: none;
                             height: 0;
                         }
                         &:last-child{
                             display: inline-block;
-                            opacity: 1;
-                            height: auto;
-                            transform: scale(1.0);
+                        }
+                        @media (max-width: 576px) {
+                            max-width: 40px;
                         }
                     }
                 }
             }
-        }
-        h3{
-            font-size: 24px;
-            line-height: 29px;
-            text-align: center;
-            letter-spacing: -0.01em;
-            color: $darkGreen;
-            margin-top: 28px;
+            h3{
+                font-size: 24px;
+                line-height: 1.2;
+                text-align: center;
+                letter-spacing: -0.01em;
+                color: $grayColor;
+                margin-top: 28px;
+                @media (max-width: 768px) {
+                    font-size: 16px;
+                    margin-top: 20px;
+                }
+            }
+            @media (max-width: 576px) {
+                width: 50%;
+                flex: 0 0 auto;
+                margin-bottom: 30px;
+            }
         }
         &--icon{
             text-align: center;
@@ -1306,9 +1518,11 @@ h3 span{
                 margin: 0 auto;
                 transition: 0.3s all ease;
                 &:last-child{
-                    opacity: 0;
-                    height: 0;
-                    transform: scale(0.8);
+                    display: none;
+                    max-width: 72px;
+                }
+                @media (max-width: 576px) {
+                    max-width: 40px;
                 }
             }
         }
@@ -1319,23 +1533,36 @@ h3 span{
     padding-top: 0;
     display: flex;
     align-items: center;
+    background: url(../images/contact-banner.jpg) no-repeat;
+    background-size: cover;
+    @media (max-width: 768px) {
+        background: transparent;
+        min-height: auto;
+        .banner__container.container{
+            top: auto;
+            bottom: 50px;
+            h1{
+                margin-bottom: 8px;
+            }
+        }
+    }
     .banner__content{
         width: 100%;
         h1{
             text-align: center;
         }
     }
-    .banner__title2{
-        &::after{
-            margin: 0 auto;
-            right: 0;
-        }
-    }
+    // .banner__title2{
+    //     &::after{
+    //         margin: 0 auto;
+    //         right: 0;
+    //     }
+    // }
 }
 .team{
     h3{
-        font-size: 36px;
-        line-height: 36px;
+        font-size: 32px;
+        line-height: 1.44;
         position: relative;
         display: inline-block;
         text-align: left;
@@ -1344,6 +1571,9 @@ h3 span{
             font-weight: normal;
             display: block;
             font-family: 'Inter', sans-serif;
+            @media (max-width: 768px) {
+                font-size: 16px;
+            }
         }
         &::after{
             @include beforeAfterStyle();
@@ -1355,6 +1585,7 @@ h3 span{
     ul{
         margin-left: 15px;
         padding-left: 0;
+        margin-bottom: 0;
         li{
             list-style: disc;
             color:$grayColor2;
@@ -1363,53 +1594,91 @@ h3 span{
     &__banner{
         h1{
             margin-bottom: 50px;
-            &::after{
-                @include beforeAfterStyle();
-                background-color: $whiteColor;
-                left: 0;
-                right: 0;
-                margin: 0 auto;
-                bottom: -25px;
-                @media (max-width: 767px) {
-                    width: 80px;
-                }
-            }
+        }
+    }
+    &__box{
+        border: 1px solid $titleColor;
+        padding: 5px;
+        margin-top: -100px;
+        @media (max-width: 768px) {
+            margin-top: -74px;
+        }
+        @media (max-width: 375px) {
+            margin-top: -150px;
         }
     }
     &__info{
-        margin-top: -100px;
         background: $menuColor;
         &--left{
             background: $darkGreen;
             color: $whiteColor;
             text-align: center;
-            padding: 60px 0;
-            
+            padding: 65px 0;
+            height: 100%;
         }
         &--right{
             padding: 50px 55px;
-            font-size: 20px;
+            font-size: 16px;
             line-height: 1.44;
+            color:$grayColor2;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        h3{
+            @media (max-width: 768px) {
+                font-size: 20px;
+                text-align: center;
+                &::after{
+                    width: 70%;
+                    margin: 0 auto;
+                    right: 0;
+                    left: 0;
+                }
+            }
         }
     }
     &__list{
         margin-top: 85px;
         margin-bottom: 160px;
+        @media (max-width: 768px) {
+            margin-bottom: 100px;
+            margin-top: 30px;
+        }
         h3{
+            color: $grayColor3;
             &::after{
-                background: #151515;
+                background: $grayColor3;
                 width: 63px;
                 left: 0;
+                @media (max-width: 768px) {
+                    width: 33px;
+                }
+            }
+            span{
+                font-size: 16px;
+            }
+            @media (max-width: 768px) {
+                font-size: 20px;
+                line-height: 1.44;
             }
         }
         ul{
             margin-top: 20px;
+            @media (max-width: 768px) {
+                margin-left: 23px;
+            }
         }
         &--item{
             min-height: 285px;
             padding: 30px 15px;
             border-top: 1px solid $darkGreen;
             position: relative;
+            font-size: 14px;
+            @media (max-width: 768px) {
+                font-size: 12px;
+                padding: 20px 8px;
+            }
             &::before{
                 content: "";
                 height: 8px;
@@ -1427,6 +1696,26 @@ h3 span{
                 top: 15px;
                 left: 0;
                 position: absolute;
+            }
+        }
+    }
+    .col-md-3{
+        @media (min-width: 769px) {
+            &:nth-child(4n+1){
+                .team__list--item{
+                    &:after{
+                        background-color: transparent;
+                    }
+                }
+            }
+        }
+        @media (max-width: 768px) {
+            &:nth-child(2n+1){
+                .team__list--item{
+                    &:after{
+                        background-color: transparent;
+                    }
+                }
             }
         }
     }

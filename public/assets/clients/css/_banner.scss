@@ -6,13 +6,10 @@
         min-height: 640px;
         background-position: bottom center;
     }
-    @media (max-width: 767px) {
+    @media (max-width: 768px) {
         font-size: 30px;
         line-height: 40px;
-    }
-    &__container{
-        display: flex;
-        align-items: center;
+        overflow: hidden;
     }
     &__content{
         color:$whiteColor;
@@ -24,15 +21,15 @@
     &__title2{
         font-size: 48px;
         margin-bottom: 40px;
-        &::after{
-            @include beforeAfterStyle();
-            background-color: $whiteColor;
-            left: 0;
-            bottom: -20px;
-            @media (max-width: 767px) {
-                width: 80px;
-            }
-        }
+        // &::after{
+        //     @include beforeAfterStyle();
+        //     background-color: $whiteColor;
+        //     left: 0;
+        //     bottom: -20px;
+        //     @media (max-width: 768px) {
+        //         width: 80px;
+        //     }
+        // }
     }
     // &::after{
     //     content:"";
@@ -42,35 +39,11 @@
     //     bottom:0;
     //     background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
     //     z-index: 1;
-    //     @media (max-width: 767px) {            
+    //     @media (max-width: 768px) {            
     //         height: 190px;
     //         bottom: 15px;
     //     }
     // }
-    .container{
-        position: relative;
-        height: 100%;
-        .banner__title{
-            position: absolute;
-            max-width: 650px;
-            left: 0;
-            font-weight: normal;
-            color: $darkGreen;
-            span{
-                font-weight: 700;
-            }
-            &::after{
-                @include beforeAfterStyle();
-                background-color: $darkGreen;
-                left: 0;
-                bottom: -40px;
-                @media (max-width: 767px) {
-                    width: 80px;
-                    bottom: -20px;
-                }
-            }
-        }
-    }
     &.introduce{
         .banner__title{
             right: 0;
@@ -79,6 +52,61 @@
             &::after{
                 right: 0;
                 left: auto;
+            }
+        }
+    }
+    &__about{
+        background: url(../images/about.jpg) no-repeat;
+        background-size: cover;
+        @media (max-width: 768px) {
+            background: transparent;
+        }
+    }
+    &__title{
+        position: absolute;
+        max-width: 650px;
+        left: 0;
+        font-weight: normal;
+        color: $darkGreen;
+        span{
+            font-weight: 700;
+        }
+        &::after{
+            @include beforeAfterStyle();
+            background-color: $darkGreen;
+            left: 0;
+            bottom: -40px;
+            @media (max-width: 768px) {
+                width: 80px;
+                bottom: -20px;
+            }
+        }
+    }
+    &__container{
+        display: flex;
+        align-items: center;
+        &.container{
+            position: relative;
+            height: 100%;
+        }
+        @media (max-width: 768px) {
+            &.container{
+                position: absolute;
+                bottom: 70px;
+                display: block;
+                height: auto;
+                top: 80px;
+                left: 0;
+                right: 0;
+                .banner__content{
+                    margin-top: 0;
+                    font-size: 14px;
+                    line-height: 1.44;
+                    h1{
+                        font-size: 36px;
+                        margin-bottom: 20px;
+                    }
+                }
             }
         }
     }

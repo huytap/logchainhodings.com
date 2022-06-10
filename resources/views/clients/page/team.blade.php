@@ -1,14 +1,28 @@
 @extends('clients.layouts.main')
+@section('css')
+<style>
+    .banner{
+        background: url({{asset('assets/clients/images/team-banner.jpg')}}) no-repeat;
+        background-size: cover;
+    }
+    @media (max-width: 768px){
+        .banner{
+            background: transparent;
+        }
+    }
+</style>
+@endsection
 @section('content')
 @php
 use App\Models\Setting;
 $class='team__banner';
 @endphp
-<div class="banner {{$class}}" id="banner" style="background: url({{asset('assets/clients/images/team-banner.jpg')}}) no-repeat;background-size: cover;">
+<div class="banner {{$class}}" id="banner">
+    <img src="{{asset('assets/clients/images/about-banner-m.jpg')}}" alt="" class="img-fluid d-md-none">
     <div class="container banner__container text-center">
         <div class="banner__content">
             <h1 class="banner__title3 wow fadeInUp" data-wow-duration="1.5s">
-                OUR TEAM
+                The Team
             </h1>
             <p class="wow fadeInUp" data-wow-duration="1.5s">We are an experienced team in the Logistics and Supply Chain space, always ready to collaborate with you to capitalize on business opportunities and overcome obstacles. Our team are driven by cutting-edge technologies that streamline supply chain processes, as well as a common goal of building a sustainable logistics ecosystem in Vietnam.</p>
         </div> 
@@ -16,29 +30,31 @@ $class='team__banner';
 </div>
 <div class="content team">        
     <div class="container">
-        <div class="team__info">
-            <div class="row">
-                <div class="col-md-5">
-                    <div class="team__info--left">
-                    <h3>
-                        Mr.Anh Vu
-                        <span>Chairman</span>
-                    </h3>
+        <div class="team__box">
+            <div class="team__info">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="team__info--left">
+                            <h3>
+                                Mr.Anh Vu
+                                <span>Chairman</span>
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="team__info--right">
+                            <ul>
+                                <li>21+ Years in Logistics Industry.</li>
+                                <li>11+ Years in C-Level Experienced to set up and perform MNC’s client’s requirements and ecommerce logistics.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                </div>
-                <div class="col-md-7">
-                    <div class="team__info--right">
-                    <ul>
-                        <li>21+ Years in Logistics Industry.</li>
-                        <li>11+ Years in C-Level Experienced to set up and perform MNC’s client’s requirements and ecommerce logistics.</li>
-                    </ul>
-                </div>
-            </div>
             </div>
         </div>
         <div class="team__list">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-3 col-6">
                     <div class="team__list--item">
                     <h3>
                         Ms. Ruby Nguyen
@@ -51,7 +67,7 @@ $class='team__banner';
                     </ul>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 col-6">
                     <div class="team__list--item">
                     <h3>
                         Ms. Bekka Nguyen
@@ -64,7 +80,7 @@ $class='team__banner';
                     </ul>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 col-6">
                     <div class="team__list--item">
                     <h3>
                         Ms. Tien Le
@@ -72,7 +88,7 @@ $class='team__banner';
                     </h3>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 col-6">
                     <div class="team__list--item">
                     <h3>
                         Oversea Investors
@@ -80,7 +96,7 @@ $class='team__banner';
                     </h3>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 col-6">
                     <div class="team__list--item">
                     <h3>
                         Ms. Susan Tran
@@ -88,7 +104,7 @@ $class='team__banner';
                     </h3>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 col-6">
                     <div class="team__list--item">
                     <h3>
                         Mr. Brian Van
@@ -96,7 +112,7 @@ $class='team__banner';
                     </h3>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 col-6">
                     <div class="team__list--item">
                     <h3>
                         Ms. Annie Le
@@ -109,7 +125,7 @@ $class='team__banner';
                     </ul>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 col-6">
                     <div class="team__list--item">
                     <h3>
                         Mr. Abra Tran
@@ -132,9 +148,11 @@ $class='team__banner';
     $(window).resize(setHeightBanner())    
     
     function setHeightBanner(){
-        var bannerHeight = document.getElementById('banner')
-        var height = bannerHeight.offsetHeight
-        document.getElementById('banner').style.height = height + 'px'
+        if($(window).width() > 768){
+            var bannerHeight = document.getElementById('banner')
+            var height = bannerHeight.offsetHeight
+            document.getElementById('banner').style.height = height + 'px'
+        }
     }
     </script>
 @endsection

@@ -52,15 +52,6 @@ h3::after{
     max-width: 100%;
     display: block;
 }
-.col{
-    float: left;
-}
-.col-4{
-    width: 33.333%;
-}
-.col-6{
-    width: 50%;
-}
 /*
 @media(min-width: 576px){
     .container{
@@ -90,14 +81,11 @@ h3::after{
     .container{
         max-width: 100%;
     }
-    .col-4,.col-6{
-        width: 100%;
-    }
 }
 @media(max-width: 767px){
     h1, h3, h4{
-        font-size: 30px;
-        line-height: 40px;
+        font-size: 36px;
+        line-height: 1.44;
     }
     .full-width{
         width: 100%!important;
