@@ -2,7 +2,7 @@
 @section('css')
 <style>
     .banner{
-        background: url({{asset('assets/clients/images/team-banner.jpg')}}) no-repeat;
+        background: url({{asset('assets/clients/images/team-banner.jpg')}}) no-repeat top center;
         background-size: cover;
     }
     @media (max-width: 768px){
@@ -18,13 +18,13 @@ use App\Models\Setting;
 $class='team__banner';
 @endphp
 <div class="banner {{$class}}" id="banner">
-    <img src="{{asset('assets/clients/images/about-banner-m.jpg')}}" alt="" class="img-fluid d-md-none">
+    <img src="{{asset('assets/clients/images/team-banner-m.jpg')}}" alt="" class="img-fluid d-md-none">
     <div class="container banner__container text-center">
         <div class="banner__content">
             <h1 class="banner__title3 wow fadeInUp" data-wow-duration="1.5s">
                 The Team
             </h1>
-            <p class="wow fadeInUp" data-wow-duration="1.5s">We are an experienced team in the Logistics and Supply Chain space, always ready to collaborate with you to capitalize on business opportunities and overcome obstacles. Our team are driven by cutting-edge technologies that streamline supply chain processes, as well as a common goal of building a sustainable logistics ecosystem in Vietnam.</p>
+            {{-- <p class="wow fadeInUp" data-wow-duration="1.5s">We are an experienced team in the Logistics and Supply Chain space, always ready to collaborate with you to capitalize on business opportunities and overcome obstacles. Our team are driven by cutting-edge technologies that streamline supply chain processes, as well as a common goal of building a sustainable logistics ecosystem in Vietnam.</p> --}}
         </div> 
     </div>        
 </div>
@@ -108,7 +108,8 @@ $class='team__banner';
                     <div class="team__list--item">
                     <h3>
                         Mr. Brian Van
-                        <span>Solutions</span>
+                        <span>Solutions<br/>
+                            Cold Chain</span>
                     </h3>
                     </div>
                 </div>

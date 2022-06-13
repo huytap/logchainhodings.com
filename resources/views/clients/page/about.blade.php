@@ -18,11 +18,12 @@
         <div class="about__info">
             <div class="row">
                 <div class="col-md-4">
-                    <img src="{{asset('assets/clients/images/about-cover.png')}}" alt="" class="img-fluid">
+                    <img src="{{asset('assets/clients/images/about-cover.png')}}" alt="" class="d-none d-sm-block img-fluid">
+                    <img src="{{asset('assets/clients/images/about-cover-m.jpg')}}" alt="" class="d-sm-none d-block img-fluid">
                 </div>
                 <div class="col-md-8 about__info--desc">
                     <div class="about__info--desc__content">
-                        <h2>Mission</h2>
+                        <h2>Missions</h2>
                         <ul>
                             <li>Adopt and implement new technologies across supply chain segments and operating systems.</li>
                             <li>Provide smart initiatives with the goal of delivering effective and efficient business results.</li>

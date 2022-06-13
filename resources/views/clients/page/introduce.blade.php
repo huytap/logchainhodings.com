@@ -118,7 +118,7 @@ $class = 'introduce';
                     <div class="introduce__profile--item">
                         <a href="#" target="_blank">
                             <div class="introduce__profile--logo">
-                                <img src="{{asset('assets/clients/images/logo__uld.png')}}" alt="" class="img-fluid">
+                                <img src="{{asset('assets/clients/images/logo__comingsoon.png')}}" alt="" class="img-fluid">
                             </div>
                             <div class="introduce__profile--desc">
                                 Logistics | Co-loader

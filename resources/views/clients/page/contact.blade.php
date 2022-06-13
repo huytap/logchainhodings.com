@@ -9,7 +9,7 @@ $class='contact__banner';
     <div class="container banner__container text-center">
         <div class="banner__content">
             <h1 class="banner__title2 wow fadeInUp" data-wow-duration="1.5s">
-                Contact Us
+                Contact
             </h1>
         </div> 
     </div>        
