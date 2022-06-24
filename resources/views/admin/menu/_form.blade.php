@@ -32,12 +32,22 @@ use App\Helpers\Enum;
     @enderror
 </div>
 <div class="form-group">
+    <label>Banner Description</label>
+    <textarea name="banner_description"  class="form-control form-control-solid" placeholder="Banner Description" />
+    {{old('banner_description')??$model['banner_description']}}
+    </textarea>
+    @error('banner_description')
+        <div class="fv-plugins-message-container">
+            <div data-field="memo" data-validator="notEmpty" class="fv-help-block">{{$message}}</div>
+        </div>
+    @enderror
+</div>
+<div class="form-group">
     <label>Banner Photo</label>
     <div class="custom-file">
         <input name="photo_upload" type="file" class="custom-file-input" id="customFile"/>
         <label class="custom-file-label" for="customFile">Choose file</label>
     </div>
-    
     @if(!empty($model->banner))
         <div style="padding-top:10px">
             <img src="{{asset('uploads/'.$model->banner)}}" width="100"/>        
@@ -55,7 +65,6 @@ use App\Helpers\Enum;
         <input name="mobile" type="file" class="custom-file-input" id="customFile"/>
         <label class="custom-file-label" for="customFile">Choose file</label>
     </div>
-    
     @if(!empty($model->banner_mobile))
         <div style="padding-top:10px">
             <img src="{{asset('uploads/'.$model->banner_mobile)}}" width="100"/>        
@@ -108,7 +117,6 @@ use App\Helpers\Enum;
         <input name="thumbnailUrl" type="file" class="custom-file-input" id="customFile"/>
         <label class="custom-file-label" for="customFile">Choose file</label>
     </div>
-    
     @if(!empty($model->seo_thumbnailUrl))
         <div style="padding-top:10px">
             <img src="{{asset('uploads/'.$model->seo_thumbnailUrl)}}" width="100"/>        

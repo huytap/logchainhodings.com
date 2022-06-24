@@ -56,8 +56,6 @@
         }
     }
     &__about{
-        background: url(../images/about.jpg) no-repeat;
-        background-size: cover;
         @media (max-width: 768px) {
             background: transparent;
         }

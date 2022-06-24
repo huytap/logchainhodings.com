@@ -422,11 +422,6 @@ h3::after {
   left: auto;
 }
 
-.banner__about {
-  background: url(../images/about.jpg) no-repeat;
-  background-size: cover;
-}
-
 @media (max-width: 768px) {
   .banner__about {
     background: transparent;
@@ -787,6 +782,7 @@ h3 span {
 /*home*/
 .home__banner {
   position: relative;
+  height: 640px;
 }
 
 .home__banner::after {
@@ -796,13 +792,18 @@ h3 span {
   right: 0;
   width: 50%;
   height: 100%;
-  background: url(../images/home-banner.jpg) no-repeat;
   background-size: cover;
 }
 
 @media (max-width: 768px) {
   .home__banner::after {
-    background: transparent;
+    background: transparent !important;
+  }
+}
+
+@media (max-width: 1440px) {
+  .home__banner {
+    height: 488px;
   }
 }
 
@@ -3006,7 +3007,7 @@ h1::after {
 }
 
 .team__list--item {
-  min-height: 285px;
+  min-height: 312px;
   padding: 30px 15px;
   border-top: 1px solid #003E4B;
   position: relative;

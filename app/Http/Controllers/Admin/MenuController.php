@@ -1,43 +1,35 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
-
 use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use App\Http\Requests\Menu\StoreRequest;
 use App\Models\Menu;
 use App\Http\Services\Menu\MenuService;
-
 class MenuController extends Controller
 {
     protected $menuService;
-
     public function __contruct(MenuService $menuService)
     {
         $this->menuService = $menuService;
     }
-
     public function index()
     {
         $title = 'Menu';
         $data = Menu::search()->paginate(15);
         return view('admin.menu.index', compact('data', 'title'));
     }
-
     public function create()
     {
         $title = 'Create Menu';
         $model = new Menu;
         return view('admin.menu.create', compact('model', 'title'));
     }
-
     public function edit(Menu $menu)
     {
         $title = 'Update Menu ' . $menu->name;
         return view('admin.menu.edit', compact('menu', 'title'));
     }
-
     public function update(StoreRequest $request, Menu $menu)
     {
         $old = $menu->banner;
@@ -57,7 +49,6 @@ class MenuController extends Controller
             }
             $request->merge(['banner' => $fileName]);
         }
-
         if ($request->hasFile('thumbnailUrl')) {
             if ($request->thumbnailUrl->isValid()) {
                 $file = $request->thumbnailUrl;
@@ -68,7 +59,6 @@ class MenuController extends Controller
             }
             $request->merge(['seo_thumbnailUrl' => $fileName]);
         }
-
         if ($request->hasFile('mobile')) {
             if ($request->mobile->isValid()) {
                 $file = $request->mobile;
@@ -79,31 +69,26 @@ class MenuController extends Controller
             }
             $request->merge(['banner_mobile' => $fileName]);
         }
-
         if ($request->banner && $old && file_exists($path . '/' . $old)) {
             unlink($path . '/' . $old);
         } elseif (empty($request->banner)) {
             $request->merge(['banner' => $old]);
         }
-
         if ($request->seo_thumbnailUrl && $old_thumbnailUrl && file_exists($path . '/' . $old_thumbnailUrl)) {
             unlink($path . '/' . $old_thumbnailUrl);
         } elseif (empty($request->seo_thumbnailUrl)) {
             $request->merge(['seo_thumbnailUrl' => $old_thumbnailUrl]);
         }
-
         if ($request->banner_mobile && $old_mobile && file_exists($path . '/' . $old_mobile)) {
             unlink($path . '/' . $old_mobile);
         } elseif (empty($request->banner_mobile)) {
             $request->merge(['banner_mobile' => $old_mobile]);
         }
-
         $slug = (string)Str::slug($request->input('name'), '-');
         $request->merge(['slug' => $slug]);
-        $menu->update($request->only('name', 'slug', 'priority', 'banner', 'banner_title', 'banner_mobile', 'is_show', 'status', 'seo_title', 'seo_description', 'seo_thumbnailUrl'));
+        $menu->update($request->only('name', 'slug', 'priority', 'banner', 'banner_title', 'banner_description', 'banner_mobile', 'is_show', 'status', 'seo_title', 'seo_description', 'seo_thumbnailUrl'));
         return redirect()->route('menu.index')->with('success', 'Update menu success');
     }
-
     public function store(StoreRequest $request)
     {
         //$result = $this->menuService->create($request);
@@ -122,7 +107,6 @@ class MenuController extends Controller
                 }
                 $request->merge(['banner' => $fileName]);
             }
-
             if ($request->hasFile('thumbnailUrl')) {
                 if ($request->thumbnailUrl->isValid()) {
                     $file = $request->thumbnailUrl;
@@ -133,7 +117,6 @@ class MenuController extends Controller
                 }
                 $request->merge(['seo_thumbnailUrl' => $fileName]);
             }
-
             if ($request->hasFile('mobile')) {
                 if ($request->mobile->isValid()) {
                     $file = $request->mobile;
@@ -144,7 +127,6 @@ class MenuController extends Controller
                 }
                 $request->merge(['banner_mobile' => $fileName]);
             }
-
             // Menu::create([
             //     'name' => (string)$request->input('name'),
             //     'slug' => (string)Str::slug($request->input('name'), '-'),

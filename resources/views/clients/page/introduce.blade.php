@@ -46,7 +46,6 @@ $class = 'introduce';
                             <p>
                                 Facilitate convenient & affordable international trade while building a streamlined and reliable network.
                             </p>
-
                         </div>
                     </div>
                 </div>
@@ -150,9 +149,7 @@ $class = 'introduce';
 setTimeout(function(){
     setHeightBanner()
 }, 1000)
-
 $(window).resize(setHeightBanner())    
-
 function setHeightBanner(){
     if($(window).width() > 767){
         var bannerHeight = document.getElementById('banner')

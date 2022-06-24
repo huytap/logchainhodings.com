@@ -1,132 +1,121 @@
 @extends('clients.layouts.main')
-{{-- @section('css')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.css" />
-@endsection --}}
+@section('css')
+<style>
+    .home__banner::after{
+        background: url({{asset('uploads/'.$menu->banner)}}) no-repeat center top;
+        background-size: cover;
+    }
+</style>
+@endsection
 @section('content')
-<x-clients.banner photo="{{asset('uploads/'. $menu->banner)}}" 
-    mobile="{{asset('uploads/'.$menu->banner_mobile)}}" class="home__banner">
-    {!!$menu->banner_title!!}
-</x-clients.banner>
+<div class="banner home__banner">
+    <img src="{{asset('uploads/'.$menu->banner_mobile)}}" alt="" class="img-fluid d-md-none">
+    <div class="container banner__container">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="banner__content">
+                    <h1 class="banner__title2 wow fadeInUp" data-wow-duration="1.5s">
+                        {!!$menu->banner_title!!}
+                    </h1>
+                    <p class="wow fadeInUp" data-wow-duration="1.5s">
+                        {!!$menu->banner_description!!}
+                    </p>
+                </div>
+            </div>
+        </div>        
+    </div>        
+</div>
+@php 
+    $collection1 = $collection->filter(function ($val, $key) {
+        return $val->content_section==1;
+    });
+    $result1 = $collection1->all();
+@endphp
 <div class="content">
-    @php 
-        $collection1 = $collection->filter(function ($val, $key) {
-            return $val->content_section==1;
-        });
-        $result1 = $collection1->all();
-    @endphp
-    @if(!empty($result1))
-    <section class="solutions">
-        <div class="container">   
-            @foreach($result1 as $key => $dt)            
-                @if($key % 2== 0)
-                    <div class="solution__item wow fadeInUp" data-wow-duration="1.5s">
-                        <div class="solution__photo full-width">
-                            <img src="{{asset('uploads/'. $dt['photo'])}}" class="img-responsive">
-                        </div>
-                        <div class="solution__desc full-width">
-                            <h3 class="solution__title">
-                                {!!$dt['title']!!}
-                            </h3>
-                            {!!$dt['description']!!}
-                        </div>
-                    </div>
-                @else
-                    <div class="solution__item wow fadeInUp" data-wow-duration="1.5s">
-                        <div class="solution__desc full-width">
-                            <h3 class="solution__title ">
-                                {!!$dt['title']!!}
-                            </h3>
-                            {!!$dt['description']!!}
-                        </div>
-                        <div class="solution__photo full-width">
-                            <img src="{{asset('uploads/'. $dt['photo'])}}" class="img-responsive">
-                        </div>
-                    </div>
-                @endif
-            @endforeach
-        </div>
-    </section>
-    @endif
-
-    @php 
-        $collection2 = $collection->filter(function ($val, $key) {
-            return $val->content_section==2;
-        });
-        $result2 = $collection2->all();
-    @endphp
-    <section class="ecosystem">
+    <div class="introduce__info" id="our-strategy">
         <div class="container">
+            @if(!empty($result1))
+                <h3 class="introduce__info--title wow fadeInUp" data-wow-duration="1.5s">{{$result1[0]['title']}}</h3>
+                <div class="introduce__info--desc wow fadeInUp" data-wow-duration="1.5s">
+                    {!!$result1[0]['description']!!}
+                </div>
+            @endif
+            @php 
+                $collection2 = $collection->filter(function ($val, $key) {
+                    return $val->content_section==2;
+                });
+                $result2 = $collection2->all();
+            @endphp
             @if(!empty($result2))
-                @foreach($result2 as $key => $dt)    
-                    <h3 class="ecosystem__title wow fadeInUp" data-wow-duration="1.5s">{!! $dt['title'] !!}</h3>
-                    <div class="ecosystem__info wow fadeInUp" data-wow-duration="1.5s">
-                        {!! $dt['description'] !!}
+            <div class="row wow fadeInUp" data-wow-duration="1.5s">
+                @foreach($result2 as $rs)
+                    <div class="col-md-3">
+                        <div class="introduce__item">
+                            <img src="{{asset('uploads/'.$rs['photo'])}}" alt="" class="introduce__item--img img-fluid">
+                            <img src="{{asset('uploads/'.$rs['photo_mobile'])}}" alt="" class="introduce__item--img__hover img-fluid">
+                            <div class="introduce__item--desc">
+                                <h3>{!!$rs['title']!!}</h3>
+                                {!!$rs['description']!!}
+                            </div>
+                        </div>
                     </div>
                 @endforeach
-            @endif
-            @if(!empty($ecosystems))
-                <div class="ecosystem__list" id="ecosystem">
-                    @foreach($ecosystems as $dt)
-                        <div class="ecosystem__item">
-                            <div class="ecosystem__photo">
-                                <img src="{{asset('uploads/'. $dt->photo)}}" class="img-responsive" />
-                            </div>
-                            <div class="ecosystem__desc">
-                                <div class="ecosystem__logo">
-                                    <img src="{{asset('uploads/'. $dt->logo)}}" class="img-responsive" />
-                                </div>
-                                <div class="ecosystem_detail">
-                                    {!! $dt->description !!}
-                                </div>
-                            </div>
-                            <a href="{{$dt->link}}" class="btn btn-explore">Explore <img src="{{asset('assets/clients/images')}}/right-arrow.png" alt=""></a>
-                        </div>
-                    @endforeach
-                </div>
-                <div class="ecosystem__nav">
-                    <div id="ecosystem__prev" role="button" aria-label="Prev slide" aria-disabled="false"></div>
-                    <div id="ecosystem__next" role="button" aria-label="Next slide" aria-disabled="false"></div>
-                </div>
+            </div>
             @endif
         </div>
-    </section>
-
+    </div>
     @php 
         $collection3 = $collection->filter(function ($val, $key) {
             return $val->content_section==3;
         });
         $result3 = $collection3->all();
     @endphp
-    @if(!empty($result3))        
-    <section class="map">
-        @foreach($result3 as $key => $dt)
-            <div class="map__journey wow fadeInUp" data-wow-duration="1.5s">
-                <h3>{!! $dt['title'] !!}</h3>
-                {!! $dt['description'] !!}
+    @if(!empty($result3))
+        <div class="introduce__journey">
+            @foreach($result3 as $rs)
+                <h3 class="introduce__info--title introduce__journey--title wow fadeInUp" data-wow-duration="1.5s">{{$rs['title']}}</h3>
+                <img src="{{asset('uploads/'.$rs['photo'])}}" class="img-fluid d-none d-sm-block" alt="">
+                <img src="{{asset('uploads/'.$rs['photo_mobile'])}}" class="img-fluid d-md-none" alt="">
+            @endforeach
+        </div>
+    @endif
+    @php 
+        $collection4 = $collection->filter(function ($val, $key) {
+            return $val->content_section==4;
+        });
+        $result4 = $collection4->all();
+    @endphp
+    @if(!empty($result4))
+        <div class="introduce__profile" id="porfolio">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 wow fadeInUp" data-wow-duration="1.5s">
+                        <h3>Portfolio</h3>
+                        {{-- <p>We have invested in these exceptional businesses and assisted them in overcoming the most fundamental and difficult obstacles on their path to growth and expansion. We are supporting them in having a profound impact on the supply chain and logistics industry.</p> --}}
+                    </div>
+                </div>
+                <div class="row">
+                    @foreach($result4 as $key => $rs)
+                        <div class="col-md-3 col-6 wow fadeInUp" data-wow-duration="1.5s">
+                            <div class="introduce__profile--item">
+                                <a href="{{strip_tags($rs['description'])}}" target="_blank">
+                                    <div class="introduce__profile--logo">
+                                        <img src="{{asset('uploads/'.$rs['photo'])}}" alt="" class="img-fluid">
+                                    </div>
+                                    <div class="introduce__profile--desc">
+                                        {{$rs['title']}}
+                                        <span class="goto"><img src="{{asset('assets/clients/images/arrow__right.svg')}}" width="20" alt=""></span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        @if($key%2==0)
+                            <div class="w-100 d-block d-sm-none"></div>
+                        @endif
+                    @endforeach
+                </div>
             </div>
-            <img src="{{asset('uploads/'.$dt['photo_mobile'])}}" class="img-responsive hidden-md wow fadeInUp" data-wow-duration="1.5s" alt="">
-            <img src="{{asset('uploads/'.$dt['photo'])}}" class="img-responsive hidden-xs wow fadeInUp" data-wow-duration="1.5s" alt="">
-        @endforeach
-    </section>
+        </div>
     @endif
 </div>
-@endsection
-
-@section('script')
-<script type="text/javascript" src="{{asset('assets/clients/js/jquery-3.6.0.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('assets/clients/js/bxslider.min.js')}}"></script>
-<script type="text/javascript">
-    if($(window).width() < 768){
-        $('#ecosystem').bxSlider({
-            mode: 'fade',
-            captions: false,
-            touchEnabled: true,
-            nextSelector: "#ecosystem__next",
-            prevSelector: "#ecosystem__prev",
-            nextText: '<img src=\'{{asset("assets/clients/images/icon_arrow-right.svg")}}\' class="img-responsive">',
-            prevText: '<img src=\'{{asset("assets/clients/images/icon_arrow-left.svg")}}\' class="img-responsive">',
-            pager: false
-        })
-    }
-</script>
 @endsection

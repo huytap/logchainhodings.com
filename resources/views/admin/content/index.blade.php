@@ -5,7 +5,6 @@
 @endphp
 @extends('layouts.admin')
 @section('content')
-
 <div class="card card-custom gutter-b">
     <!--begin::Card-->
     <div class="card card-custom">
@@ -36,7 +35,6 @@
                         </span>
                         Export
                     </button>
-
                     <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
                         <ul class="navi flex-column navi-hover py-2">
                             <li class="navi-header font-weight-bolder text-uppercase font-size-sm text-primary pb-2">
@@ -75,14 +73,12 @@
                         </ul>
                     </div>
                 </div> --}}
-
                 <a href="{{route($route_item)}}" class="btn btn-primary font-weight-bolder">
                     <span class="fas fa-plus"></span>
                     Add new
                 </a>
             </div>
         </div>
-        
         <div class="card-body">
             <div class="mb-7">
                 <div class="row align-items-center">
@@ -95,7 +91,7 @@
                                         <select class="form-control" name="page_id" id="kt_datatable_search_status">
                                             <option value="">--All--</option>
                                             @foreach(App\Models\Menu::getList2() as $key => $st)
-                                                <option value="{{$st->id}}" {{ request()->page_id == $st->id ? 'selected' : '' }}>{{$st->name}}</option>
+                                                <option value="{{$st->id}}" {{ request()->page_id == $st->id ? 'selected' : '' }}>{{$st['name']}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -130,11 +126,12 @@
                         @foreach ($data as $key => $item)
                         @php
                         $menu = App\Models\Menu::find($item->menu_id);    
-                        $page = $menu->name;
+                        $page = $menu?$menu->name:'';
+                        $cover = $item->photo ? 'uploads/'.$item->photo : 'assets/clients/images/cover-la-gi.png';
                         @endphp
                             <tr data-row="0" class="datatable-row" style="left: 0px;">
                                 <td scope="row">{{($key+1)}}</td>
-                                <td><img src="{{asset('uploads/'.$item->photo)}}" width="100"/></td>
+                                <td><img src="{{asset($cover)}}" width="100"/></td>
                                 <td>{{$page}}</td>
                                 <td>{{$item['title']}}</td>
                                 <td>{{$item['created_at']}}</td>                            

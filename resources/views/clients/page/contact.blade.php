@@ -28,14 +28,14 @@ $class='contact__banner';
                     <div class="contact__branch">
                         <h4>{{ Setting::getValue('branch_title_1') }}</h4>
                         <p>{{ Setting::getValue('branch_add_1') }}</p>
-                        <a href="tel:+8428 221 221 76">Tel: (+84) 28 221 221 76</a>
+                        <a href="tel:{{Setting::getValue('contact_phone')}}">Tel: {{Setting::getValue('contact_phone')}}</a>
                     </div>
                 </div>
                 <div class="col-md-2 contact__item wow fadeInUp" data-wow-duration="1.5s">
                     <div class="contact__branch">
                         <h4>{{ Setting::getValue('branch_title_2') }}</h4>
                         <p>{{ Setting::getValue('branch_add_2') }}</p>
-                        <a href="tel:+8424 666 222 60">Tel: (+84) 24 666 222 60</a>
+                        <a href="tel:{{Setting::getValue('contact_phone_2')}}">{{Setting::getValue('contact_phone_2')}}</a>
                     </div>
                 </div>
                 <div class="col-md-6 offset-md-1">
@@ -48,7 +48,6 @@ $class='contact__banner';
     </div>
 </div>
 @endsection
-
 @section('script')
 <script type="text/javascript">
 // setTimeout(function(){
@@ -56,6 +55,5 @@ $class='contact__banner';
 //     var height = bannerHeight.offsetHeight - 100
 //     document.getElementById('banner').style.height = height + 'px'
 // }, 1000)
-    
 </script>
 @endsection

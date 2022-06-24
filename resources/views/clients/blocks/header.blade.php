@@ -16,18 +16,13 @@ $menus = App\Models\Menu::getList();
                     </button>
                 </div>
                 <ul id="navbar" class="navbarNavi">
-                    {{-- <li><a href="#banner">Introduce</a></li>
-                    <li><a href="#our-strategy">Our Strategy</a></li>
-                    <li><a href="#porfolio">Portfolio</a></li>
-                    <li><a href="#news">Our latest news</a></li>
-                    <li><a href="#contact-us">Contact us</a></li> --}}
                     <li><a href="{{route('home')}}">Home</a></li>
-                    <li><a href="{{route('about')}}">About</a></li>
+                    {{-- <li><a href="{{route('about')}}">About</a></li>
                     <li><a href="{{route('ourteam')}}">The Team</a></li>
-                    <li><a href="{{route('contact')}}">Contact</a></li>
-                    {{-- @foreach($menus as $menu)
+                    <li><a href="{{route('contact')}}">Contact</a></li> --}}
+                    @foreach($menus as $menu)
                         <li><a href="{{route('page', $menu->slug)}}">{{$menu->name}}</a></li>
-                    @endforeach --}}
+                    @endforeach
                 </ul>
             </nav>
         </div>

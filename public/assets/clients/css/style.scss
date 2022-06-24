@@ -50,20 +50,22 @@ h3 span{
         right: 0;
         width: 50%;
         height: 100%;
-        background: url(../images/home-banner.jpg) no-repeat;
         background-size: cover;
         @media (max-width: 768px) {
-            background:transparent;
+            background:transparent!important;
         }
     }
     position: relative;
+    height: 640px;
+    @media (max-width: 1440px) {
+        height: 488px;
+    }
     .banner__content{
         color:#333;
         p{
             color:#4F4F4F;
         }
     }
-
     @media (max-width: 768px) {
         // background: url(../images/home-banner-m.jpg) no-repeat center;
         // background-size: 100%;
@@ -854,7 +856,6 @@ h3 span{
     padding-bottom: 85px;
     z-index: 2;
     @media(max-width: 840px){
-
     }
     @media (max-width: 768px) {
         @include bannerMStyle();
@@ -1198,7 +1199,6 @@ h3 span{
                 .journey__info{
                     opacity: 1;
                     transform: translateY(0%);
-                    
                 }           
                 &::after{
                     content:"";
@@ -1725,7 +1725,7 @@ h1{
             }
         }
         &--item{
-            min-height: 285px;
+            min-height: 312px;
             padding: 30px 15px;
             border-top: 1px solid $darkGreen;
             position: relative;

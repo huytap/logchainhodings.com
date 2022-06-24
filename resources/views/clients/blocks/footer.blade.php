@@ -1,5 +1,6 @@
 @php
-$menus = App\Models\Menu::getList();    
+$menus = App\Models\Menu::getList(); 
+use App\Models\Setting;   
 @endphp
 <div class="footer">
     <div class="container">
@@ -12,19 +13,19 @@ $menus = App\Models\Menu::getList();
                     <h3 class="footer__title">QUICKLINKS</h3>
                     <ul class="navbarNavi">
                         <li><a href="{{route('home')}}">Home</a></li>
-                        <li><a href="{{route('about')}}">About</a></li>
+                        {{-- <li><a href="{{route('about')}}">About</a></li>
                         <li><a href="{{route('ourteam')}}">The Team</a></li>
-                        <li><a href="{{route('contact')}}">Contact</a></li>
-                        {{-- @foreach($menus as $menu)
+                        <li><a href="{{route('contact')}}">Contact</a></li> --}}
+                        @foreach($menus as $menu)
                             <li><a href="{{route('page', $menu->slug)}}">{{$menu->name}}</a></li>
-                        @endforeach --}}
+                        @endforeach
                     </ul>
                 </div>
             </div>
             <div class="col-md-2 col-7">
                 <ul class="social">
-                    <li><a href="#"><img src="{{asset('assets/clients/images/linkedin.svg')}}" alt="">LinkedIn</a></li>
-                    <li><a href="#"><img src="{{asset('assets/clients/images/fb.svg')}}" alt="">Facebook</a></li>
+                    <li><a href="{{Setting::getValue('facebook')}}"><img src="{{asset('assets/clients/images/linkedin.svg')}}" alt="">LinkedIn</a></li>
+                    <li><a href="{{Setting::getValue('linkedin')}}"><img src="{{asset('assets/clients/images/fb.svg')}}" alt="">Facebook</a></li>
                 </ul>
                 <p class="copyright">
                     <span class="company">Logchain Holdings<br/>Corporation Company.</span>
