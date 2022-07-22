@@ -6,7 +6,7 @@ use App\Models\Setting;
     <div class="container">
         <div class="row footer__row">
             <div class="col-md-4 d-sm-flex align-items-md-center">
-                <a href="{{route('home')}}" class="footer__logo full-width"><img src="{{asset('assets/clients/images')}}/logo.png" class="img-fluid"></a>
+                <a href="{{route('home')}}" class="footer__logo full-width"><img src="{{asset('uploads/'.App\Models\Setting::getImage('logo_footer'))}}" class="img-fluid"></a>
             </div>
             <div class="col-md-6 col-5">
                 <div class="footer__quicklinks full-width">
@@ -24,8 +24,8 @@ use App\Models\Setting;
             </div>
             <div class="col-md-2 col-7">
                 <ul class="social">
-                    <li><a href="{{Setting::getValue('facebook')}}"><img src="{{asset('assets/clients/images/linkedin.svg')}}" alt="">LinkedIn</a></li>
-                    <li><a href="{{Setting::getValue('linkedin')}}"><img src="{{asset('assets/clients/images/fb.svg')}}" alt="">Facebook</a></li>
+                    <li><a href="{!! strip_tags(Setting::getValue('linkedin')) !!}"><img src="{{asset('assets/clients/images/linkedin.svg')}}" alt="">LinkedIn</a></li>
+                    <li><a href="{!! strip_tags(Setting::getValue('facebook')) !!}"><img src="{{asset('assets/clients/images/fb.svg')}}" alt="">Facebook</a></li>
                 </ul>
                 <p class="copyright">
                     <span class="company">Logchain Holdings<br/>Corporation Company.</span>

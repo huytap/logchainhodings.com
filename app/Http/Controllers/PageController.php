@@ -12,16 +12,20 @@ class PageController extends Controller
     {
         $menu = Menu::getBySlug($slug);
         if (!empty($menu)) {
-            $title = $menu->title ?? $menu->name . ' - Logchain Group';
+            $title = $menu->title ?? $menu->name . ' - Logchain Holdings';
+            if ($menu->seo_title) {
+                $title = $menu->seo_title . ' - Logchain Holdings';
+            }
+            $description = $menu->seo_description ?? 'Logchain Holdings';
             $content = Content::getByMenu($menu->id);
             $collection = collect($content);
             switch ($menu->id) {
                 case 1:
-                    return view('clients.page.about', compact('title', 'menu', 'collection'));
+                    return view('clients.page.about', compact('title', 'description', 'menu', 'collection'));
                 case 2:
-                    return view('clients.page.team', compact('title', 'menu', 'collection'));
+                    return view('clients.page.team', compact('title', 'description', 'menu', 'collection'));
                 case 3:
-                    return view('clients.page.contact', compact('title', 'menu'));
+                    return view('clients.page.contact', compact('title', 'description', 'menu'));
                 default:
                     return 404;
             }

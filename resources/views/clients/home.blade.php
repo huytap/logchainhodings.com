@@ -51,8 +51,8 @@
                 @foreach($result2 as $rs)
                     <div class="col-md-3">
                         <div class="introduce__item">
-                            <img src="{{asset('uploads/'.$rs['photo'])}}" alt="" class="introduce__item--img img-fluid">
-                            <img src="{{asset('uploads/'.$rs['photo_mobile'])}}" alt="" class="introduce__item--img__hover img-fluid">
+                            <img src="{{asset('uploads/'.$rs['photo'])}}" alt="" style="min-width: 78px" class="introduce__item--img img-fluid">
+                            <img src="{{asset('uploads/'.$rs['photo_mobile'])}}" style="min-width: 78px" alt="" class="introduce__item--img__hover img-fluid">
                             <div class="introduce__item--desc">
                                 <h3>{!!$rs['title']!!}</h3>
                                 {!!$rs['description']!!}
@@ -103,8 +103,9 @@
                                         <img src="{{asset('uploads/'.$rs['photo'])}}" alt="" class="img-fluid">
                                     </div>
                                     <div class="introduce__profile--desc">
-                                        {{$rs['title']}}
+                                        <span>{{$rs['title']}}</span>
                                         <span class="goto"><img src="{{asset('assets/clients/images/arrow__right.svg')}}" width="20" alt=""></span>
+                                        
                                     </div>
                                 </a>
                             </div>

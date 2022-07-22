@@ -4,7 +4,7 @@ $menus = App\Models\Menu::getList();
 <div class="header" id="header">
     <div class="container">
         <div class="navbar nav-container">
-            <a href="{{route('home')}}" class="header__logo"><img src="{{asset('assets/clients/images')}}/logo.png" class="img-responsive" alt="Logchain Group"></a>
+            <a href="{{route('home')}}" class="header__logo"><img src="{{asset('uploads/'.App\Models\Setting::getImage('logo'))}}" class="img-responsive" alt="Logchain Group"></a>
             <button class="navbar-toggler" id="iconmenu" type="button">
                 <span class="navbar-toggler-icon"></span>
             </button>
