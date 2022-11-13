@@ -6,6 +6,7 @@
 @import 'header';
 @import 'banner';
 @import 'footer';
+@import 'language';
 body{
     font-family: $menuFont;
     color: $darkGreen;
@@ -1806,7 +1807,8 @@ h1{
     }
 }
 @media(max-width: 768px){
-    .row>*,.container{
+    .row>*,
+    .container{
         padding-left: 16px;
         padding-right: 16px;
     }

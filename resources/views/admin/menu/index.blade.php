@@ -78,7 +78,7 @@
                             <tr data-row="0" class="datatable-row" style="left: 0px;">
                                 <td scope="row">{{$key}}</td>
                                 <td><img src="{{asset('uploads/'.$item->banner)}}" width="100"/></td>
-                                <td>{{$item['name']}}</td>
+                                <td>{{isset($item['name']['en'])?$item['name']['en']:''}}</td>
                                 <td>{{$item['priority']}}</td>
                                 <td>
                                     @if($item['status'] == 0)

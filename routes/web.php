@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\AdminController;
@@ -8,6 +9,7 @@ use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\EcosystemController;
 use App\Http\Controllers\Admin\NetworkController;
 use App\Http\Controllers\Admin\AttachedfilesController;
+use App\Http\Controllers\Admin\TranslateController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use App\Models\Menu;
@@ -21,12 +23,28 @@ use App\Models\Menu;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', [HomeController::class, 'index'])->name('home');
-// Route::get('/', [PageController::class, 'index'])->name('home');
-// Route::get('/about-us.html', [PageController::class, 'about'])->name('about');
-//Route::get('/the-team.html', [PageController::class, 'ourteam'])->name('ourteam');
-Route::get('/contact.html', [PageController::class, 'contact'])->name('contact');
-Route::get('/{slug}.html', [PageController::class, 'index'])->name('page');
+
+$languages = config('languages');
+$uri = Request::segments();
+if (isset($uri[0])) {
+    $lang = $uri[0];
+    if (isset($languages[$lang]) && $lang != 'en') {
+        App::setLocale($lang);
+    } else {
+        App::setLocale('en');
+    }
+} else {
+    // abort(404);
+}
+if (App::getLocale() == 'en') {
+    Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('/contact.html', [PageController::class, 'contact'])->name('contact');
+    Route::get('/{slug}.html', [PageController::class, 'index'])->name('page');
+} else {
+    Route::get('/{locale}', [HomeController::class, 'index'])->name('home');
+    Route::get('/{locale}/contact.html', [PageController::class, 'contact'])->name('contact');
+    Route::get('/{locale}/{slug}.html', [PageController::class, 'index'])->name('page');
+}
 // $menus = Menu::getList();
 // foreach ($menus as $menu) {
 //     Route::get('/{slug}.html', [PageController::class, 'index']);
@@ -50,6 +68,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         '/ecosystem' => EcosystemController::class,
         '/network' => NetworkController::class,
         '/setting' => SettingController::class,
+        '/translate' => TranslateController::class
     ]);
 });
 Route::get('/clear-cache', function () {

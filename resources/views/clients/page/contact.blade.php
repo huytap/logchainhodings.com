@@ -2,6 +2,10 @@
 @section('content')
 @php
 use App\Models\Setting;
+$title_1 = json_decode(Setting::getValue('branch_title_1'), true);
+$title_2 = json_decode(Setting::getValue('branch_title_2'), true);
+$add_1 = json_decode(Setting::getValue('branch_add_1'), true);
+$add_2 = json_decode(Setting::getValue('branch_add_2'), true);
 $class='contact__banner';
 @endphp
 <div class="banner {{$class}}">
@@ -9,7 +13,7 @@ $class='contact__banner';
     <div class="container banner__container text-center">
         <div class="banner__content">
             <h1 class="banner__title2 wow fadeInUp" data-wow-duration="1.5s">
-                Contact
+                @lang('logchain.title.contact')
             </h1>
         </div> 
     </div>        
@@ -26,15 +30,15 @@ $class='contact__banner';
                         <a href="tel:{{Setting::getValue('contact_phone')}}">{{Setting::getValue('contact_phone')}}</a>
                     </div> --}}
                     <div class="contact__branch">
-                        <h4>{{ Setting::getValue('branch_title_1') }}</h4>
-                        <p>{{ Setting::getValue('branch_add_1') }}</p>
+                        <h4>{{ $title_1[$lang] }}</h4>
+                        <p>{{ $add_1[$lang] }}</p>
                         <a href="tel:{{Setting::getValue('contact_phone')}}">Tel: {{Setting::getValue('contact_phone')}}</a>
                     </div>
                 </div>
                 <div class="col-md-2 contact__item wow fadeInUp" data-wow-duration="1.5s">
                     <div class="contact__branch">
-                        <h4>{{ Setting::getValue('branch_title_2') }}</h4>
-                        <p>{{ Setting::getValue('branch_add_2') }}</p>
+                        <h4>{{ $title_2[$lang] }}</h4>
+                        <p>{{ $add_2[$lang] }}</p>
                         <a href="tel:{{Setting::getValue('contact_phone_2')}}">{{Setting::getValue('contact_phone_2')}}</a>
                     </div>
                 </div>

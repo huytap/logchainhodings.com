@@ -30,4 +30,19 @@ class Content extends Model
             ->get();
         return $content;
     }
+
+    public function getTitleAttribute($value)
+    {
+        if ($value != null && $value != "") {
+            return json_decode($value, true);
+        }
+        return $value;
+    }
+    public function getDescriptionAttribute($value)
+    {
+        if ($value != null && $value != "") {
+            return json_decode($value, true);
+        }
+        return $value;
+    }
 }

@@ -1,11 +1,14 @@
 <?php
+
 namespace App\Http\Controllers\Admin;
+
 use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use App\Http\Requests\Menu\StoreRequest;
 use App\Models\Menu;
 use App\Http\Services\Menu\MenuService;
+
 class MenuController extends Controller
 {
     protected $menuService;
@@ -27,7 +30,7 @@ class MenuController extends Controller
     }
     public function edit(Menu $menu)
     {
-        $title = 'Update Menu ' . $menu->name;
+        $title = 'Update Menu ';
         return view('admin.menu.edit', compact('menu', 'title'));
     }
     public function update(StoreRequest $request, Menu $menu)
@@ -84,8 +87,20 @@ class MenuController extends Controller
         } elseif (empty($request->banner_mobile)) {
             $request->merge(['banner_mobile' => $old_mobile]);
         }
-        $slug = (string)Str::slug($request->input('name'), '-');
-        $request->merge(['slug' => $slug]);
+        $name = $request->input('name');
+        $banner_title = $request->input('banner_title');
+        $banner_description = $request->input('banner_description');
+        $seo_title = $request->input('seo_title');
+        $seo_description = $request->input('seo_description');
+        $slug = (string)Str::slug($name['en'], '-');
+        $request->merge([
+            'slug' => $slug, 
+            'name' => jsonEncodeHasText($name),
+            'banner_title' => jsonEncodeHasText($banner_title),
+            'banner_description' => jsonEncodeHasText($banner_description),
+            'seo_title' => jsonEncodeHasText($seo_title),
+            'seo_description' => jsonEncodeHasText($seo_description)
+        ]);
         $menu->update($request->only('name', 'slug', 'priority', 'banner', 'banner_title', 'banner_description', 'banner_mobile', 'is_show', 'status', 'seo_title', 'seo_description', 'seo_thumbnailUrl'));
         return redirect()->route('menu.index')->with('success', 'Update menu success');
     }
@@ -134,6 +149,20 @@ class MenuController extends Controller
             //     'banner' => (string)$request->input('banner'),
             //     'banner_title' => (string)$request->input('banner_title'),
             // ]);
+            $name = $request->input('name');
+            $banner_title = $request->input('banner_title');
+            $banner_description = $request->input('banner_description');
+            $seo_title = $request->input('seo_title');
+            $seo_description = $request->input('seo_description');
+            $request->merge(
+                [
+                    'name' => $name,
+                    'banner_title' => $banner_title,
+                    'banner_description' => $banner_description,
+                    'seo_title' => $seo_title,
+                    'seo_description' => $seo_description
+                ]
+                );
             Menu::create($request->all());
         } catch (\Exception $error) {
             //Session::flash('error', $error->getMessage());

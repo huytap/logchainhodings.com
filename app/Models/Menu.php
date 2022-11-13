@@ -1,7 +1,10 @@
 <?php
+
 namespace App\Models;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+
 class Menu extends Model
 {
     const CREATED_AT = 'created_at';
@@ -53,5 +56,41 @@ class Menu extends Model
             ->where('status', 0)
             ->first();
         return $menu;
+    }
+
+    public function getNameAttribute($value)
+    {
+        if ($value != null && $value != "") {
+            return json_decode($value, true);
+        }
+        return $value;
+    }
+    public function getBannerTitleAttribute($value)
+    {
+        if ($value != null && $value != "") {
+            return json_decode($value, true);
+        }
+        return $value;
+    }
+    public function getBannerDescriptionAttribute($value)
+    {
+        if ($value != null && $value != "") {
+            return json_decode($value, true);
+        }
+        return $value;
+    }
+    public function getSeoTitleAttribute($value)
+    {
+        if ($value != null && $value != "") {
+            return json_decode($value, true);
+        }
+        return $value;
+    }
+    public function getSeoDescriptionAttribute($value)
+    {
+        if ($value != null && $value != "") {
+            return json_decode($value, true);
+        }
+        return $value;
     }
 }

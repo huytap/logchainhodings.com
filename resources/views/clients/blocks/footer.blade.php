@@ -6,18 +6,19 @@ use App\Models\Setting;
     <div class="container">
         <div class="row footer__row">
             <div class="col-md-4 d-sm-flex align-items-md-center">
-                <a href="{{route('home')}}" class="footer__logo full-width"><img src="{{asset('uploads/'.App\Models\Setting::getImage('logo_footer'))}}" class="img-fluid"></a>
+                <a href="{{url($locale)}}" class="footer__logo full-width"><img src="{{asset('uploads/'.App\Models\Setting::getImage('logo_footer'))}}" class="img-fluid"></a>
             </div>
             <div class="col-md-6 col-5">
                 <div class="footer__quicklinks full-width">
-                    <h3 class="footer__title">QUICKLINKS</h3>
+                    <h3 class="footer__title">@lang('logchain.title.quicklinks')</h3>
                     <ul class="navbarNavi">
-                        <li><a href="{{route('home')}}">Home</a></li>
-                        {{-- <li><a href="{{route('about')}}">About</a></li>
-                        <li><a href="{{route('ourteam')}}">The Team</a></li>
-                        <li><a href="{{route('contact')}}">Contact</a></li> --}}
+                        <li><a href="{{route('home', $locale)}}">@lang('logchain.menu.home')</a></li>
                         @foreach($menus as $menu)
-                            <li><a href="{{route('page', $menu->slug)}}">{{$menu->name}}</a></li>
+                            @if($locale && $locale !== 'en')
+                                <li><a href="{{url($locale.'/'.$menu->slug)}}.html">{{$menu->name[$lang]}}</a></li>
+                            @else
+                                <li><a href="{{route('page', $menu->slug)}}">{{$menu->name[$lang]}}</a></li>
+                            @endif
                         @endforeach
                     </ul>
                 </div>

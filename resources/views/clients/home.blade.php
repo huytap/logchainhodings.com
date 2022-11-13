@@ -15,10 +15,10 @@
             <div class="col-md-5">
                 <div class="banner__content">
                     <h1 class="banner__title2 wow fadeInUp" data-wow-duration="1.5s">
-                        {!!$menu->banner_title!!}
+                        {!!$menu->banner_title[$lang]!!}
                     </h1>
                     <p class="wow fadeInUp" data-wow-duration="1.5s">
-                        {!!$menu->banner_description!!}
+                        {!!$menu->banner_description[$lang]!!}
                     </p>
                 </div>
             </div>
@@ -35,9 +35,9 @@
     <div class="introduce__info" id="our-strategy">
         <div class="container">
             @if(!empty($result1))
-                <h3 class="introduce__info--title wow fadeInUp" data-wow-duration="1.5s">{{$result1[0]['title']}}</h3>
+                <h3 class="introduce__info--title wow fadeInUp" data-wow-duration="1.5s">{{$result1[0]['title'][$lang]}}</h3>
                 <div class="introduce__info--desc wow fadeInUp" data-wow-duration="1.5s">
-                    {!!$result1[0]['description']!!}
+                    {!!$result1[0]['description'][$lang]!!}
                 </div>
             @endif
             @php 
@@ -54,8 +54,8 @@
                             <img src="{{asset('uploads/'.$rs['photo'])}}" alt="" style="min-width: 78px" class="introduce__item--img img-fluid">
                             <img src="{{asset('uploads/'.$rs['photo_mobile'])}}" style="min-width: 78px" alt="" class="introduce__item--img__hover img-fluid">
                             <div class="introduce__item--desc">
-                                <h3>{!!$rs['title']!!}</h3>
-                                {!!$rs['description']!!}
+                                <h3>{!! $rs['title'][$lang]??'' !!}</h3>
+                                {!! $rs['description'][$lang]??'' !!}
                             </div>
                         </div>
                     </div>
@@ -73,7 +73,7 @@
     @if(!empty($result3))
         <div class="introduce__journey">
             @foreach($result3 as $rs)
-                <h3 class="introduce__info--title introduce__journey--title wow fadeInUp" data-wow-duration="1.5s">{{$rs['title']}}</h3>
+                <h3 class="introduce__info--title introduce__journey--title wow fadeInUp" data-wow-duration="1.5s">{{$rs['title'][$lang]}}</h3>
                 <img src="{{asset('uploads/'.$rs['photo'])}}" class="img-fluid d-none d-sm-block" alt="">
                 <img src="{{asset('uploads/'.$rs['photo_mobile'])}}" class="img-fluid d-md-none" alt="">
             @endforeach
@@ -90,20 +90,19 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 wow fadeInUp" data-wow-duration="1.5s">
-                        <h3>Portfolio</h3>
-                        {{-- <p>We have invested in these exceptional businesses and assisted them in overcoming the most fundamental and difficult obstacles on their path to growth and expansion. We are supporting them in having a profound impact on the supply chain and logistics industry.</p> --}}
+                        <h3>@lang('logchain.title.portfolio')</h3>
                     </div>
                 </div>
                 <div class="row">
                     @foreach($result4 as $key => $rs)
                         <div class="col-md-3 col-6 wow fadeInUp" data-wow-duration="1.5s">
                             <div class="introduce__profile--item">
-                                <a href="{{strip_tags($rs['description'])}}" target="_blank">
+                                <a href="{{strip_tags($rs['description'][$lang]??'')}}" target="_blank">
                                     <div class="introduce__profile--logo">
                                         <img src="{{asset('uploads/'.$rs['photo'])}}" alt="" class="img-fluid">
                                     </div>
                                     <div class="introduce__profile--desc">
-                                        <span>{{$rs['title']}}</span>
+                                        <span>{{$rs['title'][$lang]??''}}</span>
                                         <span class="goto"><img src="{{asset('assets/clients/images/arrow__right.svg')}}" width="20" alt=""></span>
                                         
                                     </div>

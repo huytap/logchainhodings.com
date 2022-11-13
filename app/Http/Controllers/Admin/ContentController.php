@@ -84,6 +84,10 @@ class ContentController extends Controller
         } elseif (empty($request->photo_mobile)) {
             $request->merge(['photo_mobile' => $old_mobile]);
         }
+        $request->merge([
+            'title' => jsonEncodeHasText($request->input('title')),
+            'description' => jsonEncodeHasText($request->input('description'))
+        ]);
         $content->update($request->only('title', 'photo', 'photo_mobile', 'description', 'menu_id', 'content_section', 'priority'));
         return redirect()->route('content.index')->with('success', 'Update content success');
     }

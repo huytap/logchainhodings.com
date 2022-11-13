@@ -91,7 +91,7 @@
                                         <select class="form-control" name="page_id" id="kt_datatable_search_status">
                                             <option value="">--All--</option>
                                             @foreach(App\Models\Menu::getList2() as $key => $st)
-                                                <option value="{{$st->id}}" {{ request()->page_id == $st->id ? 'selected' : '' }}>{{$st['name']}}</option>
+                                                <option value="{{$st->id}}" {{ request()->page_id == $st->id ? 'selected' : '' }}>{{$st['name']['en']}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -126,14 +126,14 @@
                         @foreach ($data as $key => $item)
                         @php
                         $menu = App\Models\Menu::find($item->menu_id);    
-                        $page = $menu?$menu->name:'';
+                        $page = $menu?$menu->name['en']:'';
                         $cover = $item->photo ? 'uploads/'.$item->photo : 'assets/clients/images/cover-la-gi.png';
                         @endphp
                             <tr data-row="0" class="datatable-row" style="left: 0px;">
                                 <td scope="row">{{($key+1)}}</td>
                                 <td><img src="{{asset($cover)}}" width="100"/></td>
                                 <td>{{$page}}</td>
-                                <td>{{$item['title']}}</td>
+                                <td>{{$item['title']['en']??''}}</td>
                                 <td>{{$item['created_at']}}</td>                            
                                 <td data-field="Actions">
                                     <span style="overflow: visible; position: relative; width: 125px;">

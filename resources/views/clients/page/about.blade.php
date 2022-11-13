@@ -13,10 +13,10 @@
     <div class="container banner__container text-center">
         <div class="banner__content">
             <h1 class="banner__title2 wow fadeInUp" data-wow-duration="1.5s">
-                {{$menu['banner_title']}}
+                {{$menu['banner_title'][$lang]}}
             </h1>
             <p class="wow fadeInUp" data-wow-duration="1.5s">
-                {{$menu['banner_description']}}
+                {{$menu['banner_description'][$lang]}}
             </p>
         </div> 
     </div>        
@@ -39,8 +39,8 @@
                     </div>
                     <div class="col-md-8 about__info--desc">
                         <div class="about__info--desc__content">
-                            <h2>{{$rs['title']}}</h2>
-                            {!!$rs['description']!!}
+                            <h2>{{$rs['title'][$lang]}}</h2>
+                            {!!$rs['description'][$lang]!!}
                         </div>
                     </div>
                 </div>
@@ -48,7 +48,7 @@
         @endforeach
         @endif
         <div class="about__services">
-            <h3 class="about__services--title">Core Values</h3>
+            <h3 class="about__services--title">@lang('content.core_values')</h3>
             <div class="row">
                 @php 
                     $collection2 = $collection->filter(function ($val, $key) {

@@ -16,10 +16,9 @@ $class='team__banner';
     <img src="{{asset('uploads/'.$menu['banner_mobile'])}}" alt="" class="img-fluid d-md-none">
     <div class="container banner__container text-center">
         <div class="banner__content">
-            <h1 class="banner__title3 wow fadeInUp" data-wow-duration="1.5s">
-                {{$menu['banner_title']}}
+            <h1 class="banner__title2 wow fadeInUp" data-wow-duration="1.5s">
+                {{$menu['banner_title'][$lang]}}
             </h1>
-            {{-- <p class="wow fadeInUp" data-wow-duration="1.5s">We are an experienced team in the Logistics and Supply Chain space, always ready to collaborate with you to capitalize on business opportunities and overcome obstacles. Our team are driven by cutting-edge technologies that streamline supply chain processes, as well as a common goal of building a sustainable logistics ecosystem in Vietnam.</p> --}}
         </div> 
     </div>        
 </div>
@@ -39,13 +38,13 @@ $class='team__banner';
                         <div class="col-md-5">
                             <div class="team__info--left">
                                 <h3>
-                                    {!! $rs['title'] !!}
+                                    {!! $rs['title'][$lang]??'' !!}
                                 </h3>
                             </div>
                         </div>
                         <div class="col-md-7">
                             <div class="team__info--right">
-                                {!!$rs['description']!!}
+                                {!!$rs['description'][$lang] ?? ''!!}
                             </div>
                         </div>
                     </div>
@@ -66,9 +65,9 @@ $class='team__banner';
                         <div class="col-md-3 col-6">
                             <div class="team__list--item">
                             <h3>
-                                {!! $rs['title'] !!}
+                                {!! $rs['title'][$lang]??'' !!}
                             </h3>
-                            {!! $rs['description'] !!}
+                            {!! $rs['description'][$lang]??'' !!}
                             </div>
                         </div>
                     @endforeach

@@ -1,51 +1,56 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use App\Models\Menu;
 use App\Models\Content;
-use App\Models\Globalnetwork;
+
 class PageController extends Controller
 {
-    public function __construct()
+    public function index($locale = '', $slug = '')
     {
-    }
-    public function index($slug = 'introduce')
-    {
+        if ($slug == '') {
+            $slug = $locale;
+        }
+        $locale = \App::getLocale();
+        $lang = \App::getLocale();
         $menu = Menu::getBySlug($slug);
         if (!empty($menu)) {
-            $title = $menu->title ?? $menu->name . ' - Logchain Holdings';
-            if ($menu->seo_title) {
-                $title = $menu->seo_title . ' - Logchain Holdings';
+            $title = $menu->title[$lang] ?? $menu->name[$lang] . ' - Logchain Holdings';
+            if ($menu->seo_title[$lang]) {
+                $title = $menu->seo_title[$lang] . ' - Logchain Holdings';
             }
-            $description = $menu->seo_description ?? 'Logchain Holdings';
+            $description = $menu->seo_description[$lang] ?? 'Logchain Holdings';
             $content = Content::getByMenu($menu->id);
             $collection = collect($content);
             switch ($menu->id) {
                 case 1:
-                    return view('clients.page.about', compact('title', 'description', 'menu', 'collection'));
+                    return view('clients.page.about', compact('title', 'description', 'menu', 'collection', 'locale', 'lang'));
                 case 2:
-                    return view('clients.page.team', compact('title', 'description', 'menu', 'collection'));
+                    return view('clients.page.team', compact('title', 'description', 'menu', 'collection', 'locale', 'lang'));
                 case 3:
-                    return view('clients.page.contact', compact('title', 'description', 'menu'));
+                    return view('clients.page.contact', compact('title', 'description', 'menu', 'locale', 'lang'));
                 default:
-                    return 404;
+                    abort(404);
             }
         } else {
-            return 404;
+            abort(404);
         }
     }
-    public function about()
+    // public function about($locale = '')
+    // {
+    //     $title = 'About us';
+    //     return view('clients.page.about', compact('title', 'locale'));
+    // }
+    // public function ourteam($locale = '')
+    // {
+    //     $title = 'The team';
+    //     return view('clients.page.team', compact('title', 'locale'));
+    // }
+    public function contact($locale = '')
     {
-        $title = 'About us';
-        return view('clients.page.about', compact('title'));
-    }
-    public function ourteam()
-    {
-        $title = 'The team';
-        return view('clients.page.team', compact('title'));
-    }
-    public function contact()
-    {
-        $title = 'Contact us';
-        return view('clients.page.contact', compact('title'));
+        $lang = \App::getLocale();
+        $title = trans('title.contact_us');
+        return view('clients.page.contact', compact('title', 'locale', 'lang'));
     }
 }

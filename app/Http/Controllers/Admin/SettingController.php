@@ -69,6 +69,9 @@ class SettingController extends Controller
     public function edit(Setting $setting)
     {
         $title = 'Update Settings';
+        if($setting->language == 1){
+            $setting->value = json_decode($setting->value, true);
+        }
         return view('admin.setting.edit', compact('setting', 'title'));
     }
     /**
@@ -95,6 +98,11 @@ class SettingController extends Controller
             unlink($path . '/' . $old);
         } elseif (empty($request->photo)) {
             $request->merge(['photo' => $old]);
+        }
+        if($setting->language == 1){
+            $request->merge([
+                'value' => jsonEncodeHasText($request->input('value'))
+            ]);
         }
         $setting->update($request->only('type', 'key', 'photo', 'value', 'status'));
         return redirect()->route('setting.index')->with('success', 'Update setting success');
