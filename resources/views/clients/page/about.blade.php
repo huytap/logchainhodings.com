@@ -48,7 +48,7 @@
         @endforeach
         @endif
         <div class="about__services">
-            <h3 class="about__services--title">@lang('content.core_values')</h3>
+            <h3 class="about__services--title">@lang('logchain.title.core_values')</h3>
             <div class="row">
                 @php 
                     $collection2 = $collection->filter(function ($val, $key) {
