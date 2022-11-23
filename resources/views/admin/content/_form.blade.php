@@ -37,45 +37,52 @@
                 </div>
             @enderror
         </div>
-        <div class="form-group">
-            <label>Photo</label>
-            <div class="custom-file">
-                <input name="photo_upload" type="file" class="custom-file-input" id="customFile"/>
-                <label class="custom-file-label" for="customFile">Choose file</label>
+        <div class="images">
+            <div class="form-group">
+                <label>Photo</label>
+                <div class="custom-file">
+                    <input name="photo_upload" type="file" class="custom-file-input" id="customFile"/>
+                    <label class="custom-file-label" for="customFile">Choose file</label>
+                </div>
+                
+                @if(!empty($content->photo))
+                    <div style="padding-top:10px">
+                        <img src="{{asset('uploads/'.$content->photo)}}" width="100"/>        
+                    </div>
+                @endif
+                @error('photo_upload')
+                    <div class="fv-plugins-message-container">
+                        <div data-field="memo" data-validator="notEmpty" class="fv-help-block">{{$message}}</div>
+                    </div>
+                @enderror
             </div>
-            
-            @if(!empty($content->photo))
-                <div style="padding-top:10px">
-                    <img src="{{asset('uploads/'.$content->photo)}}" width="100"/>        
+            <div class="form-group">
+                <label>Photo Mobile</label>
+                <div class="custom-file">
+                    <input name="mobile" type="file" class="custom-file-input" id="customFile"/>
+                    <label class="custom-file-label" for="customFile">Choose file</label>
                 </div>
-            @endif
-            @error('photo_upload')
-                <div class="fv-plugins-message-container">
-                    <div data-field="memo" data-validator="notEmpty" class="fv-help-block">{{$message}}</div>
-                </div>
-            @enderror
-        </div>
-        <div class="form-group">
-            <label>Photo Mobile</label>
-            <div class="custom-file">
-                <input name="mobile" type="file" class="custom-file-input" id="customFile"/>
-                <label class="custom-file-label" for="customFile">Choose file</label>
+                
+                @if(!empty($model->photo_mobile))
+                    <div style="padding-top:10px">
+                        <img src="{{asset('uploads/'.$model->photo_mobile)}}" width="100"/>        
+                    </div>
+                @endif
+                @error('mobile')
+                    <div class="fv-plugins-message-container">
+                        <div data-field="memo" data-validator="notEmpty" class="fv-help-block">{{$message}}</div>
+                    </div>
+                @enderror
             </div>
-            
-            @if(!empty($model->photo_mobile))
-                <div style="padding-top:10px">
-                    <img src="{{asset('uploads/'.$model->photo_mobile)}}" width="100"/>        
-                </div>
-            @endif
-            @error('mobile')
-                <div class="fv-plugins-message-container">
-                    <div data-field="memo" data-validator="notEmpty" class="fv-help-block">{{$message}}</div>
-                </div>
-            @enderror
         </div>
     </div>
     <div class="col-xl-6">
         <h3 class="card-label">Content by language</h3>
+        @if(old('img_lang') == '1' || $model->img_lang == 1)
+            <input type="checkbox" name="img_lang" id="img_lang" checked="checked"> Use image for language
+        @else   
+            <input type="checkbox" name="img_lang" id="img_lang"> Use image for language
+        @endif
         <ul class="nav nav-tabs" data-remember-tab="tab_id" role="tablist">
             @foreach($languages as $key => $lang)
                 <li class="nav-item">
@@ -111,6 +118,44 @@
                             <div data-field="memo" data-validator="notEmpty" class="fv-help-block">{{$message}}</div>
                         </div>
                     @enderror
+                </div>
+                <div class="img_languages @if(!$content->img_lang) d-none @endif">
+                    <div class="form-group">
+                        <label>Photo</label>
+                        <div class="custom-file">
+                            <input name="images_upload[{{$key}}]" type="file" class="custom-file-input" id="customFile"/>
+                            <label class="custom-file-label" for="customFile">Choose file</label>
+                        </div>
+                        
+                        @if(!empty($content->images) && isset($content->images[$key]))
+                            <div style="padding-top:10px">
+                                <img src="{{asset('uploads/'.$content->images[$key])}}" width="100"/>        
+                            </div>
+                        @endif
+                        @error('images')
+                            <div class="fv-plugins-message-container">
+                                <div data-field="memo" data-validator="notEmpty" class="fv-help-block">{{$message}}</div>
+                            </div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label>Photo Mobile</label>
+                        <div class="custom-file">
+                            <input name="images_mobile_upload[{{$key}}]" type="file" class="custom-file-input" id="customFile"/>
+                            <label class="custom-file-label" for="customFile">Choose file</label>
+                        </div>
+                        
+                        @if(!empty($model->photo_mobile) && isset($model->images_mobile[$key]))
+                            <div style="padding-top:10px">
+                                <img src="{{asset('uploads/'.$model->images_mobile[$key])}}" width="100"/>        
+                            </div>
+                        @endif
+                        @error('images_mobile')
+                            <div class="fv-plugins-message-container">
+                                <div data-field="memo" data-validator="notEmpty" class="fv-help-block">{{$message}}</div>
+                            </div>
+                        @enderror
+                    </div>
                 </div>
             </div>
             @endforeach
@@ -164,6 +209,15 @@ var KTCkeditor2 = function () {
 jQuery(document).ready(function() {
     KTCkeditor.init();
     KTCkeditor2.init();
+    $('#img_lang').change(function(){
+        if($(this).is(':checked')){
+            $('.img_languages').removeClass('d-none');
+            $('.images').hide();
+        }else{
+            $('.img_languages').addClass('d-none');
+            $('.images').show();
+        }
+    });
 });
 </script>
 @endsection

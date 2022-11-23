@@ -798,6 +798,10 @@ h3::after {
   text-align: center;
 }
 
+.navbar__language--item.active:after, .navbar__language--item:hover:after {
+  width: 0 !important;
+}
+
 .navbar__language--item.active {
   border-radius: 50%;
   background-color: #FFFFFF;

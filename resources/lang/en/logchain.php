@@ -5,5 +5,5 @@ return [
     'title.core_values' => 'Core Values',
     'title.contact' => 'Contact',
     'title.contact_us' => 'Contact us',
-    'title.Portfolio' => 'Portfolio'
+    'title.portfolio' => 'Portfolio'
 ];

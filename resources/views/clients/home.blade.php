@@ -74,8 +74,8 @@
         <div class="introduce__journey">
             @foreach($result3 as $rs)
                 <h3 class="introduce__info--title introduce__journey--title wow fadeInUp" data-wow-duration="1.5s">{{$rs['title'][$lang]}}</h3>
-                <img src="{{asset('uploads/'.$rs['photo'])}}" class="img-fluid d-none d-sm-block" alt="">
-                <img src="{{asset('uploads/'.$rs['photo_mobile'])}}" class="img-fluid d-md-none" alt="">
+                <img src="{{asset('uploads/'.$rs['images'][$lang])}}" class="img-fluid d-none d-sm-block" alt="">
+                <img src="{{asset('uploads/'.$rs['images_mobile'][$lang])}}" class="img-fluid d-md-none" alt="">
             @endforeach
         </div>
     @endif

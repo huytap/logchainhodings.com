@@ -9,7 +9,7 @@ class Content extends Model
 {
     const CREATE_AT = 'create_at';
     use HasFactory;
-    protected $fillable = ['title', 'photo', 'photo_mobile', 'description', 'menu_id', 'content_section', 'priority'];
+    protected $fillable = ['title', 'photo', 'photo_mobile', 'description', 'menu_id', 'content_section', 'priority', 'img_lang', 'images', 'images_mobile'];
     public function menu()
     {
         return $this->belongsTo('App\Models\Menu', 'menu_id');
@@ -39,6 +39,20 @@ class Content extends Model
         return $value;
     }
     public function getDescriptionAttribute($value)
+    {
+        if ($value != null && $value != "") {
+            return json_decode($value, true);
+        }
+        return $value;
+    }
+    public function getImagesAttribute($value)
+    {
+        if ($value != null && $value != "") {
+            return json_decode($value, true);
+        }
+        return $value;
+    }
+    public function getImagesMobileAttribute($value)
     {
         if ($value != null && $value != "") {
             return json_decode($value, true);
