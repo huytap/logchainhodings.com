@@ -7,6 +7,7 @@
 @import 'banner';
 @import 'footer';
 @import 'language';
+@import 'menu';
 body{
     font-family: $menuFont;
     color: $darkGreen;
@@ -90,6 +91,38 @@ h3 span{
                 padding-right:24px;
             }
         }
+    }
+}
+.investment{
+    position: relative;
+    margin-top: 180px;
+    margin-bottom: 150px;
+    &__title{
+        margin-bottom: 50px;
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            height: 1px;
+            width: 125px;
+            bottom: -8px;
+            background-color: #333333;
+        }
+    }
+    &__menu{
+        position: absolute;
+        left: 0;
+        top: 80px;
+        @media (min-width: 992px) {
+            max-width: 200px;
+        }
+        @media (min-width: 1366px) {
+            max-width: 250px;
+        }
+        @media (min-width: 1600px) {
+            max-width: 300px;
+        }
+        // width: calc((100% - 1170px) / 2);
     }
 }
 .introduce{
@@ -1506,7 +1539,7 @@ h1{
         @media (max-width: 576px) {
             margin-bottom: 80px;
         }
-        &--title{
+        h3{
             font-size: 48px;
             font-family: $headlineFont;
             color: $grayColor;
@@ -1550,7 +1583,7 @@ h1{
                     }
                 }
             }
-            h3{
+            h4{
                 font-size: 24px;
                 line-height: 1.2;
                 text-align: center;
@@ -1570,6 +1603,7 @@ h1{
         }
         &--icon{
             text-align: center;
+            cursor: pointer;
             @media (max-width: 768px) {
                 min-height: 51px;
             }
@@ -1582,6 +1616,61 @@ h1{
                 }
                 @media (max-width: 576px) {
                     max-width: 45px;
+                }
+            }
+        }
+    }
+    &__code{
+        &--title{
+            margin-top: 65px;
+        }
+        &--list{
+            text-align: left;
+            // display: flex;
+            // flex-wrap: wrap;
+            // row-gap: 15px;
+            // column-gap: 15px;
+            &__item{
+                position: relative;
+                margin-bottom: 55px;
+                font-size: 24px;
+                font-weight: 700;
+                letter-spacing: -0.01em;
+                color: $grayColor;
+                line-height: 1.2;
+                font-family: $headlineFont;
+                transition: all 0.5s ease;
+                padding-right: 6rem;
+                span{
+                    display: inline-block;
+                    padding: 10px;
+                    gap: 10px;
+                    color:$goldColor;
+                    width: 31px;
+                    height: 55px;
+                    border: 1px solid $goldColor;
+                    border-radius: 23px;
+                    margin-right: 20px;
+                }
+                &:hover div{
+                    display: block;
+                    height: auto;
+                    opacity: 1;
+                }
+            }
+            &__detail{
+                display: none;
+                transition: all 0.5s linear;
+                font-size: 16px;
+                font-family: $menuFont;
+                font-weight: normal;
+                margin-top: 15px;
+                line-height: 18px;
+                padding-left: 55px;
+                height: 0;
+                opacity: 0;
+                p{
+                    line-height: 25px;
                 }
             }
         }
@@ -1620,16 +1709,17 @@ h1{
 }
 .team{
     h3{
-        font-size: 32px;
+        font-size: 20px;
         line-height: 1.44;
         position: relative;
         display: inline-block;
         text-align: left;
+        font-family: $menuFont;
+        font-weight: normal;
         span{
-            font-size: 20px;
-            font-weight: normal;
+            font-size: 32px;
             display: block;
-            font-family: 'Inter', sans-serif;
+            font-family: $headlineFont;
             @media (max-width: 768px) {
                 font-size: 16px;
             }
@@ -1675,7 +1765,7 @@ h1{
             background: $darkGreen;
             color: $whiteColor;
             text-align: center;
-            padding: 65px 0;
+            padding: 65px 40px;
             height: 100%;
         }
         &--right{
@@ -1710,8 +1800,20 @@ h1{
             margin-bottom: 100px;
             margin-top: 30px;
         }
+        .col:first-child,
+        .col:nth-child(6n){
+            .team__list--item{
+                &:after{
+                    height: 0;
+                    background-color: transparent;
+                }
+            }
+        }
         h3{
             color: $grayColor3;
+            line-height: 34px;
+            font-size: 28px;
+            font-family: $headlineFont;
             &::after{
                 background: $grayColor3;
                 width: 63px;
@@ -1721,7 +1823,8 @@ h1{
                 }
             }
             span{
-                font-size: 16px;
+                font-size: 20px;
+                font-family: $menuFont;
             }
             @media (max-width: 768px) {
                 font-size: 20px;
@@ -1740,7 +1843,7 @@ h1{
             padding: 30px 15px;
             border-top: 1px solid $darkGreen;
             position: relative;
-            font-size: 14px;
+            font-size: 13px;
             @media (max-width: 768px) {
                 font-size: 12px;
                 padding: 20px 8px;
@@ -1804,6 +1907,9 @@ h1{
                 }
             }
         }
+    }
+    .container-fluid{
+        max-width: 1465px;
     }
 }
 @media(max-width: 768px){

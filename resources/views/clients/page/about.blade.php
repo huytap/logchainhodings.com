@@ -1,12 +1,4 @@
 @extends('clients.layouts.main')
-@section('css')
-<style>
-    .banner__about{
-        background: url({{asset('uploads/'. $menu['banner'])}}) no-repeat;
-        background-size: cover;
-    }
-</style>
-@endsection
 @section('content')
 <div class="banner banner__about" id="banner">
     <img src="{{asset('uploads/'.$menu['banner_mobile'])}}" alt="" class="img-fluid d-md-none">
@@ -63,12 +55,64 @@
                             <img src="{{asset('uploads/'. $rs['photo'])}}" alt="" class="img-fluid">
                             <img src="{{asset('uploads/'. $rs['photo_mobile'])}}" alt="" class="img-fluid">
                         </div>
-                        <h3>{!!$rs['title']!!}</h3>
+                        <h4>{!! isset($rs['title'][$lang])?$rs['title'][$lang]:''!!}</h4>
                     </div>
                 @endforeach
                 @endif
             </div>
+            @php 
+                $collection3 = $collection->filter(function ($val, $key) {
+                    return $val->content_section==3;
+                });
+                $result3 = $collection3->all();
+            @endphp
+            <h3 class="about__code--title">@lang('logchain.title.code_of_practices')</h3>
+            <div class="row">
+                <div class="col-md-10 offset-md-1">    
+                    @if(!empty($result3))
+                    <?php 
+                    $html_odd = $html_even = '';
+                    $i=0;
+                    ?>
+                    <div class="about__code--list row">
+                        @foreach($result3 as $key => $rs)
+                            @if(isset($rs['title'][$lang]))
+                                @php
+                                if($i<3)
+                                    $html_odd .= '
+                                        <div class="about__code--list__item">
+                                            <span>'.($i+1).'</span> '.$rs['title'][$lang].'
+                                            <div class="about__code--list__detail">
+                                                '. $rs['description'][$lang] .'
+                                            </div>
+                                        </div>';
+                                else 
+                                    $html_even .= '
+                                        <div class="about__code--list__item">
+                                            <span>'.($i+1).'</span> '. $rs['title'][$lang].'
+                                            <div class="about__code--list__detail">
+                                                '. $rs['description'][$lang] .'
+                                            </div>
+                                        </div>';
+                                $i++;
+                                @endphp
+                            @endif
+                        @endforeach
+                        <div class="col-md-6">{!! $html_odd !!}</div>
+                        <div class="col-md-6">{!! $html_even !!}</div>
+                    </div>
+                    @endif
+                </div>
+            </div>
         </div>
     </div>
 </div>
+@endsection
+@section('css')
+<style>
+    .banner__about{
+        background: url({{asset('uploads/'. $menu['banner'])}}) no-repeat;
+        background-size: cover;
+    }
+</style>
 @endsection

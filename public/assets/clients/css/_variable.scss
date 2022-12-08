@@ -21,3 +21,119 @@ $zindex-modal-backdrop:    1040 !default;
 $zindex-modal:             1050 !default;
 $zindex-popover:           1060 !default;
 $zindex-tooltip:           1070 !default;
+//
+//  COLOR
+//–––––––––––––––––––––––––––––––––––––
+
+$white: #fff;
+$black: #000;
+
+$color-primary: #d4dde5;
+$color-primary-lighter: lighten($color-primary, 2%);
+$color-primary-lightest: lighten($color-primary, 6%);
+$color-primary-darker: darken($color-primary, 2%);
+$color-primary-darkest: darken($color-primary, 6%);
+
+$color-secondary: #6d9bc5;
+$color-secondary-lighter: lighten($color-secondary, 2%);
+$color-secondary-lightest: lighten($color-secondary, 6%);
+$color-secondary-darker: darken($color-secondary, 2%);
+$color-secondary-darkest: darken($color-secondary, 6%);
+
+
+//
+//  MENU
+//–––––––––––––––––––––––––––––––––––––
+
+$radial-menu-dimensions: 300px;
+
+$radial-menu-bg: $color-primary-darkest;
+// $radial-menu-bg: transparent;
+$radial-menu-border-width: 0;
+$radial-menu-border-color: transparent;
+
+$radial-menu-item-hovered-bg: $color-secondary;
+$radial-menu-item-hovered-border-width: 0;
+// $radial-menu-item-hovered-border-color: darken($color-secondary-darkest, 6%);
+$radial-menu-item-hovered-border-color: transparent;
+
+
+//
+//  LABEL
+//–––––––––––––––––––––––––––––––––––––
+
+$radial-menu-label-dimensions: 80px;
+
+$radial-menu-label-font-size: 12px;
+$radial-menu-label-font-weight: bold;
+
+$radial-menu-label-bg: $color-primary-lightest;
+$radial-menu-label-border-width: 3px;
+$radial-menu-label-border-color: $color-primary-darker;
+$radial-menu-label-font-color: $color-primary-darkest;
+
+
+//
+//  MENU CONTENT
+//–––––––––––––––––––––––––––––––––––––
+
+$radial-menu-content-dimensions: 80px;
+
+$radial-menu-content-bg: $color-primary-lightest;
+$radial-menu-content-border-width: 3px;
+$radial-menu-content-border-color: $color-primary-darker;
+
+$radial-menu-content-bg-hover: $color-secondary-darkest;
+$radial-menu-content-border-color-hover: $color-secondary-darkest;
+
+$radial-menu-content-title-font-size: .7em;
+$radial-menu-content-title-font-weight: bold;
+$radial-menu-content-title-font-color: $white;
+
+$radial-menu-content-description-font-size: .4em;
+$radial-menu-content-description-font-weight: normal;
+$radial-menu-content-description-font-color: rgba($white, .5);
+
+
+//
+//  MENU ICON
+//–––––––––––––––––––––––––––––––––––––
+
+$radial-menu-icon-default-transform: translateY(-50%) translateX(-50%);
+$radial-menu-icon-dimensions: 25px;
+$radial-menu-icon-dimensions-hover: 50px;
+$radial-menu-icon-icon-size: 16px;
+$radial-menu-icon-icon-size-hover: 21px;
+
+// $radial-menu-icon-bg: darken($color-primary-darkest, 8%);
+// $radial-menu-icon-bg-hover: darken($color-primary-darkest, 4%);
+// $radial-menu-icon-bg-hover: $white;
+// $radial-menu-icon-bg-not-hovered: lighten($radial-menu-icon-bg, 4%);
+$radial-menu-icon-bg: transparent;
+$radial-menu-icon-bg-hover: transparent;
+$radial-menu-icon-bg-hover: transparent;
+$radial-menu-icon-bg-not-hovered: transparent;
+
+$radial-menu-icon-color: darken($color-primary-darkest, 16%);
+$radial-menu-icon-color-hover: $white;
+$radial-menu-icon-color-not-hovered: darken($color-primary-darkest, 8%);
+
+
+//
+//  MENU ITEM
+//–––––––––––––––––––––––––––––––––––––
+
+$radial-menu-item-default-transform: translateY(-50%);
+$radial-menu-item-trapezoid-transform: perspective(200px) rotateY(-77.5deg) scaleX(1.25);
+
+$radial-menu-item-bg: $color-primary-lighter;
+// $radial-menu-item-bg-hover: $color-primary-lightest;
+$radial-menu-item-bg-hover: $color-secondary;
+
+$radial-menu-item-border-width: 1px;
+$radial-menu-item-border-color: $color-primary;
+$radial-menu-item-border-color-hover: $color-secondary;
+
+$radial-menu-inset-bg: $color-primary-darkest;
+// $radial-menu-inset-bg-hover: darken($color-primary-darkest, 4%);
+$radial-menu-inset-bg-hover: $color-secondary;

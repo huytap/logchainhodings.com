@@ -32,7 +32,34 @@ class ContentController extends Controller
         if (!File::exists($path)) {
             File::makeDirectory($path, '0777', true);
         }
-        if ($request->hasFile('photo_upload')) {
+        $request->merge([
+            'title' => jsonEncodeHasText($request->input('title')),
+            'description' => jsonEncodeHasText($request->input('description'))
+        ]);
+        $image_lang = $request->input('img_lang');
+        if($image_lang){
+            if ($request->hasFile('images_upload')) {
+                $images = [];
+                foreach($request->images_upload as $key => $image){
+                    $ext = $image->extension();
+                    $fileName = md5(uniqid()) . '.' . $ext;
+                    $image->move($path, $fileName);
+                    $images[$key] = $fileName;
+                }
+                $request->merge(['images' => jsonEncodeHasText($images)]);
+            }
+            if ($request->hasFile('images_mobile_upload')) {
+                $images_mobile = [];
+                foreach($request->images_mobile_upload as $key => $image){
+                    $ext = $image->extension();
+                    $fileName = md5(uniqid()) . '.' . $ext;
+                    $image->move($path, $fileName);
+                    $images_mobile[$key] = $fileName;
+                }
+                $request->merge(['images_mobile' => jsonEncodeHasText($images_mobile)]);
+            }
+            $request->merge(['img_lang' => 1]);
+        }else if ($request->hasFile('photo_upload')) {
             if ($request->photo_upload->isValid()) {
                 $file = $request->photo_upload;
                 $ext = $file->extension();
@@ -40,8 +67,8 @@ class ContentController extends Controller
                 $fileName = md5(uniqid()) . '.' . $ext;
                 $file->move($path, $fileName);
             }
-            $request->merge(['photo' => $fileName]);
         }
+        
         if (Content::create($request->all())) {
             return redirect()->route('content.index')->with('success', 'Add content success');
         }

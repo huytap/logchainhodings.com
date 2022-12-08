@@ -1,12 +1,4 @@
 @extends('clients.layouts.main')
-@section('css')
-<style>
-    .banner{
-        background: url({{asset('uploads/'. $menu['banner'])}}) no-repeat top center;
-        background-size: cover;
-    }
-</style>
-@endsection
 @section('content')
 @php
 use App\Models\Setting;
@@ -60,9 +52,9 @@ $class='team__banner';
         @endphp
         @if($collection2)
             <div class="team__list">
-                <div class="row">
+                <div class="row row-cols-2 row-cols-md-5">
                     @foreach($result2 as $rs)
-                        <div class="col-md-3 col-6">
+                        <div class="col col-6">
                             <div class="team__list--item">
                             <h3>
                                 {!! $rs['title'][$lang]??'' !!}
@@ -91,4 +83,12 @@ $class='team__banner';
         }
     }
     </script>
+@endsection
+@section('css')
+<style>
+    .banner{
+        background: url({{asset('uploads/'. $menu['banner'])}}) no-repeat top center;
+        background-size: cover;
+    }
+</style>
 @endsection

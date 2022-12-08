@@ -146,24 +146,24 @@ $class = 'introduce';
 @endsection
 @section('script')
 <script type="text/javascript">
-setTimeout(function(){
-    setHeightBanner()
-}, 1000)
-$(window).resize(setHeightBanner())    
-function setHeightBanner(){
-    if($(window).width() > 767){
-        var bannerHeight = document.getElementById('banner')
-        var height = bannerHeight.offsetHeight
-        document.getElementById('banner').style.height = height + 'px'
+    setTimeout(function(){
+        setHeightBanner()
+    }, 1000)
+    $(window).resize(setHeightBanner())    
+    function setHeightBanner(){
+        if($(window).width() > 767){
+            var bannerHeight = document.getElementById('banner')
+            var height = bannerHeight.offsetHeight
+            document.getElementById('banner').style.height = height + 'px'
+        }
     }
-}
-$(document).ready(function(){
-    // var w = $(window).width();
-    // var innerW = $('#contact-us').find('.container').width();
-    // var infoW = $('#contact-info').width();
-    // var newW = ((w-innerW)/2 + (innerW - infoW - 30));
-    // console.log(newW)
-    // $('.introduce__contact--map').css('width', newW+'px')
-})
+    $(document).ready(function(){
+        // var w = $(window).width();
+        // var innerW = $('#contact-us').find('.container').width();
+        // var infoW = $('#contact-info').width();
+        // var newW = ((w-innerW)/2 + (innerW - infoW - 30));
+        // console.log(newW)
+        // $('.introduce__contact--map').css('width', newW+'px')
+    })
 </script>
 @endsection
