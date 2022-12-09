@@ -7,7 +7,7 @@
 @import 'banner';
 @import 'footer';
 @import 'language';
-@import 'menu';
+@import 'menu_partner';
 body{
     font-family: $menuFont;
     color: $darkGreen;
@@ -112,7 +112,11 @@ h3 span{
     &__menu{
         position: absolute;
         left: 0;
-        top: 80px;
+        top: 50px;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        width: calc(((100% - 1320px) / 2) + 16.66666667%);
         @media (min-width: 992px) {
             max-width: 200px;
         }

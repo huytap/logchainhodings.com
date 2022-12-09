@@ -60,7 +60,23 @@
     </div>
     <div class="investment">
         <div class="investment__menu wow fadeInUp" data-wow-duration="2.5s">
-            <img src="{{asset('investment__menu.jpg')}}" class="img-fluid" alt="">
+            <ul class='radialmenu'>
+                <li class='one'>
+                <a href='#'>Item</a>
+                </li>
+                <li class='two'>
+                <a href='#'>Item</a>
+                </li>
+                <li class='three'>
+                <a href='#'>Item</a>
+                </li>
+                <li class='four'>
+                <a href='#'>Item</a>
+                </li>
+                <li class='five'>
+                <a href='#'>Item</a>
+                </li>
+            </ul>
         </div>
         <div class="container">
             <div class="col-md-10 offset-md-2">
