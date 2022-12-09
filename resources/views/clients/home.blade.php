@@ -60,23 +60,23 @@
     </div>
     <div class="investment">
         <div class="investment__menu wow fadeInUp" data-wow-duration="2.5s">
-            <ul class='radialmenu'>
-                <li class='one'>
-                <a href='#'>Item</a>
-                </li>
-                <li class='two'>
-                <a href='#'>Item</a>
-                </li>
-                <li class='three'>
-                <a href='#'>Item</a>
-                </li>
-                <li class='four'>
-                <a href='#'>Item</a>
-                </li>
-                <li class='five'>
-                <a href='#'>Item</a>
-                </li>
-            </ul>
+        <ul class='radialmenu'>
+            <li class='one'>
+            <a href='#' class="active"><span>Aviation</span></a>
+            </li>
+            <li class='two'>
+            <a href='#'><span>Real Estate</span></a>
+            </li>
+            <li class='three'>
+            <a href='#'><span>Logistics & <br/>Supply Chain</span></a>
+            </li>
+            <li class='four'>
+            <a href='#'><span>E-Logistics</span></a>
+            </li>
+            <li class='five'>
+            <a href='#'><span>Trading</span></a>
+            </li>
+        </ul>
         </div>
         <div class="container">
             <div class="col-md-10 offset-md-2">
