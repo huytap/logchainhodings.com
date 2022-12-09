@@ -1816,7 +1816,7 @@ h1{
         h3{
             color: $grayColor3;
             line-height: 34px;
-            font-size: 28px;
+            font-size: 26px;
             font-family: $headlineFont;
             &::after{
                 background: $grayColor3;
@@ -1827,11 +1827,11 @@ h1{
                 }
             }
             span{
-                font-size: 20px;
+                font-size: 18px;
                 font-family: $menuFont;
             }
             @media (max-width: 768px) {
-                font-size: 20px;
+                // font-size: 20px;
                 line-height: 1.44;
             }
         }

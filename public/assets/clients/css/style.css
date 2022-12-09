@@ -3291,7 +3291,7 @@ h1::after {
 .team__list h3 {
   color: #151515;
   line-height: 34px;
-  font-size: 28px;
+  font-size: 26px;
   font-family: "Cormorant Garamond", sans-serif;
 }
 
@@ -3308,13 +3308,12 @@ h1::after {
 }
 
 .team__list h3 span {
-  font-size: 20px;
+  font-size: 18px;
   font-family: "Inter", sans-serif;
 }
 
 @media (max-width: 768px) {
   .team__list h3 {
-    font-size: 20px;
     line-height: 1.44;
   }
 }
