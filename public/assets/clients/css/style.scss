@@ -112,21 +112,78 @@ h3 span{
     &__menu{
         position: absolute;
         left: 0;
-        top: 50px;
+        bottom: 0;
         display: flex;
         align-items: center;
-        height: 100%;
-        width: calc(((100% - 1320px) / 2) + 16.66666667%);
-        @media (min-width: 992px) {
-            max-width: 200px;
-        }
-        @media (min-width: 1366px) {
-            max-width: 250px;
-        }
-        @media (min-width: 1600px) {
-            max-width: 300px;
-        }
+        height: calc(100% - 98px);
+        // width: calc(((100% - 1320px) / 2) + 16.66666667%);
+        // @media (min-width: 992px) {
+        //     max-width: 200px;
+        // }
+        // @media (min-width: 1366px) {
+        //     max-width: 250px;
+        // }
+        // @media (min-width: 1600px) {
+        //     max-width: 300px;
+        // }
         // width: calc((100% - 1170px) / 2);
+    }
+    &__logo{
+		top: 0px;
+		bottom: 0;
+		left: 0%;
+		z-index: 9999;
+		max-width: 50px;
+        @media (min-width: 1200px) {
+            max-width: 60px;
+        }        
+        @media (min-width: 1400px) {
+            max-width: 70px;
+        }       
+        img{
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            background-color: #fff;
+            padding:10px 10px 10px 5px;
+            @media (min-width: 1200px) {
+                padding:13px 10px 13px 5px;
+                border-top-right-radius: 10px;
+                border-bottom-right-radius: 10px;
+            }
+            @media (min-width: 1400px) {
+                padding:23px 20px 23px 5px;
+                border-top-right-radius: 20px;
+                border-bottom-right-radius: 20px;
+            }
+        }
+    }
+    &__items{
+        .col-md-6{
+            position: relative;
+        }
+        display: none;
+        transition: all 0.5s linear;
+        &.active{
+            display: block;
+        }
+        &--title{
+            @media (min-width: 992px) {
+                font-size: 26px;
+            }
+            @media (min-width: 1200px) {
+                font-size: 28px;
+            }
+            @media (min-width: 1400px) {
+                font-size: 30px;
+            }
+            @media (min-width: 1600px) {
+                font-size: 32px;
+            }
+            color: $whiteColor;
+            position: absolute;
+            bottom: 0;
+            padding: 0 30px;
+        }
     }
 }
 .introduce{

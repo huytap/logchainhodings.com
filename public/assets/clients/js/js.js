@@ -59,9 +59,11 @@ $(document).ready(function () {
 		// 	height = 404;
 		// 	width = 390;
 		// }
-		var banner = document.getElementById('banner')
-		if (w > 767)
-			banner.style.height = w * height / width + 'px';
+		if($('#banner').length){
+			var banner = document.getElementById('banner')
+			if (w > 767)
+				banner.style.height = w * height / width + 'px';
+		}
 	}
 	resizeBrowser();
 	window.addEventListener('resize', resizeBrowser)

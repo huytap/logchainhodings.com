@@ -1,50 +1,50 @@
 $color_1: #fff;
-
+// $col_2: 16.66666667%;
+// $width: calc(((100% - 960x) / 2) + 16.66666667%);
+// $half_width:calc((((100% - 960px) / 2) + 16.66666667%) / 2);
+// @media (min-width: 1200px) {
+// 	$width: calc(((100% - 1140px) / 2) + 16.66666667%);
+// }
+// @media (min-width: 1400px) {
+// 	$width: calc(((100% - 1320px) / 2) + 16.66666667%);
+// }	
 .radialmenu {
 	overflow: hidden;
-	width: 394px;
-	height: 300px;
 	margin: 0;
 	list-style: none;
-	&:before {
-		content: " ";
-		display: block;
-		position: absolute;
-		top: -75px;
-		left: 50%;
-		z-index: 1;
-		width: 150px;
-		height: 150px;
-		margin: 0 0 0 -75px;
-		border-radius: 100%;
-		background: #fff;
-		pointer-events: none;
-	}
 	li {
 		position: absolute;
-		top: 29%;
-		left: 0%;
-		margin-left: -150px;
-		width: 300px;
-		height: 300px;
+		// left: 0;
+		// margin-left: 0;
+		// width: 100%;
+		// height: 100%;
 		border-radius: 100%;
-		clip: rect(-25px, 300px, 300px, 150px);
+		// clip: rect(-25px, $width, $width, $half_width);
 	}
 	a {
 		position: absolute;
 		top: 0;
 		left: 0;
 		display: block;
-		width: 300px;
-		height: 300px;
 		border-radius: 100%;
 		background: #003E4B;
-		clip: rect(-25px, 150px, 300px, 0);
 		transform: rotate(36deg);
 		transition: 0.15s ease-in-out;
 		backface-visibility: hidden;
-		cursor: pointer;
+		text-transform: uppercase;
 		font-size: 14px;
+		@media (min-width: 1400px) {
+			font-size: 16px;
+		}
+		@media (min-width: 1400px) {
+			font-size: 18px;
+		}
+		@media (min-width: 1600px) {
+			font-size: 20px;
+		}
+		@media (min-width: 1800px) {
+			font-size: 24px;
+		}
 		&.active{
 			background: #A18565;
 		}
@@ -57,6 +57,7 @@ $color_1: #fff;
 			position: relative;
 			width: 50%;
 			margin: 0 auto;
+			font-family: $headlineFont;
 		}
 		&:hover {
 			background: #A18565;
@@ -81,8 +82,8 @@ $color_1: #fff;
 	a {
 		span {
 			transform: rotate(-108deg);
-			top: 5px;
-			left: -42px;
+			top: 14px;
+			left: -62px;
 		}
 	}
 }
@@ -91,8 +92,8 @@ $color_1: #fff;
 	a {
 		span {
 			transform: rotate(-144deg);
-			top: 25px;
-			left: -70px;
+			top: 30px;
+			left: -115px;
 		}
 	}
 }
@@ -101,8 +102,8 @@ $color_1: #fff;
 	a {
 		span {
 			transform: rotate(-180deg);
-			top: 30px;
-			left: -80px;
+			top: 55px;
+			left: -130px;
 		}
 	}
 }
