@@ -58,96 +58,78 @@
             @endif
         </div>
     </div>
+    @php 
+        $collection5 = $collection->filter(function ($val, $key) {
+            return $val->content_section==5;
+        });
+        $result5 = $collection5->all();
+        $collection6 = $collection->filter(function ($val, $key) {
+            return $val->content_section==6;
+        });
+        $result6 = $collection6->all();
+        $collection7 = $collection->filter(function ($val, $key) {
+            return $val->content_section==7;
+        });
+        $result7 = $collection7->all();
+    @endphp
     <div class="investment">
+        <h3 class="investment__title d-md-none d-block">@lang('logchain.title.investment')</h3>
         <div class="investment__menu wow fadeInUp" data-wow-duration="2.5s">
             <div class="investment__logo">
                 <img src="{{asset('assets/clients/images/logo-footer.png')}}" class="img-fluid" alt="">
             </div>
-            <ul class='radialmenu'>
-                <li class='one'>
-                    <a href='#aviation' class="active"><span>Aviation</span></a>
+            <ul class="radialmenu">
+                <li class="one">
+                    <a href="#aviation" class="active"><span>Aviation</span></a>
                 </li>
-                <li class='two'>
-                    <a href='#real-estate'><span>Real Estate</span></a>
+                <li class="two">
+                    <a href="#real-estate"><span>Real Estate</span></a>
                 </li>
-                <li class='three'>
-                    <a href='#logistics'><span>Logistics & <br/>Supply Chain</span></a>
+                <li class="three">
+                    <a href="#logistics"><span>Logistics<br class="d-block d-md-none"/> & <br/>Supply <br class="d-block d-md-none"/>Chain</span></a>
                 </li>
-                <li class='four'>
-                    <a href='#'><span>E-Logistics</span></a>
+                <li class="four">
+                    <a href="#"><span>E-Logistics</span></a>
                 </li>
-                <li class='five'>
-                    <a href='#'><span>Trading</span></a>
+                <li class="five">
+                    <a href="#"><span>Trading</span></a>
                 </li>
             </ul>
         </div>
         <div class="container">
             <div class="col-md-10 offset-md-2">
-                <h3 class="investment__title">@lang('logchain.title.investment')</h3>
+                <h3 class="investment__title d-none d-md-block">@lang('logchain.title.investment')</h3>
                 <div id="aviation" class="investment__items active wow fadeInUp" data-wow-duration="1.5s">
-                    <div class="row mb-4">
-                        <div class="col-md-6">
-                            <img src="{{asset('img1.jpg')}}" class="img-fluid" alt="">
-                            <h4 class="investment__items--title">Airline GSA</h4>
-                        </div>
-                        <div class="col-md-6">
-                            <img src="{{asset('img2.jpg')}}" class="img-fluid" alt="">
-                            <h4 class="investment__items--title">Chartering</h4>
-                        </div>
-                    </div>
                     <div class="row">
-                        <div class="col-md-6">
-                            <img src="{{asset('img4.jpg')}}" class="img-fluid" alt="">
-                            <h4 class="investment__items--title">Airport Operation and Services</h4>
+                    @foreach($result5 as $rs)
+                        <div class="col-6 mb-md-4 mb-3">
+                            <img src="{{asset('uploads/'.$rs['photo'])}}" class="img-fluid d-none d-md-block" alt="">
+                            <img src="{{asset('uploads/'.$rs['photo_mobile'])}}" class="img-fluid d-block d-sm-none" alt="">
+                            <h4 class="investment__items--title">{{$rs['title'][$lang]}}</h4>
                         </div>
-                        <div class="col-md-6">
-                            <img src="{{asset('img3.jpg')}}" class="img-fluid" alt="">
-                            <h4 class="investment__items--title">Equipment Maintenance</h4>
-                        </div>
+                    @endforeach
                     </div>
                 </div>
                 <div id="real-estate" class="investment__items" >
-                    <div class="row mb-4">
-                        <div class="col-md-6">
-                            <img src="{{asset('img2.jpg')}}" class="img-fluid" alt="">
-                            <h4 class="investment__items--title">Chartering</h4>
-                        </div>
-                        <div class="col-md-6">
-                            <img src="{{asset('img1.jpg')}}" class="img-fluid" alt="">
-                        </div>
-                            <h4 class="investment__items--title">Airline GSA</h4>
-                        </div>
                     <div class="row">
-                        <div class="col-md-6">
-                            <img src="{{asset('img3.jpg')}}" class="img-fluid" alt="">
-                            <h4 class="investment__items--title">Airport Operation and Services</h4>
-                        </div>
-                        <div class="col-md-6">
-                            <img src="{{asset('img4.jpg')}}" class="img-fluid" alt="">
-                            <h4 class="investment__items--title">Equipment Maintenance</h4>
-                        </div>
+                        @foreach($result6 as $rs)
+                            <div class="col-6 mb-md-4 mb-3">
+                                <img src="{{asset('uploads/'.$rs['photo'])}}" class="img-fluid d-none d-md-block" alt="">
+                                <img src="{{asset('uploads/'.$rs['photo_mobile'])}}" class="img-fluid d-block d-sm-none" alt="">
+                                <h4 class="investment__items--title">{{$rs['title'][$lang]}}</h4>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
                 <div id="logistics" class="investment__items" >
-                    <div class="row mb-4">
-                        <div class="col-md-6">
-                            <img src="{{asset('img4.jpg')}}" class="img-fluid" alt="">
-                            <h4 class="investment__items--title">Airline GSA</h4>
-                        </div>
-                        <div class="col-md-6">
-                            <img src="{{asset('img3.jpg')}}" class="img-fluid" alt="">
-                            <h4 class="investment__items--title">Chartering</h4>
-                        </div>
-                    </div>
                     <div class="row">
-                        <div class="col-md-6">
-                            <img src="{{asset('img2.jpg')}}" class="img-fluid" alt="">
-                            <h4 class="investment__items--title">Airport Operation and Services</h4>
-                        </div>
-                        <div class="col-md-6">
-                            <img src="{{asset('img1.jpg')}}" class="img-fluid" alt="">
-                            <h4 class="investment__items--title">Equipment Maintenance</h4>
-                        </div>
+                        @foreach($result7 as $rs)
+                            <div class="col-6 mb-md-4 mb-3">
+                                <img src="{{asset('uploads/'.$rs['photo'])}}" class="img-fluid d-none d-md-block" alt="">
+                                <img src="{{asset('uploads/'.$rs['photo_mobile'])}}" class="img-fluid d-block d-sm-none" alt="">
+                                <h4 class="investment__items--title">{{$rs['title'][$lang]}}</h4>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -159,44 +141,76 @@
 <script type="text/javascript">
     $(document).ready(function(){
         var fullW = $(window).width();
-        var w_content = 960;
-        if(fullW >= 1400){
-            w_content = 1320;
-        }else if(fullW>=1200){
-            w_content = 1140;
+        if(fullW>=992){
+            var w_content = 960;
+            if(fullW >= 1400){
+                w_content = 1320;
+            }else if(fullW>=1200){
+                w_content = 1140;
+            }
+            var col_2 = w_content * 16.66666667 / 100;
+            var max_width = (((fullW - w_content) / 2 + col_2)*2) - 30;
+            if(fullW >=1200){
+                max_width = (((fullW - w_content) / 2 + col_2)*2) - 100;
+            }
+            var mTop = (($('.investment .investment__title').height() + $('.investment img').height() - (max_width/2)) / 2);
+            if(max_width > 695){
+                max_width = 695;
+            }
+            $('.radialmenu').css({
+                width: max_width,
+                height: max_width,
+                //top: mTop > 0 ? mTop : 0 
+            });
+            $('.radialmenu').find('li').css({
+                width: max_width,
+                height: max_width,
+                left: -max_width/2,
+                clip: 'rect(0, ' + max_width +'px, '+ max_width +'px,'+ (max_width/2) +'px)'
+            })
+            $('.radialmenu').find('li a').css({
+                width: max_width,
+                height: max_width,
+                clip: 'rect(0, ' + ((max_width/2) - 1) +'px, '+ max_width +'px, 0)'
+            })
+        }else{
+            if(fullW > 480){
+                fullW = 480;
+            }
+            $('.radialmenu').css({
+                width: fullW,
+                height: (fullW/2) + 30,
+            });
+            $('.radialmenu').find('li').css({
+                width: fullW,
+                height: fullW,
+                top: -fullW/2,
+                clip: 'rect(0, ' + fullW +'px, '+ fullW +'px,'+ (fullW/2) +'px)'
+            })
+            $('.radialmenu').find('li a').css({
+                width: fullW,
+                height: fullW,
+                clip: 'rect(0, ' + ((fullW/2) - 1) +'px, '+ fullW +'px, 0)'
+            })
         }
-        var col_2 = w_content * 16.66666667 / 100;
-        var max_width = (((fullW - w_content) / 2 + col_2)*2) - 100;
-        console.log($('.investment .investment__title').height() + $('.investment img').height())
-        var mTop = (($('.investment .investment__title').height() + $('.investment img').height() - (max_width/2)) / 2);
-        if(max_width > 695){
-            max_width = 695;
-        }
-        $('.radialmenu').css({
-            width: max_width,
-            height: max_width,
-            //top: mTop > 0 ? mTop : 0 
-        });
-        $('.radialmenu').find('li').css({
-            width: max_width,
-            height: max_width,
-            left: -max_width/2,
-            clip: 'rect(0, ' + max_width +'px, '+ max_width +'px,'+ (max_width/2) +'px)'
-        })
-        $('.radialmenu').find('li a').css({
-            width: max_width,
-            height: max_width,
-            clip: 'rect(0, ' + ((max_width/2) - 1) +'px, '+ max_width +'px, 0)'
-        })
         $('.radialmenu').find('li').each(function(i, j){
+            $(j).click(function(e){
+                e.preventDefault();
+            })
             $(j).hover(function(){
-                $('.radialmenu').find('li a').removeClass('active');
-                $('.investment__items').removeClass('active');
-                if($($(this).find('a').attr('href')).length){
-                    $($(this).find('a').attr('href')).addClass('active');
+                var el = $(this).find('a').attr('href');
+                if($(this).find('a').hasClass('active')){
+
                 }else{
-                    $('#aviation').addClass('active');
-                    $('.radialmenu').find('li:first-child').find('a').addClass('active')
+                    $('.radialmenu').find('li a').removeClass('active');
+                    $('.investment__items').removeClass('active');
+                    if($(el).length){
+                        $(el).addClass('active');
+                        $(this).find('a').addClass('active');
+                    }else{
+                        $('#aviation').addClass('active');
+                        $('.radialmenu').find('li:first-child').find('a').addClass('active')
+                    }
                 }
             })
         })

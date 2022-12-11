@@ -10,7 +10,7 @@ class ContentController extends Controller
     public function index()
     {
         $title = 'Content';
-        $data = Content::orderBy('menu_id', 'ASC')->orderBy('priority')->search()->paginate(50);
+        $data = Content::orderBy('menu_id', 'ASC')->orderBy('content_section')->search()->paginate(50);
         return view('admin.content.index', compact('data', 'title'));
     }
     public function create()
@@ -155,8 +155,10 @@ class ContentController extends Controller
                 $request->merge(['photo_mobile' => $old_mobile]);
             }
             $content->update($request->only('title', 'photo', 'photo_mobile', 'description', 'menu_id', 'content_section', 'priority'));
-        }        
-        return redirect()->route('content.index')->with('success', 'Update content success');
+        }  
+        $url = route('content.index');
+        $url .= '?page_id='.$request->menu_id.'&content_section='.$request->content_section;      
+        return redirect($url)->with('success', 'Update content success');
     }
     public function destroy(Content $content)
     {

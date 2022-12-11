@@ -96,6 +96,12 @@
                                         </select>
                                     </div>
                                 </div>
+                                <div class="col-md-5 my-2 my-md-0">
+                                    <div class="d-flex align-items-center">
+                                        <label  class="mr-4 mb-0 d-none d-md-block" for="">Content Section:</label>
+                                        <input type="text" name="content_section" value="{{request()->content_section ? request()->content_section : ''}}" class="form-control">
+                                    </div>
+                                </div>
                                 <button type="submit" class="btn btn-light-primary px-6 font-weight-bold">
                                     Search
                                 </button>
@@ -118,6 +124,7 @@
                             <th scope="col">Photo</th>
                             <th scope="col">Page</th>
                             <th scope="col">Title</th>
+                            <th scope="col">Content Section</th>
                             <th scope="col">Created At</th>
                             <th scope="col"><span style="width: 125px;">Action</span></th>
                         </tr>
@@ -134,6 +141,7 @@
                                 <td><img src="{{asset($cover)}}" width="100"/></td>
                                 <td>{{$page}}</td>
                                 <td>{{$item['title']['en']??''}}</td>
+                                <td>{{$item['content_section']??''}}</td>
                                 <td>{{$item['created_at']}}</td>                            
                                 <td data-field="Actions">
                                     <span style="overflow: visible; position: relative; width: 125px;">

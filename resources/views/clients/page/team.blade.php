@@ -54,12 +54,18 @@ $class='team__banner';
             <div class="team__list">
                 <div class="row row-cols-2 row-cols-md-5">
                     @foreach($result2 as $rs)
+                    @if(isset($rs['title'][$lang]))
                         <div class="col col-6">
+                    @else
+                        <div class="col col-6 d-md-none">
+                    @endif
                             <div class="team__list--item">
-                            <h3>
-                                {!! $rs['title'][$lang]??'' !!}
-                            </h3>
-                            {!! $rs['description'][$lang]??'' !!}
+                            @if(isset($rs['title'][$lang]))
+                                <h3>
+                                    {!! $rs['title'][$lang]??'' !!}
+                                </h3>
+                                {!! $rs['description'][$lang]??'' !!}
+                            @endif
                             </div>
                         </div>
                     @endforeach

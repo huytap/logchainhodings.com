@@ -20,6 +20,9 @@ class Content extends Model
         if ($menu_id = request()->page_id) {
             $query = $query->where('menu_id', '=', $menu_id);
         }
+        if($content_section = request()->content_section){
+            $query = $query->where('content_section', '=', $content_section);
+        }
         return $query;
     }
 

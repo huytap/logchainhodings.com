@@ -81,7 +81,7 @@
                                 if($i<3)
                                     $html_odd .= '
                                         <div class="about__code--list__item">
-                                            <span>'.($i+1).'</span> '.$rs['title'][$lang].'
+                                            <div class="about__code--list__item--title"><span>'.($i+1).'</span><span>'.$rs['title'][$lang].'</span></div>
                                             <div class="about__code--list__detail">
                                                 '. $rs['description'][$lang] .'
                                             </div>
@@ -89,7 +89,7 @@
                                 else 
                                     $html_even .= '
                                         <div class="about__code--list__item">
-                                            <span>'.($i+1).'</span> '. $rs['title'][$lang].'
+                                            <div class="about__code--list__item--title"><span>'.($i+1).'</span><span>'. $rs['title'][$lang].'</span></div>
                                             <div class="about__code--list__detail">
                                                 '. $rs['description'][$lang] .'
                                             </div>
