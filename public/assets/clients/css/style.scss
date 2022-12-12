@@ -1947,8 +1947,10 @@ h1{
         .col:nth-child(6){
             .team__list--item{
                 &:after{
-                    height: 0;
-                    background-color: transparent;
+                    @media (min-width: 992px) {
+                        height: 0;
+                        background-color: transparent;
+                    }
                 }
             }
         }
