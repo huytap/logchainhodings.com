@@ -124,6 +124,9 @@ $color_1: #fff;
 				top: 23%;
 				left: -18%;
 			}
+			@media (max-width: 360px) {
+				left: -16%;
+			}
 		}
 	}
 }
@@ -182,6 +185,10 @@ $color_1: #fff;
 				transform: rotate(198deg);
 				top: 9%;
 				left: -25%;
+			}
+			@media (max-width: 360px) {
+				top: 11%;
+				left: -23%;
 			}
 		}
 	}

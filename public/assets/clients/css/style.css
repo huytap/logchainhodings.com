@@ -1001,6 +1001,12 @@ h3::after {
   }
 }
 
+@media (max-width: 360px) {
+  .two a span {
+    left: -16%;
+  }
+}
+
 .three {
   -webkit-transform: rotate(72deg);
           transform: rotate(72deg);
@@ -1088,6 +1094,13 @@ h3::after {
   }
 }
 
+@media (max-width: 360px) {
+  .four a span {
+    top: 11%;
+    left: -23%;
+  }
+}
+
 .five {
   -webkit-transform: rotate(144deg);
           transform: rotate(144deg);
@@ -1126,7 +1139,7 @@ h3::after {
     -webkit-transform: rotate(234deg);
             transform: rotate(234deg);
     bottom: auto;
-    top: 5.7%;
+    top: 5.4%;
     left: -18.5%;
   }
 }
