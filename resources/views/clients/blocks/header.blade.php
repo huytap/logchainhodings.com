@@ -28,7 +28,7 @@ $uri = explode('/', $url);
                             <li><a href="{{route('page', $menu->slug)}}">{{$menu->name[$lang]}}</a></li>
                         @endif
                     @endforeach
-                    {{-- <li>
+                    <li>
                         <div class="navbar__language">
                             @foreach($language as $key => $l)
                                 @if(isset($language[$uri[0]]))
@@ -50,7 +50,7 @@ $uri = explode('/', $url);
                                 @endif
                             @endforeach
                         </div>
-                    </li> --}}
+                    </li>
                 </ul>
             </nav>
         </div>

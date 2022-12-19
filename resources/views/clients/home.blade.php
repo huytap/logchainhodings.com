@@ -71,6 +71,11 @@
             return $val->content_section==7;
         });
         $result7 = $collection7->all();
+
+        $collection_menu = $collection->filter(function ($val, $key) {
+            return $val->content_section== 'menu';
+        });
+        $result_menu = $collection_menu->all();
     @endphp
     <div class="investment">
         <h3 class="investment__title d-md-none d-block">@lang('logchain.title.investment')</h3>
@@ -79,11 +84,22 @@
                 <img src="{{asset('assets/clients/images/logo-footer.png')}}" class="img-fluid" alt="">
             </div>
             <ul class="radialmenu">
-                <li class="one">
-                    <a href="#aviation" class="active"><span>Aviation</span></a>
-                </li>
-                <li class="two">
-                    <a href="#real-estate"><span>Real Estate</span></a>
+                <?php
+                $stt_menu = 1;
+                foreach($result_menu as $key => $menu_ra):
+                    $class="";
+                    if($stt_menu==1){
+                        $class = 'active';
+                    }
+                ?>
+                    <li class="one">
+                        <a href="#menu_{{$stt_menu}}" class="{{$class}}"><span>{!!$menu_ra->title[$lang]!!}</span></a>
+                    </li>
+                <?php 
+                $stt_menu ++;
+                endforeach;?>
+                {{-- <li class="two">
+                    <a href="#real-estate"><span>Industrial<br/>Real Estate</span></a>
                 </li>
                 <li class="three">
                     <a href="#logistics"><span>Logistics<br class="d-block d-md-none"/> & <br/>Supply <br class="d-block d-md-none"/>Chain</span></a>
@@ -93,13 +109,13 @@
                 </li>
                 <li class="five">
                     <a href="#"><span>Trading</span></a>
-                </li>
+                </li> --}}
             </ul>
         </div>
         <div class="container">
             <div class="col-md-10 offset-md-2">
                 <h3 class="investment__title d-none d-md-block">@lang('logchain.title.investment')</h3>
-                <div id="aviation" class="investment__items active wow fadeInUp" data-wow-duration="1.5s">
+                <div id="menu_1" class="investment__items active wow fadeInUp" data-wow-duration="1.5s">
                     <div class="row">
                     @foreach($result5 as $rs)
                         <div class="col-6 mb-md-4 mb-3">
@@ -110,7 +126,7 @@
                     @endforeach
                     </div>
                 </div>
-                <div id="real-estate" class="investment__items" >
+                <div id="menu_2" class="investment__items" >
                     <div class="row">
                         @foreach($result6 as $rs)
                             <div class="col-6 mb-md-4 mb-3">
@@ -121,7 +137,7 @@
                         @endforeach
                     </div>
                 </div>
-                <div id="logistics" class="investment__items" >
+                <div id="menu_3" class="investment__items" >
                     <div class="row">
                         @foreach($result7 as $rs)
                             <div class="col-6 mb-md-4 mb-3">
@@ -208,7 +224,7 @@
                         $(el).addClass('active');
                         $(this).find('a').addClass('active');
                     }else{
-                        $('#aviation').addClass('active');
+                        $('#menu_1').addClass('active');
                         $('.radialmenu').find('li:first-child').find('a').addClass('active')
                     }
                 }
