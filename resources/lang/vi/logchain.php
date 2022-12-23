@@ -6,6 +6,6 @@ return [
     'title.contact' => 'Liên hệ',
     'title.contact_us' => 'Liên hệ',
     'title.portfolio' => 'Portfolio',
-    'title.code_of_practices' => 'Code of Practices',
-    'title.investment' => 'Investment Sector'
+    'title.code_of_practices' => 'Nguyên tắc làm việc',
+    'title.investment' => 'Các lĩnh vực đầu tư'
 ];

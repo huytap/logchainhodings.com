@@ -1,6 +1,6 @@
 @extends('clients.layouts.main')
 @section('content')
-<div class="banner home__banner">
+<div class="banner home__banner {{$lang}}">
     <img src="{{asset('uploads/'.$menu->banner_mobile)}}" alt="" class="img-fluid d-md-none">
     <div class="container banner__container">
         <div class="row">

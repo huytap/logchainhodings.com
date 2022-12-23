@@ -30,6 +30,10 @@
         background-color: $goldColor2;
         padding: 7px;
         border-radius: 51px;
+        @media (max-width: 991px) {
+            padding: 7 10px;
+            display: inline-block;
+        }
         &--item{
             color: $whiteColor!important;
             font-weight: 700!important;
