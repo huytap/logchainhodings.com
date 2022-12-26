@@ -26,6 +26,14 @@
     <meta name="msapplication-TileImage" content="{{asset('/')}}ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     @yield('css')
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-26TW0E27F5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-26TW0E27F5');
+    </script>
 </head>
 <body>
     @include('clients.blocks.header')

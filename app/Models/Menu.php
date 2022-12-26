@@ -52,10 +52,19 @@ class Menu extends Model
     }
     public static function getBySlug($slug)
     {
-        $menu = Menu::where('slug', $slug)
+        $menu = Menu::query()
+            ->whereJsonContains('slug->'. app()->getLocale(), $slug)
             ->where('status', 0)
             ->first();
         return $menu;
+    }
+
+    public function getSlugAttribute($value)
+    {
+        if ($value != null && $value != "") {
+            return json_decode($value, true);
+        }
+        return $value;
     }
 
     public function getNameAttribute($value)
@@ -65,6 +74,7 @@ class Menu extends Model
         }
         return $value;
     }
+
     public function getBannerTitleAttribute($value)
     {
         if ($value != null && $value != "") {

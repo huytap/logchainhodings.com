@@ -4,6 +4,10 @@ $language = config('languages');
 $lang = App::getLocale();
 $url = Request::path();
 $uri = explode('/', $url);
+if(isset($uri[count($uri) - 1])){
+    $slg = str_replace('.html', '', $uri[count($uri) - 1]);
+    $page = App\Models\Menu::getBySlug($slg);
+}
 @endphp
 <div class="header" id="header">
     <div class="container">
@@ -22,30 +26,50 @@ $uri = explode('/', $url);
                 <ul id="navbar" class="navbarNavi">
                     <li><a href="{{route('home', $locale)}}">@lang('logchain.menu.home')</a></li>
                     @foreach($menus as $menu)
-                        @if($locale && $locale !== 'en')
-                            <li><a href="{{url($locale.'/'.$menu->slug)}}.html">{{$menu->name[$lang]}}</a></li>
-                        @else
-                            <li><a href="{{route('page', $menu->slug)}}">{{$menu->name[$lang]}}</a></li>
-                        @endif
+                        {{-- @if($locale && $locale !== 'en') --}}
+                            <li><a href="{{url($locale.'/'.$menu->slug[$lang])}}.html">{{$menu->name[$lang]}}</a></li>
+                        {{-- @else
+                            <li><a href="{{route('page', $menu->slug[$lang])}}">{{$menu->name[$lang]}}</a></li>
+                        @endif --}}
                     @endforeach
                     <li>
                         <div class="navbar__language">
                             @foreach($language as $key => $l)
                                 @if(isset($language[$uri[0]]))
-                                    @if($key != 'en')
-                                        @if($uri[0] == '')
-                                            <a class="navbar__language--item {{$key==$lang?'active':''}}" href="{{url($key)}}">{{$key}}</a>
+                                    @if(!isset($page))
+                                        @if($key != 'en')
+                                            @if($uri[0] == '')
+                                                <a class="navbar__language--item {{$key==$lang?'active':''}}" href="{{url($key)}}">{{$key}}</a>
+                                            @else
+                                                <a class="navbar__language--item {{$key==$lang?'active':''}}" href="{{url(str_replace($uri[0],$key, $url))}}">{{$key}}</a>
+                                            @endif
                                         @else
-                                            <a class="navbar__language--item {{$key==$lang?'active':''}}" href="{{url(str_replace($uri[0],$key, $url))}}">{{$key}}</a>
+                                            <a class="navbar__language--item {{$key==$lang?'active':''}}" href="{{url(str_replace($uri[0],'', $url))}}">{{$key}}</a>
                                         @endif
                                     @else
-                                        <a class="navbar__language--item {{$key==$lang?'active':''}}" href="{{url(str_replace($uri[0],'', $url))}}">{{$key}}</a>
+                                        @if($key != 'en')
+                                            @if($uri[0] == '')
+                                                <a class="navbar__language--item {{$key==$lang?'active':''}}" href="{{url($key)}}">{{$key}}</a>
+                                            @else
+                                                <a class="navbar__language--item {{$key==$lang?'active':''}}" href="{{url($page->slug[$key])}}.html">{{$key}}</a>
+                                            @endif
+                                        @else
+                                            <a class="navbar__language--item {{$key==$lang?'active':''}}" href="{{url($page->slug[$key])}}.html">{{$key}}</a> 
+                                        @endif
                                     @endif
                                 @else
-                                    @if($key != 'en')
-                                        <a class="navbar__language--item {{$key==$lang?'active':''}}" href="{{url($key.'/'.$url)}}">{{$key}}</a>
+                                    @if(isset($page))
+                                        @if($key != 'en')
+                                            <a class="navbar__language--item {{$key==$lang?'active':''}}" href="{{url($key.'/'.$page->slug[$key])}}.html">{{$key}}</a>
+                                        @else
+                                            <a class="navbar__language--item {{$key==$lang?'active':''}}" href="{{url($page->slug[$key])}}.html">{{$key}}</a>
+                                        @endif
                                     @else
-                                        <a class="navbar__language--item {{$key==$lang?'active':''}}" href="{{url($url)}}">{{$key}}</a>
+                                        @if($key != 'en')
+                                            <a class="navbar__language--item {{$key==$lang?'active':''}}" href="{{url($key.'/'.$url)}}">{{$key}}</a>
+                                        @else
+                                            <a class="navbar__language--item {{$key==$lang?'active':''}}" href="{{url($url)}}">{{$key}}</a>
+                                        @endif
                                     @endif
                                 @endif
                             @endforeach

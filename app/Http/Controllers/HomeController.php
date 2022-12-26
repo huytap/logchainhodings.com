@@ -12,8 +12,9 @@ class HomeController extends Controller
     public function index($locale = '')
     {
         $lang = \App::getLocale();
-        $title = 'Logchain Group';
-        $menu = Menu::getBySlug('home');
+        $title = 'Logchain Holdings';
+        //$menu = Menu::getBySlug('home');
+        $menu = Menu::find(4);
         if (!empty($menu)) {
             $title = $menu['seo_title'][$lang];
             $description = $menu['seo_description'][$lang];

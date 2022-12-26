@@ -42,7 +42,7 @@ if (App::getLocale() == 'en') {
     Route::get('/{slug}.html', [PageController::class, 'index'])->name('page');
 } else {
     Route::get('/{locale}', [HomeController::class, 'index'])->name('home');
-    Route::get('/{locale}/contact.html', [PageController::class, 'contact'])->name('contact');
+    Route::get('/{locale}/lien-he.html', [PageController::class, 'contact'])->name('contact');
     Route::get('/{locale}/{slug}.html', [PageController::class, 'index'])->name('page');
 }
 // $menus = Menu::getList();

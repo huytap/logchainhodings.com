@@ -92,9 +92,14 @@ class MenuController extends Controller
         $banner_description = $request->input('banner_description');
         $seo_title = $request->input('seo_title');
         $seo_description = $request->input('seo_description');
-        $slug = (string)Str::slug($name['en'], '-');
+        if($name){
+            $slug = [];
+            foreach($name as $key => $n){
+                $slug[$key] = (string)Str::slug($n, '-');
+            }
+        }
         $request->merge([
-            'slug' => $slug, 
+            'slug' => jsonEncodeHasText($slug), 
             'name' => jsonEncodeHasText($name),
             'banner_title' => jsonEncodeHasText($banner_title),
             'banner_description' => jsonEncodeHasText($banner_description),

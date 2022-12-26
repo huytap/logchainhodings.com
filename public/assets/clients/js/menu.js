@@ -3,13 +3,12 @@
 //–––––––––––––––––––––––––––––––––––––
 
 var container = document.querySelector('.radial-menu');
+if($('.radial-menu').length){
+  var menuDimensions = container.offsetWidth;
 
-var menuDimensions = container.offsetWidth;
+  var menuItems = container.querySelectorAll('.radial-menu__menu-item');
 
-var menuItems = container.querySelectorAll('.radial-menu__menu-item');
-
-var menuItemsCount = countMenuItems( menuItems );
-
+  var menuItemsCount = countMenuItems( menuItems );
 
 //
 //  COUNT MENU ITEMS
@@ -382,4 +381,5 @@ function updateMenuItemDisplayValues( itemsToShow ) {
   var iconDistance = 95;
 
   positionIcons( icons, iconDistance );
+}
 }

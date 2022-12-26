@@ -1794,7 +1794,7 @@ h1{
                 }
             }
             .col-md-6:first-child{
-                .about__code--list__item:first-child{
+                .about__code--list__item.active{
                     .about__code--list__detail{
                         @media (max-width: 768px) {
                             display: block;

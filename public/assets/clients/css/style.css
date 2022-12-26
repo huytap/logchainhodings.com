@@ -3520,7 +3520,7 @@ h1::after {
 }
 
 @media (max-width: 768px) {
-  .about__code--list .col-md-6:first-child .about__code--list__item:first-child .about__code--list__detail {
+  .about__code--list .col-md-6:first-child .about__code--list__item.active .about__code--list__detail {
     display: block;
     opacity: 1;
     height: auto;

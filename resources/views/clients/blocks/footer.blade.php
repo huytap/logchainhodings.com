@@ -15,9 +15,9 @@ use App\Models\Setting;
                         <li><a href="{{route('home', $locale)}}">@lang('logchain.menu.home')</a></li>
                         @foreach($menus as $menu)
                             @if($locale && $locale !== 'en')
-                                <li><a href="{{url($locale.'/'.$menu->slug)}}.html">{{$menu->name[$lang]}}</a></li>
+                                <li><a href="{{url($locale.'/'.$menu->slug[$lang])}}.html">{{$menu->name[$lang]}}</a></li>
                             @else
-                                <li><a href="{{route('page', $menu->slug)}}">{{$menu->name[$lang]}}</a></li>
+                                <li><a href="{{route('page', $menu->slug[$lang])}}">{{$menu->name[$lang]}}</a></li>
                             @endif
                         @endforeach
                     </ul>

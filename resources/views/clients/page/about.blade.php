@@ -78,9 +78,10 @@
                         @foreach($result3 as $key => $rs)
                             @if(isset($rs['title'][$lang]))
                                 @php
+                                $class = ($i==0) ? 'active' : '';
                                 if($i<3)
                                     $html_odd .= '
-                                        <div class="about__code--list__item">
+                                        <div class="about__code--list__item '.$class.'">
                                             <div class="about__code--list__item--title"><span>'.($i+1).'</span><span>'.$rs['title'][$lang].'</span></div>
                                             <div class="about__code--list__detail">
                                                 '. $rs['description'][$lang] .'
@@ -107,6 +108,15 @@
         </div>
     </div>
 </div>
+@endsection
+@section('script')
+<script>
+    if($(window).width()<=768){
+        $('.about__code--list .about__code--list__item').click(function(){
+            $('.about__code--list .about__code--list__item').removeClass('active')
+        })
+    }
+</script>
 @endsection
 @section('css')
 <style>
