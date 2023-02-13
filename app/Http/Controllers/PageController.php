@@ -50,7 +50,15 @@ class PageController extends Controller
     public function contact($locale = '')
     {
         $lang = \App::getLocale();
+        $slug = 'contact';
+        if($lang != 'en'){
+            $slug = 'lien-he';
+        }
+        $menu = Menu::getBySlug($slug);
         $title = trans('title.contact_us');
+        if ($menu->seo_title[$lang]) {
+            $title = $menu->seo_title[$lang] . ' - Logchain Holdings';
+        }
         return view('clients.page.contact', compact('title', 'locale', 'lang'));
     }
 }

@@ -40,6 +40,13 @@ if (App::getLocale() == 'en') {
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/contact.html', [PageController::class, 'contact'])->name('contact');
     Route::get('/{slug}.html', [PageController::class, 'index'])->name('page');
+    
+    Route::get('/{locale}/contact.html', function(){
+        return redirect('/contact.html');
+    })->name('contact');
+    Route::get('/{locale}/{slug}.html', function($locale, $slug){
+        return redirect('/'.$slug.'.html');
+    });
 } else {
     Route::get('/{locale}', [HomeController::class, 'index'])->name('home');
     Route::get('/{locale}/lien-he.html', [PageController::class, 'contact'])->name('contact');

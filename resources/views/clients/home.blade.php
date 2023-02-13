@@ -58,6 +58,17 @@
             @endif
         </div>
     </div>
+    <div class="coporate">
+        <div class="container">
+            <h3 class="introduce__info--title text-center mt-5">@lang('logchain.title.coporate_video')</h3>
+            <div class="coporate__video mt-5">
+                <video width="100%" height="auto" controls>
+                    <source src="{{asset('assets/clients/video/coporate_video.mp4#t=1')}}" type="video/mp4">
+                Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
     @php 
         $collection5 = $collection->filter(function ($val, $key) {
             return $val->content_section==5;

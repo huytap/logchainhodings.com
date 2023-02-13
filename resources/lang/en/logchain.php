@@ -7,5 +7,6 @@ return [
     'title.contact_us' => 'Contact us',
     'title.portfolio' => 'Portfolio',
     'title.code_of_practices' => 'Code of Practices',
-    'title.investment' => 'Investment Sector'
+    'title.investment' => 'Investment Sector',
+    'title.coporate_video' => 'Coporate Video'
 ];
