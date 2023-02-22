@@ -30,16 +30,16 @@ $class='contact__banner';
                         <a href="tel:{{Setting::getValue('contact_phone')}}">{{Setting::getValue('contact_phone')}}</a>
                     </div> --}}
                     <div class="contact__branch">
-                        <h4>{{ $title_1[$lang] }}</h4>
-                        <p>{{ $add_1[$lang] }}</p>
-                        <a href="tel:{{Setting::getValue('contact_phone')}}">Tel: {{Setting::getValue('contact_phone')}}</a>
+                        <h4>{!! $title_1[$lang] !!}</h4>
+                        <p>{!! $add_1[$lang] !!}</p>
+                        <a href="tel:{!!Setting::getValue('contact_phone')!!}">{!!Setting::getValue('contact_phone')!!}</a>
                     </div>
                 </div>
                 <div class="col-md-2 contact__item wow fadeInUp" data-wow-duration="1.5s">
                     <div class="contact__branch">
-                        <h4>{{ $title_2[$lang] }}</h4>
-                        <p>{{ $add_2[$lang] }}</p>
-                        <a href="tel:{{Setting::getValue('contact_phone_2')}}">{{Setting::getValue('contact_phone_2')}}</a>
+                        <h4>{!! $title_2[$lang] !!}</h4>
+                        <p>{!! $add_2[$lang] !!}</p>
+                        <a href="tel:{!!Setting::getValue('contact_phone_2')!!}">{!!Setting::getValue('contact_phone_2')!!}</a>
                     </div>
                 </div>
                 <div class="col-md-6 offset-md-1">

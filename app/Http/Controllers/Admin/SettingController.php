@@ -104,7 +104,7 @@ class SettingController extends Controller
                 'value' => jsonEncodeHasText($request->input('value'))
             ]);
         }
-        $setting->update($request->only('type', 'key', 'photo', 'value', 'status'));
+        $setting->update($request->only('key', 'photo', 'value', 'status'));
         return redirect()->route('setting.index')->with('success', 'Update setting success');
     }
     /**

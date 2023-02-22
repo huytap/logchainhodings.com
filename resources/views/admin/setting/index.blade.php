@@ -159,7 +159,7 @@
                             <tr data-row="0" class="datatable-row" style="left: 0px;">
                                 <td scope="row">{{$key}}</td>
                                 <td>{{$item['key']}}</td>
-                                <td>{{$item['value']}}</td>
+                                <td>{!!$item['value']!!}</td>
                                 <td>
                                     @if($item['status'] == App\Helpers\Enum::SHOW)
                                     <span class="label label-inline label-light-primary font-weight-bold">
