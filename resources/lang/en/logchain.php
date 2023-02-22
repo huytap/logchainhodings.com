@@ -8,5 +8,5 @@ return [
     'title.portfolio' => 'Portfolio',
     'title.code_of_practices' => 'Code of Practices',
     'title.investment' => 'Investment Sector',
-    'title.coporate_video' => 'Coporate Video'
+    'title.coporate_video' => 'Corporate Video'
 ];
