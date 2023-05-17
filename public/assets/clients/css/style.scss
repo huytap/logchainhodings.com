@@ -1899,8 +1899,14 @@ h1{
             background: $darkGreen;
             color: $whiteColor;
             text-align: center;
-            padding: 65px 40px;
+            padding: 15px;
             height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        &--cover{
+            max-width: 170px;
+            margin-right: 15px;
         }
         &--right{
             padding: 50px 55px;

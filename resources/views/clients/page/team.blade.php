@@ -29,6 +29,11 @@ $class='team__banner';
                     <div class="row">
                         <div class="col-md-5">
                             <div class="team__info--left">
+                                @if($rs['photo'])
+                                    <div class="team__info--cover">
+                                        <img src="{{asset('uploads/'.$rs['photo'])}}" alt="" class="img-fluid">
+                                    </div>
+                                @endif
                                 <h3>
                                     {!! $rs['title'][$lang]??'' !!}
                                 </h3>
@@ -60,12 +65,15 @@ $class='team__banner';
                         <div class="col col-6 d-md-none">
                     @endif
                             <div class="team__list--item">
-                            @if(isset($rs['title'][$lang]))
-                                <h3>
-                                    {!! $rs['title'][$lang]??'' !!}
-                                </h3>
-                                {!! $rs['description'][$lang]??'' !!}
-                            @endif
+                                @if($rs['photo'])
+                                    <img src="{{asset('uploads/'.$rs['photo'])}}" alt="" class="img-fluid">
+                                @endif
+                                @if(isset($rs['title'][$lang]))
+                                    <h3>
+                                        {!! $rs['title'][$lang]??'' !!}
+                                    </h3>
+                                    {!! $rs['description'][$lang]??'' !!}
+                                @endif
                             </div>
                         </div>
                     @endforeach

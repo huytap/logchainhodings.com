@@ -3644,8 +3644,19 @@ h1::after {
   background: #003E4B;
   color: #FFFFFF;
   text-align: center;
-  padding: 65px 40px;
+  padding: 15px;
   height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.team__info--cover {
+  max-width: 170px;
+  margin-right: 15px;
 }
 
 .team__info--right {
