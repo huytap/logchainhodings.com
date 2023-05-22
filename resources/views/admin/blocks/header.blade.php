@@ -2175,7 +2175,7 @@
                     </div>
                     <div class="separator separator-solid"></div> --}}
                     <div class="navi navi-spacer-x-0 pt-5">
-                        <a href="{{route('admin.changepassword', Illuminate\Support\Facades\Auth::id())}}" class="navi-item px-8">
+                        <a href="{{route('admin.changepassword')}}" class="navi-item px-8">
                             <div class="navi-link">
                                 <div class="navi-icon mr-2">
                                     <i class="fas fa-key text-success"></i>

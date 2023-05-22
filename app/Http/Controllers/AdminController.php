@@ -35,12 +35,29 @@ class AdminController extends Controller
         return redirect()->back()->with('error', 'Sai email hoặc mật khẩu');
     }
 
-    public function changepassword(User $user)
+    public function changepassword()
     {
         $title = 'Change Passowrd';
         return view('admin.changepassword', compact('title'));
     }
+    public function updatepassword(Request $request)
+    {
+        if (strcmp($request->get('confirm_new_password'), $request->get('new_password')) != 0) {
+            return redirect()->back()->with("error", "Confirm New Password wrong. Please check again!");
+        }
 
+        $validatedData = $request->validate([
+            'new_password' => 'required',
+            'confirm_new_password' => 'required|same:new_password',
+        ]);
+
+        //Change Password
+        $user = Auth::user();
+        $user->password = bcrypt($request->get('new_password'));
+        if ($user->save()) {
+            return redirect()->back()->with("success", "Sucessful");
+        }
+    }
     public function logout()
     {
         Auth::logout();

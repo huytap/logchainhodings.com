@@ -1,10 +1,13 @@
 <?php
+
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use App\Models\Content;
 use App\Http\Services\Menu\MenuService;
 use App\Http\Requests\Content\StoreRequest;
+
 class ContentController extends Controller
 {
     public function index()
@@ -37,10 +40,10 @@ class ContentController extends Controller
             'description' => jsonEncodeHasText($request->input('description'))
         ]);
         $image_lang = $request->input('img_lang');
-        if($image_lang){
+        if ($image_lang) {
             if ($request->hasFile('images_upload')) {
                 $images = [];
-                foreach($request->images_upload as $key => $image){
+                foreach ($request->images_upload as $key => $image) {
                     $ext = $image->extension();
                     $fileName = md5(uniqid()) . '.' . $ext;
                     $image->move($path, $fileName);
@@ -50,7 +53,7 @@ class ContentController extends Controller
             }
             if ($request->hasFile('images_mobile_upload')) {
                 $images_mobile = [];
-                foreach($request->images_mobile_upload as $key => $image){
+                foreach ($request->images_mobile_upload as $key => $image) {
                     $ext = $image->extension();
                     $fileName = md5(uniqid()) . '.' . $ext;
                     $image->move($path, $fileName);
@@ -59,7 +62,7 @@ class ContentController extends Controller
                 $request->merge(['images_mobile' => jsonEncodeHasText($images_mobile)]);
             }
             $request->merge(['img_lang' => 1]);
-        }else if ($request->hasFile('photo_upload')) {
+        } else if ($request->hasFile('photo_upload')) {
             if ($request->photo_upload->isValid()) {
                 $file = $request->photo_upload;
                 $ext = $file->extension();
@@ -68,7 +71,7 @@ class ContentController extends Controller
                 $file->move($path, $fileName);
             }
         }
-        
+
         if (Content::create($request->all())) {
             return redirect()->route('content.index')->with('success', 'Add content success');
         }
@@ -86,12 +89,12 @@ class ContentController extends Controller
             'description' => jsonEncodeHasText($request->input('description'))
         ]);
         $image_lang = $request->input('img_lang');
-        if($image_lang){
+        if ($image_lang) {
             $old_images = json_encode($content->images);
             $old_images_mobile = json_encode($content->images_mobile);
             if ($request->hasFile('images_upload')) {
                 $images = [];
-                foreach($request->images_upload as $key => $image){
+                foreach ($request->images_upload as $key => $image) {
                     $ext = $image->extension();
                     $fileName = md5(uniqid()) . '.' . $ext;
                     $image->move($path, $fileName);
@@ -101,7 +104,7 @@ class ContentController extends Controller
             }
             if ($request->hasFile('images_mobile_upload')) {
                 $images_mobile = [];
-                foreach($request->images_mobile_upload as $key => $image){
+                foreach ($request->images_mobile_upload as $key => $image) {
                     $ext = $image->extension();
                     $fileName = md5(uniqid()) . '.' . $ext;
                     $image->move($path, $fileName);
@@ -121,7 +124,7 @@ class ContentController extends Controller
             }
             $request->merge(['img_lang' => 1]);
             $content->update($request->only('title', 'description', 'menu_id', 'content_section', 'priority', 'img_lang', 'images', 'images_mobile'));
-        }else{
+        } else {
             $request->merge(['img_lang' => 0]);
             if ($request->hasFile('photo_upload')) {
                 if ($request->photo_upload->isValid()) {
@@ -143,7 +146,7 @@ class ContentController extends Controller
                 }
                 $request->merge(['photo_mobile' => $fileName]);
             }
-        
+
             if ($request->photo && $old && file_exists($path . '/' . $old)) {
                 unlink($path . '/' . $old);
             } elseif (empty($request->photo)) {
@@ -155,9 +158,9 @@ class ContentController extends Controller
                 $request->merge(['photo_mobile' => $old_mobile]);
             }
             $content->update($request->only('title', 'photo', 'photo_mobile', 'description', 'menu_id', 'content_section', 'priority'));
-        }  
+        }
         $url = route('content.index');
-        $url .= '?page_id='.$request->menu_id.'&content_section='.$request->content_section;      
+        $url .= '?page_id=' . $request->menu_id . '&content_section=' . $request->content_section;
         return redirect($url)->with('success', 'Update content success');
     }
     public function destroy(Content $content)

@@ -40,12 +40,12 @@ if (App::getLocale() == 'en') {
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/contact.html', [PageController::class, 'contact'])->name('contact');
     Route::get('/{slug}.html', [PageController::class, 'index'])->name('page');
-    
-    Route::get('/{locale}/contact.html', function(){
+
+    Route::get('/{locale}/contact.html', function () {
         return redirect('/contact.html');
     })->name('contact');
-    Route::get('/{locale}/{slug}.html', function($locale, $slug){
-        return redirect('/'.$slug.'.html');
+    Route::get('/{locale}/{slug}.html', function ($locale, $slug) {
+        return redirect('/' . $slug . '.html');
     });
 } else {
     Route::get('/{locale}', [HomeController::class, 'index'])->name('home');
@@ -67,6 +67,7 @@ Route::post('/admin/login/store', [AdminController::class, 'store'])->name('admi
 Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/changepassword', [AdminController::class, 'changepassword'])->name('admin.changepassword');
+    Route::post('/updatepassword', [AdminController::class, 'updatepassword'])->name('admin.updatepassword');
     Route::post('/attachedfiles/uploadfile', [AttachedfilesController::class, 'uploadfile'])->name('admin.uploadfile');
     Route::post('/attachedfiles/deletefile', [AttachedfilesController::class, 'deletefile'])->name('admin.deletefile');
     Route::resources([
