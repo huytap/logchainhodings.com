@@ -1,10 +1,10 @@
 @extends('clients.layouts.main')
 @section('content')
-@php 
+@php
 $class = 'philosophy';
 @endphp
 @include('clients.page._banner')
-@php 
+@php
     $collection1 = $collection->filter(function ($val, $key) {
         return $val->content_section==0;
     });
@@ -51,7 +51,7 @@ $class = 'philosophy';
                 </ul>
             </div>
         @endif
-    </div> 
-</div> 
+    </div>
+</div>
 
 @endsection

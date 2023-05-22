@@ -11,18 +11,18 @@ $class='team__banner';
             <h1 class="banner__title2 wow fadeInUp" data-wow-duration="1.5s">
                 {{$menu['banner_title'][$lang]}}
             </h1>
-        </div> 
-    </div>        
+        </div>
+    </div>
 </div>
-<div class="content team">        
+<div class="content team">
     <div class="container">
-        @php 
+        @php
             $collection1 = $collection->filter(function ($val, $key) {
                 return $val->content_section==1;
             });
             $result1 = $collection1->all();
         @endphp
-        @if(!empty($result1))
+        {{-- @if(!empty($result1))
         @foreach($result1 as $rs)
             <div class="team__box">
                 <div class="team__info">
@@ -48,8 +48,38 @@ $class='team__banner';
                 </div>
             </div>
         @endforeach
-        @endif
-        @php 
+        @endif --}}
+
+        <div class="director team__list mx-0 mx-md-5">
+            <div class="row">
+                @if(!empty($result1))
+                    @foreach($result1 as $rs)
+                        <div class="col col-6">
+                            <div class="team__list--item">
+                                <div class="row">
+                                    <div class="col col-12 col-md-4">
+                                        @if($rs['photo'])
+                                        <img src="{{asset('uploads/'.$rs['photo'])}}" alt="" class="img-fluid">
+                                    @endif
+                                    </div>
+                                    <div class="col col-12 col-md-8">
+
+
+                                @if(isset($rs['title'][$lang]))
+                                <h3>
+                                    {!! $rs['title'][$lang]??'' !!}
+                                </h3>
+                                {!! $rs['description'][$lang]??'' !!}
+                            @endif
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                @endif
+            </div>
+        </div>
+        @php
             $collection2 = $collection->filter(function ($val, $key) {
                 return $val->content_section==2;
             });
@@ -88,7 +118,7 @@ $class='team__banner';
     setTimeout(function(){
         setHeightBanner()
     }, 1000)
-    $(window).resize(setHeightBanner())    
+    $(window).resize(setHeightBanner())
     function setHeightBanner(){
         if($(window).width() > 768){
             var bannerHeight = document.getElementById('banner')
