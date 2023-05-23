@@ -1936,8 +1936,12 @@ h1{
         margin-top: 85px;
         margin-bottom: 60px;
         @media (max-width: 768px) {
+            margin-top: 0;
             margin-bottom: 30px;
-            margin-top: 30px;
+            &:nth-child(2){
+                margin-top: 30px;
+                margin-bottom: 0;
+            }
         }
         .col{
             @media (max-width: 768px) {
@@ -2017,7 +2021,7 @@ h1{
         }
         &--item{
             min-height: 312px;
-            padding: 30px 15px;
+            padding: 30px 0px 30px 15px;
             border-top: 1px solid $darkGreen;
             position: relative;
             font-size: 13px;
@@ -2117,11 +2121,11 @@ h1{
         }
         .col-6:after{
             content: "";
-            width: calc(100% - 20px);
+            width: calc(100% - 40px);
             height: 0.05rem;
             background-color: $darkGreen;
             bottom: 8px;
-            left: 20px;
+            left: 28px;
             position: absolute;
             @media (max-width: 768px) {
                 bottom: 10px;

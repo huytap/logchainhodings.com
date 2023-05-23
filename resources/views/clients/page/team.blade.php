@@ -50,29 +50,38 @@ $class='team__banner';
         @endforeach
         @endif --}}
 
-        <div class="director team__list mx-0 mx-md-5">
+        <div class="director team__list mx-0 mx-md-5 d-none d-md-block">
             <div class="row">
                 @if(!empty($result1))
-                    @foreach($result1 as $rs)
-                        <div class="col col-6">
+                    @foreach($result1 as $key => $rs)
+                        <div class="col col-6 @if($key==0) pe-md-2 pe-0 @elseif($key==1) ps-md-2 ps-0 @endif">
                             <div class="team__list--item">
                                 <div class="row">
                                     <div class="col col-12 col-md-4">
                                         @if($rs['photo'])
-                                        <img src="{{asset('uploads/'.$rs['photo'])}}" alt="" class="img-fluid">
-                                    @endif
+                                            <img src="{{asset('uploads/'.$rs['photo'])}}" alt="" class="img-fluid">
+                                        @endif
                                     </div>
                                     <div class="col col-12 col-md-8">
-
-
-                                @if(isset($rs['title'][$lang]))
-                                <h3>
-                                    {!! $rs['title'][$lang]??'' !!}
-                                </h3>
-                                {!! $rs['description'][$lang]??'' !!}
-                            @endif
+                                        @if(isset($rs['title'][$lang]))
+                                            <h3>
+                                                {!! $rs['title'][$lang]??'' !!}
+                                            </h3>
+                                            {!! $rs['description'][$lang]??'' !!}
+                                        @endif
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="col col-6 d-md-none">
+                            <div class="team__list--item">
+                                @if($rs['photo'])
+                                    <img src="{{asset('uploads/'.$rs['photo'])}}" alt="" class="img-fluid">
+                                @endif
+                                @if(isset($rs['title'][$lang]))
+                                    <h3>{!! $rs['title'][$lang]??'' !!}</h3>
+                                    {!! $rs['description'][$lang]??'' !!}
+                                @endif
                             </div>
                         </div>
                     @endforeach
@@ -85,15 +94,30 @@ $class='team__banner';
             });
             $result2 = $collection2->all();
         @endphp
+        @if(!empty($result1))
+            <div class="team__list d-md-none"">
+                <div class="row">
+                    @foreach($result1 as $key => $rs)
+                        <div class="col col-6 {{ !isset($rs['title'][$lang]) ? 'd-md-none' : '' }}">
+                            <div class="team__list--item">
+                                @if($rs['photo'])
+                                    <img src="{{asset('uploads/'.$rs['photo'])}}" alt="" class="img-fluid">
+                                @endif
+                                @if(isset($rs['title'][$lang]))
+                                    <h3>{!! $rs['title'][$lang]??'' !!}</h3>
+                                    {!! $rs['description'][$lang]??'' !!}
+                                @endif
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        @endif
         @if($collection2)
             <div class="team__list">
                 <div class="row row-cols-2 row-cols-md-5">
                     @foreach($result2 as $rs)
-                    @if(isset($rs['title'][$lang]))
-                        <div class="col col-6">
-                    @else
-                        <div class="col col-6 d-md-none">
-                    @endif
+                        <div class="col col-6 {{ !isset($rs['title'][$lang]) ? 'd-md-none' : '' }}">
                             <div class="team__list--item">
                                 @if($rs['photo'])
                                     <img src="{{asset('uploads/'.$rs['photo'])}}" alt="" class="img-fluid">
