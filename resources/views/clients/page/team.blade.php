@@ -54,7 +54,7 @@ $class='team__banner';
             <div class="row">
                 @if(!empty($result1))
                     @foreach($result1 as $key => $rs)
-                        <div class="col col-6 @if($key==0) pe-md-2 pe-0 @elseif($key==1) ps-md-2 ps-0 @endif">
+                        <div class="col col-6 @if($key==0) pe-md-2 pe-0 @else ps-md-2 ps-0 @endif">
                             <div class="team__list--item">
                                 <div class="row">
                                     <div class="col col-12 col-md-4">
