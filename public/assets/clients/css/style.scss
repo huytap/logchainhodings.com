@@ -2132,7 +2132,7 @@ h1{
                 width: calc(100% - 27px);
             }
         }
-        .col-6:last-child::before{
+        .col-6.ps-md-2::before{
             content: "";
             height: calc(100% - 38px);
             width: 0.05rem;
