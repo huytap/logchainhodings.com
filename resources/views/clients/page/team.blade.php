@@ -67,7 +67,7 @@ $class='team__banner';
                                             <h3>
                                                 {!! $rs['title'][$lang]??'' !!}
                                             </h3>
-                                            {!! $rs['description'][$lang]??'' !!}
+                                            {{-- {!! $rs['description'][$lang]??'' !!} --}}
                                         @endif
                                     </div>
                                 </div>
@@ -80,7 +80,7 @@ $class='team__banner';
                                 @endif
                                 @if(isset($rs['title'][$lang]))
                                     <h3>{!! $rs['title'][$lang]??'' !!}</h3>
-                                    {!! $rs['description'][$lang]??'' !!}
+                                    {{-- {!! $rs['description'][$lang]??'' !!} --}}
                                 @endif
                             </div>
                         </div>
@@ -105,7 +105,7 @@ $class='team__banner';
                                 @endif
                                 @if(isset($rs['title'][$lang]))
                                     <h3>{!! $rs['title'][$lang]??'' !!}</h3>
-                                    {!! $rs['description'][$lang]??'' !!}
+                                    {{-- {!! $rs['description'][$lang]??'' !!} --}}
                                 @endif
                             </div>
                         </div>
@@ -126,7 +126,7 @@ $class='team__banner';
                                     <h3>
                                         {!! $rs['title'][$lang]??'' !!}
                                     </h3>
-                                    {!! $rs['description'][$lang]??'' !!}
+                                    {{-- {!! $rs['description'][$lang]??'' !!} --}}
                                 @endif
                             </div>
                         </div>
