@@ -3071,13 +3071,13 @@ h1::after {
     padding-left: 5px;
   }
 }
-@media (min-width: 992px) {
+/* @media (min-width: 992px) {
   .team__list .col:first-child .team__list--item:after,
   .team__list .col:nth-child(7) .team__list--item:after {
     height: 0;
     background-color: transparent;
   }
-}
+} */
 @media (max-width: 991px) {
   .team__list .col:nth-child(odd) .team__list--item:after {
     height: 0;

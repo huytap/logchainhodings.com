@@ -4,6 +4,24 @@
 use App\Models\Setting;
 $class='team__banner';
 @endphp
+@if(Setting::getValue("has_bullet_point") == 'false')
+<style>
+    .team__list--item {
+        min-height: 0;
+    }
+    .team__list--item img{
+        display: none;
+    }
+    .team__list h3::after{
+        width: 0;
+    }
+    @media (max-width: 768px){
+        .team__list {
+            margin-top: 50px;
+        }
+    }
+</style>
+@endif
 <div class="banner {{$class}}" id="banner">
     <img src="{{asset('uploads/'.$menu['banner_mobile'])}}" alt="" class="img-fluid d-md-none">
     <div class="container banner__container text-center">
@@ -50,7 +68,7 @@ $class='team__banner';
         @endforeach
         @endif --}}
 
-        <div class="director team__list mx-0 mx-md-5 d-none d-md-block">
+        <!-- <div class="director team__list mx-0 mx-md-5 d-none d-md-block">
             <div class="row">
                 @if(!empty($result1))
                     @foreach($result1 as $key => $rs)
@@ -67,7 +85,9 @@ $class='team__banner';
                                             <h3>
                                                 {!! $rs['title'][$lang]??'' !!}
                                             </h3>
-                                            {{-- {!! $rs['description'][$lang]??'' !!} --}}
+                                            @if(Setting::getValue("has_bullet_point") == 'true')
+                                                {!! $rs['description'][$lang]??'' !!}
+                                            @endif
                                         @endif
                                     </div>
                                 </div>
@@ -80,14 +100,16 @@ $class='team__banner';
                                 @endif
                                 @if(isset($rs['title'][$lang]))
                                     <h3>{!! $rs['title'][$lang]??'' !!}</h3>
-                                    {{-- {!! $rs['description'][$lang]??'' !!} --}}
+                                    @if(Setting::getValue("has_bullet_point") == 'true')
+                                        {!! $rs['description'][$lang]??'' !!}
+                                    @endif
                                 @endif
                             </div>
                         </div>
                     @endforeach
                 @endif
             </div>
-        </div>
+        </div> -->
         @php
             $collection2 = $collection->filter(function ($val, $key) {
                 return $val->content_section==2;
@@ -105,7 +127,9 @@ $class='team__banner';
                                 @endif
                                 @if(isset($rs['title'][$lang]))
                                     <h3>{!! $rs['title'][$lang]??'' !!}</h3>
-                                    {{-- {!! $rs['description'][$lang]??'' !!} --}}
+                                    @if(Setting::getValue("has_bullet_point") == 'true')
+                                        {!! $rs['description'][$lang]??'' !!}
+                                    @endif
                                 @endif
                             </div>
                         </div>
@@ -126,7 +150,9 @@ $class='team__banner';
                                     <h3>
                                         {!! $rs['title'][$lang]??'' !!}
                                     </h3>
-                                    {{-- {!! $rs['description'][$lang]??'' !!} --}}
+                                    @if(Setting::getValue("has_bullet_point") == 'true')
+                                        {!! $rs['description'][$lang]??'' !!}
+                                    @endif
                                 @endif
                             </div>
                         </div>
